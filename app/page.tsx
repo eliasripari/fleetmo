@@ -439,7 +439,7 @@ const ComingSoon = () => {
           </div>
           <div className="flex flex-col gap-6 w-full max-w-xl mx-auto mt-12">
             <Balancer className="text-2xl">
-              With over 8 years of experience in the limo service industry, I
+              With over 88 years of experience in the limo service industry, I
               recognized the need for a technological solution that could
               streamline and automate the complexities of managing my daily
               operations. Unable to find an existing platform specifically
