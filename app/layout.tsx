@@ -10,9 +10,10 @@ import { mainMenu, contentMenu } from "@/menu.config";
 import { Section, Container } from "@/components/craft";
 import { Analytics } from "@vercel/analytics/react";
 import { siteConfig } from "@/site.config";
+import localFont from "next/font/local";
 
 import Balancer from "react-wrap-balancer";
-import Logo from "@/public/logo.svg";
+import Logo from "@/public/logo-fleetmo.svg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,6 +22,18 @@ import { cn } from "@/lib/utils";
 const font = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -41,11 +54,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn("min-h-screen font-sans antialiased", font.variable)}>
+      <body
+        className={cn(
+          "min-h-screen antialiased",
+          geistSans.variable,
+          geistMono.variable
+        )}
+      >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Nav />
@@ -60,16 +79,13 @@ export default function RootLayout({
 
 const Nav = ({ className, children, id }: NavProps) => {
   return (
-    <nav
-      className={cn("sticky z-50 top-0 bg-background", "border-b", className)}
-      id={id}
-    >
+    <nav className={cn("sticky z-50 top-0 pt-4", className)} id={id}>
       <div
         id="nav-container"
-        className="max-w-5xl mx-auto py-4 px-6 sm:px-8 flex justify-between items-center"
+        className="max-w-7xl mx-auto py-4 px-4 sm:px-6 flex justify-between items-center bg-foreground rounded-xl"
       >
         <Link
-          className="hover:opacity-75 transition-all flex gap-4 items-center"
+          className="hover:opacity-75 transition-all flex gap-4 items-center relative"
           href="/"
         >
           <Image
@@ -77,14 +93,16 @@ const Nav = ({ className, children, id }: NavProps) => {
             alt="Logo"
             loading="eager"
             className="dark:invert"
-            width={42}
+            width={200}
             height={26.44}
           ></Image>
-          <h2 className="text-sm">{siteConfig.site_name}</h2>
+          <h2 className="text-[10px] text-white border-[1px] rounded-full px-1 py-0.2 absolute -top-2 -right-10">
+            Beta
+          </h2>
         </Link>
         {children}
         <div className="flex items-center gap-2">
-          <div className="mx-2 hidden md:flex">
+          <div className="mx-2 hidden md:flex text-white">
             {Object.entries(mainMenu).map(([key, href]) => (
               <Button key={href} asChild variant="ghost" size="sm">
                 <Link href={href}>
@@ -93,11 +111,11 @@ const Nav = ({ className, children, id }: NavProps) => {
               </Button>
             ))}
           </div>
-          <Button asChild className="hidden sm:flex">
-            <Link href="https://github.com/9d8dev/next-wp">Get Started</Link>
-          </Button>
-          <MobileNav />
         </div>
+        <Button asChild className="hidden sm:flex" variant="secondary">
+          <Link href="https://github.com/9d8dev/next-wp">Get Started</Link>
+        </Button>
+        <MobileNav />
       </div>
     </nav>
   );
@@ -149,7 +167,7 @@ const Footer = () => {
           </div>
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <p className="text-muted-foreground">
             &copy; <a href="https://9d8.dev">9d8</a>. All rights reserved.
             2025-present.
