@@ -21,9 +21,20 @@ import {
   TrendingUpDown,
   Store,
   Bot,
+  Upload,
+  PlaneTakeoff,
+  PlaneLanding,
+  ArrowRightLeft,
+  TicketSlash,
+  Airplay,
+  CircleDotDashedIcon,
 } from "lucide-react";
 import { WordPressIcon } from "@/components/icons/wordpress";
 import { NextJsIcon } from "@/components/icons/nextjs";
+import AnimatedLine from "@/components/svg/lineArrrowLeft";
+import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
+import SplitText from "@/components/SplitText";
+import AnimatedContent from "@/components/AnimatedContent/AnimatedContent";
 
 // This page is using the craft.tsx component and design system
 export default function Home() {
@@ -38,53 +49,85 @@ export default function Home() {
 const Content = () => {
   const features = [
     {
-      title: "Carica o aggiungi le tue corse.",
+      title: "Upload or Add Your Rides",
+      badge: "Upload",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
-      icon: File,
+        "Easily upload multiple bookings at once or manually add individual rides directly from your smartphone or tablet. Manage your schedule effortlessly and keep your operations running smoothly.",
+      icon: Upload,
     },
     {
-      title: "Introduction",
+      title: "Real-Time Flight Status Verification",
+      badge: "Flight Status",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
-      icon: File,
+        "Instantly access live flight information, including delays, early arrivals, or cancellations. Stay informed and proactively manage your transportation services to offer a reliable customer experience.",
+      icon: PlaneTakeoff,
     },
     {
-      title: "Introduction",
+      title: "Exchange Services with Other Suppliers",
+      badge: "Exchange",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
-      icon: File,
+        "Conveniently exchange, transfer, or share bookings with your network of trusted partner suppliers. Optimize your capacity, reduce downtime, and enhance collaboration within your business ecosystem.",
+      icon: ArrowRightLeft,
+    },
+
+    {
+      title: "Manage Vouchers and No-Shows",
+      badge: "Vouchers",
+      description:
+        "Efficiently handle vouchers, cancellations, amendments, and no-shows directly from the application. Streamline your administrative tasks, reduce paperwork, and ensure accurate records for easy reporting.",
+      icon: TicketSlash,
     },
     {
-      title: "Introduction",
+      title: "Dedicated App for Your Drivers",
+      badge: "Driver App",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
-      icon: File,
+        "Efficiently handle vouchers, cancellations, amendments, and no-shows directly from the application. Streamline your administrative tasks, reduce paperwork, and ensure accurate records for easy reporting.",
+      icon: Airplay,
     },
     {
-      title: "Introduction",
+      title: "Real-Time Ride Status Tracking",
+      badge: "Tracking",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
-      icon: File,
+        "Gain complete visibility of your rides through continuous real-time tracking. Monitor service progress, anticipate delays, and respond quickly to any situation to guarantee exceptional service reliability.",
+      icon: CircleDotDashedIcon,
     },
   ];
   return (
-    <main className="space-y-6 -mt-[200px]">
-      <section className="flex flex-col p-12 pt-[300px] gap-8 bg-foreground text-white justify-center items-center">
-        <h1 className="text-6xl font-semibold text-center max-w-4xl mx-auto tracking-tight">
-          <Balancer>
-            Discover the <u>most advanced</u> Limo Software in the world
-          </Balancer>
-        </h1>
+    <main className="space-y-6 ">
+      <section className="flex flex-col p-4 md:p-12 !pt-[300px] gap-8 bg-foreground text-white justify-center items-center -mt-[200px] ">
+        <Balancer className="flex flex-col gap-4 text-center">
+          <SplitText
+            text="Discover the most advanced Limo Software in the world"
+            className="text-4xl md:text-6xl font-semibold max-w-4xl mx-auto tracking-tight text-center"
+            delay={50}
+            animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+            animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+            easing="easeOutCubic"
+            threshold={0.2}
+            rootMargin="-50px"
+          />
+        </Balancer>
 
-        <p className="text-center text-lg max-w-4xl mx-auto">
+        <AnimatedContent
+          distance={50}
+          direction="vertical"
+          reverse={false}
+          config={{ tension: 80, friction: 20 }}
+          initialOpacity={0}
+          animateOpacity
+          scale={1}
+          threshold={0.5}
+          delay={200}
+        >
           <Balancer>
-            Fleetmo is the most advanced management system for NCC in the world,
-            add, manage and assign your rides. Receive directly from your
-            providers and distribute them to your collaborators and dedicated
-            app for your drivers.
+            <p className="text-center text-lg max-w-4xl mx-auto">
+              Fleetmo is the most advanced management system for NCC in the
+              world, add, manage and assign your rides. Receive directly from
+              your providers and distribute them to your collaborators and
+              dedicated app for your drivers.
+            </p>
           </Balancer>
-        </p>
+        </AnimatedContent>
 
         <div className="flex justify-center gap-4">
           <Button variant="outline" className="bg-foreground">
@@ -102,22 +145,26 @@ const Content = () => {
 
       <section>
         <Container>
-          <div className="grid grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div className=" h-full">
               <div className="flex flex-col gap-4 sticky top-28 items-start">
                 <Badge>Introduction</Badge>
-                <h2 className="text-4xl font-semibold tracking-tighter">
-                  Ricevi, gestisci, assegna e verifica lo stato delle tue corse
-                  da un’unica piattaforma.
+                <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter">
+                  Receive, manage, assign, and monitor the status of your
+                  rides—all from a single platform.
                 </h2>
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              {features.map((feature) => (
+              {features.map((feature, index) => (
                 <div
                   key={feature.title}
-                  className="flex flex-col gap-4 p-8 border border-foreground rounded-lg sticky top-28 bg-white"
+                  className="flex flex-col gap-4 p-8 border border-foreground rounded-lg sticky bg-white relative"
+                  style={{ top: `${150 + index * 25}px` }}
                 >
+                  <span className="text-[10px] font-semibold tracking-wider absolute top-0 right-10 uppercase bg-black px-2 py-1 text-white rounded-b-md">
+                    {feature.badge}
+                  </span>
                   {React.createElement(feature.icon)}
                   <h3 className="text-2xl font-semibold tracking-tighter">
                     {feature.title}
@@ -146,109 +193,119 @@ const HowItWorks = () => {
           <div className="flex flex-col gap-4 justify-center items-center max-w-2xl ">
             <Badge variant="secondary">How It Works</Badge>
             <Balancer>
-              <h2 className="text-5xl font-semibold tracking-tighter text-center">
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-center">
                 Organizza le giornate di lavoro dei tuoi driver in 4 semplici
                 step.
               </h2>
             </Balancer>
           </div>
           <div className="flex flex-col gap-32 w-full">
-            <div className="grid grid-cols-2 gap-32 w-full">
-              <div></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-32 w-full">
+              <div className="flex flex-col gap-4 items-end justify-end">
+                <AnimatedLine direction="left" />
+              </div>
               <div className="flex flex-col gap-4 items-start justify-start">
                 <div className="flex flex-row gap-4 justify-start items-center">
                   <span className="text-lg font-medium bg-white text-foreground rounded-full w-8 h-8 flex items-center justify-center">
                     1
                   </span>
                   <h3 className="text-3xl font-medium tracking-tighter">
-                    Carica o aggiungi le tue corse.
+                    Upload or add your rides.
                   </h3>
                 </div>
                 <p className="text-lg">
-                  Potrai caricare tutte le tue corse direttamente dall’app
-                  attraverso un form dedicato oppure potrai utilizzare il nostro
-                  template per caricarle tutte insieme.
+                  Add your drivers to automatically create accounts for them,
+                  enabling them to easily receive and manage the bookings you
+                  assign.
                 </p>
                 <div className="w-full bg-white rounded-lg h-[250px]"></div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-32 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-32 w-full">
               <div className="flex flex-col gap-4 items-start justify-start">
                 <div className="flex flex-row gap-4 justify-start items-center">
                   <span className="text-lg font-medium bg-white text-foreground rounded-full w-8 h-8 flex items-center justify-center">
                     2
                   </span>
                   <h3 className="text-3xl font-medium tracking-tighter">
-                    Carica o aggiungi le tue corse.
+                    Add your drivers.
                   </h3>
                 </div>
                 <p className="text-lg">
-                  Potrai caricare tutte le tue corse direttamente dall’app
-                  attraverso un form dedicato oppure potrai utilizzare il nostro
-                  template per caricarle tutte insieme.
+                  Assign services individually or in bulk to your drivers, and
+                  monitor the progress and status of each ride in real-time.
                 </p>
                 <div className="w-full bg-white rounded-lg h-[250px]"></div>
               </div>
-              <div></div>
+              <div className="flex flex-col gap-4 items-start justify-end">
+                <AnimatedLine direction="right" />
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-32 w-full">
-              <div></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-32 w-full">
+              <div className="flex flex-col gap-4 items-end justify-end">
+                <AnimatedLine direction="left" />
+              </div>
               <div className="flex flex-col gap-4 items-start justify-start">
                 <div className="flex flex-row gap-4 justify-start items-center">
                   <span className="text-lg font-medium bg-white text-foreground rounded-full w-8 h-8 flex items-center justify-center">
                     3
                   </span>
                   <h3 className="text-3xl font-medium tracking-tighter">
-                    Carica o aggiungi le tue corse.
+                    Assign Rides to your drivers.
                   </h3>
                 </div>
                 <p className="text-lg">
-                  Potrai caricare tutte le tue corse direttamente dall’app
-                  attraverso un form dedicato oppure potrai utilizzare il nostro
-                  template per caricarle tutte insieme.
+                  You can upload all your rides directly through the app using a
+                  dedicated form, or you can use our template to upload them all
+                  at once.
                 </p>
                 <div className="w-full bg-white rounded-lg h-[250px]"></div>
               </div>
             </div>
-            <div className="flex flex-row gap-32 w-full p-8 border rounded-lg">
-              <div className="flex-1 flex flex-col gap-4 justify-center">
-                <h3 className="text-3xl font-medium tracking-tighter flex flex-row gap-4 items-center">
-                  Conclusione del servizio{" "}
-                  <Sparkles className="w-6 h-6 stroke-1" />
-                </h3>
-                <p className="text-lg">
-                  Potrai caricare tutte le tue corse direttamente dall’app
-                  attraverso un form dedicato oppure potrai utilizzare il nostro
-                  template per caricarle tutte insieme.
-                </p>
-              </div>
-              <div className="flex-1 grid grid-cols-2 gap-8">
-                <div className="flex flex-col gap-4 col-span-1 justify-start items-start">
-                  <Badge className="text-green-500 border-green-500 flex flex-row gap-1 items-center pl-1">
-                    <Check className="w-4 h-4 stroke- 1" />
-                    Completed
-                  </Badge>
-                  <p>
+            <SpotlightCard
+              className="custom-spotlight-card flex flex-col text-white rounded-lg gap-4 p-6"
+              spotlightColor="rgba(0, 229, 255, 0.2)"
+            >
+              <div className="flex flex-col md:flex-row gap-32 w-full rounded-lg">
+                <div className="flex-1 flex flex-col gap-4 justify-center">
+                  <h3 className="text-3xl font-medium tracking-tighter flex flex-row gap-4 items-center">
+                    Conclusion of the service{" "}
+                    <Sparkles className="w-6 h-6 stroke-1" />
+                  </h3>
+                  <p className="text-lg">
                     Potrai caricare tutte le tue corse direttamente dall’app
                     attraverso un form dedicato oppure potrai utilizzare il
                     nostro template per caricarle tutte insieme.
                   </p>
-                  <div className="w-full bg-white rounded-lg h-[250px]"></div>
                 </div>
-                <div className="flex flex-col gap-4 col-span-1 justify-start items-start">
-                  <Badge className="text-orange-500 border-orange-500 flex flex-row gap-1 items-center pl-1">
-                    <X className="w-4 h-4 stroke-1" />
-                    No Show
-                  </Badge>
-                  <p>
-                    Potrai caricare tutte le tue corse direttamente dall’app
-                    attraverso un form dedicato oppure potrai utilizzare il
-                    nostro template per caricarle tutte insieme.
-                  </p>
-                  <div className="w-full bg-white rounded-lg h-[250px]"></div>
+                <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="flex flex-col gap-4 col-span-1 justify-start items-start">
+                    <Badge className="text-green-500 border-green-500 flex flex-row gap-1 items-center pl-1">
+                      <Check className="w-4 h-4 stroke- 1" />
+                      Completed
+                    </Badge>
+                    <p>
+                      Potrai caricare tutte le tue corse direttamente dall’app
+                      attraverso un form dedicato oppure potrai utilizzare il
+                      nostro template per caricarle tutte insieme.
+                    </p>
+                    <div className="w-full bg-white rounded-lg h-[250px]"></div>
+                  </div>
+                  <div className="flex flex-col gap-4 col-span-1 justify-start items-start">
+                    <Badge className="text-orange-500 border-orange-500 flex flex-row gap-1 items-center pl-1">
+                      <X className="w-4 h-4 stroke-1" />
+                      No Show
+                    </Badge>
+                    <p>
+                      Potrai caricare tutte le tue corse direttamente dall’app
+                      attraverso un form dedicato oppure potrai utilizzare il
+                      nostro template per caricarle tutte insieme.
+                    </p>
+                    <div className="w-full bg-white rounded-lg h-[250px]"></div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </SpotlightCard>
           </div>
         </div>
       </Container>
@@ -263,56 +320,56 @@ const DriverApp = () => {
         <div className="flex flex-col gap-4 mx-auto max-w-2xl justify-center items-center ">
           <Badge>Introduction</Badge>
           <Balancer>
-            <h2 className="text-4xl font-semibold tracking-tighter text-center">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-center">
               App dedicata per gestire i servizi alla perfezione.
             </h2>
           </Balancer>
         </div>
-        <div className="grid grid-cols-12 gap-12 mt-20">
-          <div className="col-span-3 flex flex-col gap-[250px]">
-            <div className="flex flex-col gap-4 justify-end items-end mt-28">
+        <div className="grid grid-cols-12 gap-auto md:gap-12 mt-20">
+          <div className="col-span-12 md:col-span-3 flex flex-col gap-8 md:gap-[250px] w-full">
+            <div className="flex flex-col gap-4 justify-center items-center md:justify-end md:items-end mt-28">
               <h3 className="text-xl font-medium tracking-tighter">
                 Gestione delle corse
               </h3>
-              <p className="text-right">
+              <p className="text-centermd:text-right">
                 Gestione delle corse, assegna e verifica lo stato delle tue
                 corse da un’unica piattaforma.
               </p>
             </div>
-            <div className="flex flex-col gap-4 justify-end items-end">
+            <div className="flex flex-col gap-4 justify-center items-center md:justify-end md:items-end">
               <h3 className="text-xl font-medium tracking-tighter">
                 Gestione delle corse
               </h3>
-              <p className="text-right">
+              <p className="text-center md:text-right">
                 Gestione delle corse, assegna e verifica lo stato delle tue
                 corse da un’unica piattaforma.
               </p>
             </div>
           </div>
-          <div className="col-span-6">
+          <div className="col-span-12 md:col-span-6">
             <Image
               src={"/mobileApp.png"}
               alt="Fleetmo"
               width={1200}
               height={1000}
-              className="max-w-[400px] mx-auto"
+              className="w-full max-w-[300px] md:max-w-[400px] mx-auto"
             />
           </div>
-          <div className="col-span-3 flex flex-col gap-[250px] justify-end">
+          <div className="col-span-12 md:col-span-3 flex flex-col gap-8 md:gap-[250px] justify-start md:justify-end">
             <div className="flex flex-col gap-4 mt-36">
-              <h3 className="text-xl font-medium tracking-tighter">
+              <h3 className="text-xl font-medium tracking-tighter text-center md:text-left">
                 Gestione delle corse
               </h3>
-              <p className="">
+              <p className="text-center md:text-right ">
                 Gestione delle corse, assegna e verifica lo stato delle tue
                 corse da un’unica piattaforma.
               </p>
             </div>
             <div className="flex flex-col gap-4 ">
-              <h3 className="text-xl font-medium tracking-tighter">
+              <h3 className="text-xl font-medium tracking-tighter text-center md:text-left">
                 Gestione delle corse
               </h3>
-              <p className="">
+              <p className="text-center md:text-left">
                 Gestione delle corse, assegna e verifica lo stato delle tue
                 corse da un’unica piattaforma.
               </p>
@@ -349,14 +406,14 @@ const Pricing = () => {
         <div className="flex flex-col gap-4 mx-auto max-w-2xl justify-center items-center ">
           <Badge>Pricing</Badge>
           <Balancer>
-            <h2 className="text-4xl font-semibold tracking-tighter text-center">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-center">
               Simple and trasparent.
               <br />A single subscription for you business.
             </h2>
           </Balancer>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex flex-col gap-4 bg-white p-8 rounded-lg w-full max-w-md mt-10">
+        <div className="flex flex-col justify-center items-center ">
+          <div className="flex flex-col gap-4 bg-white p-8 rounded-lg w-full max-w-md mt-10 border shadow-xl">
             <div className="flex flex-col gap-2 justify-center items-center">
               <h3 className="text-3xl font-medium tracking-tighter text-center">
                 <span className="text-7xl font-bold relative">
@@ -394,12 +451,15 @@ const ComingSoon = () => {
       <Container>
         <div className="flex flex-col gap-6 justify-start items-start">
           <Badge variant="secondary">Coming Soon</Badge>
-          <h2 className="text-4xl font-semibold tracking-tighter">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter ">
             We are working hard <br />
             To make it better.
           </h2>
-          <div className="grid grid-cols-3 w-full gap-4">
-            <div className="flex flex-col gap-4 bg-white p-6 rounded-lg text-black">
+          <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4">
+            <SpotlightCard
+              className="custom-spotlight-card flex flex-col text-white rounded-lg gap-4 p-6"
+              spotlightColor="rgba(0, 229, 255, 0.2)"
+            >
               <TrendingUpDown className="w-8 h-8 stroke-1" />
               <h3 className="text-xl font-semibold tracking-tighter flex flex-row gap-2 items-center">
                 Live Tracking
@@ -410,8 +470,12 @@ const ComingSoon = () => {
                 analytics. Ensure timely pickups, proactive adjustments, and
                 superior customer experiences.
               </p>
-            </div>
-            <div className="flex flex-col gap-4 bg-white p-6 rounded-lg text-black">
+            </SpotlightCard>
+
+            <SpotlightCard
+              className="custom-spotlight-card flex flex-col text-white rounded-lg gap-4 p-6"
+              spotlightColor="rgba(0, 229, 255, 0.2)"
+            >
               <Store className="w-8 h-8 stroke-1" />
               <h3 className="text-xl font-semibold tracking-tighter flex flex-row gap-2 items-center">
                 Marketplace
@@ -422,8 +486,11 @@ const ComingSoon = () => {
                 utilization, monetize unused rides, and efficiently match demand
                 with available resources.
               </p>
-            </div>
-            <div className="flex flex-col gap-4 bg-white p-6 rounded-lg text-black">
+            </SpotlightCard>
+            <SpotlightCard
+              className="custom-spotlight-card flex flex-col text-white rounded-lg gap-4 p-6"
+              spotlightColor="rgba(0, 229, 255, 0.2)"
+            >
               <Bot className="w-8 h-8 stroke-1" />
               <h3 className="text-xl font-semibold tracking-tighter flex flex-row gap-2 items-center">
                 AI Integration
@@ -435,7 +502,7 @@ const ComingSoon = () => {
                 dynamically—saving time, reducing manual effort, and maximizing
                 operational efficiency.
               </p>
-            </div>
+            </SpotlightCard>
           </div>
           <div className="flex flex-col gap-6 w-full max-w-xl mx-auto mt-12">
             <Balancer className="text-2xl">
