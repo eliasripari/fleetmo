@@ -39,7 +39,7 @@ export default function AnimatedLine({
         start: start,
         end: end,
         scrub: true,
-        markers: true,
+        markers: false,
       },
       ease: easing,
     });
