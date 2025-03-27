@@ -39,9 +39,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "WordPress & Next.js Starter by 9d8",
+  title: "Fleetmo",
   description:
-    "A starter template for Next.js with WordPress as a headless CMS.",
+    "Fleetmo is a platform that helps you manage your fleet of vehicles.",
   metadataBase: new URL(siteConfig.site_domain),
   alternates: {
     canonical: "/",
