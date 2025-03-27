@@ -210,6 +210,7 @@ const Content = () => {
                 <div
                   className="sticky"
                   style={{ top: `${150 + index * 25}px` }}
+                  key={index}
                 >
                   <AnimatedContent
                     distance={50}
