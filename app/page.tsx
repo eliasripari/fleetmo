@@ -28,6 +28,8 @@ import {
   TicketSlash,
   Airplay,
   CircleDotDashedIcon,
+  UserRoundX,
+  CircleCheckBig,
 } from "lucide-react";
 import { WordPressIcon } from "@/components/icons/wordpress";
 import { NextJsIcon } from "@/components/icons/nextjs";
@@ -90,6 +92,13 @@ const Content = () => {
       description:
         "Gain complete visibility of your rides through continuous real-time tracking. Monitor service progress, anticipate delays, and respond quickly to any situation to guarantee exceptional service reliability.",
       icon: CircleDotDashedIcon,
+    },
+    {
+      title: "No-Show System",
+      badge: "No-Show",
+      description:
+        "If a customer doesn’t show up, the driver can take a photo as proof. Our integrated No-Show System automatically captures and records the exact GPS coordinates, date, and time directly on the photo, updating the service status accordingly.",
+      icon: UserRoundX,
     },
   ];
   return (
@@ -181,27 +190,52 @@ const Content = () => {
             <div className=" h-full">
               <div className="flex flex-col gap-4 sticky top-28 items-start">
                 <Badge>Introduction</Badge>
-                <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter">
-                  Receive, manage, assign, and monitor the status of your
-                  rides—all from a single platform.
-                </h2>
+                <SplitText
+                  text="Receive, manage, assign, and monitor the status of your
+                  rides—all from a single platform."
+                  className="text-4xl md:text-5xl font-semibold tracking-tighter !text-left"
+                  delay={50}
+                  animationFrom={{
+                    opacity: 0,
+                    transform: "translate3d(0,50px,0)",
+                  }}
+                  animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+                  threshold={0.1}
+                  rootMargin="-50px"
+                />
               </div>
             </div>
             <div className="flex flex-col gap-4">
               {features.map((feature, index) => (
                 <div
-                  key={feature.title}
-                  className="flex flex-col gap-4 p-8 border border-foreground rounded-lg sticky bg-white relative"
+                  className="sticky"
                   style={{ top: `${150 + index * 25}px` }}
                 >
-                  <span className="text-[10px] font-semibold tracking-wider absolute top-0 right-10 uppercase bg-black px-2 py-1 text-white rounded-b-md">
-                    {feature.badge}
-                  </span>
-                  {React.createElement(feature.icon)}
-                  <h3 className="text-2xl font-semibold tracking-tighter">
-                    {feature.title}
-                  </h3>
-                  <p>{feature.description}</p>
+                  <AnimatedContent
+                    distance={50}
+                    direction="vertical"
+                    reverse={false}
+                    config={{ tension: 80, friction: 20 }}
+                    initialOpacity={0}
+                    animateOpacity
+                    scale={1}
+                    threshold={0.5}
+                    delay={200}
+                  >
+                    <div
+                      key={feature.title}
+                      className="flex flex-col gap-4 p-8 border border-foreground rounded-lg  bg-white relative"
+                    >
+                      <span className="text-[10px] font-semibold tracking-wider absolute top-0 right-10 uppercase bg-black px-2 py-1 text-white rounded-b-md">
+                        {feature.badge}
+                      </span>
+                      {React.createElement(feature.icon)}
+                      <h3 className="text-2xl font-semibold tracking-tighter">
+                        {feature.title}
+                      </h3>
+                      <p>{feature.description}</p>
+                    </div>
+                  </AnimatedContent>
                 </div>
               ))}
             </div>
@@ -224,11 +258,20 @@ const HowItWorks = () => {
         <div className="flex flex-col gap-28 justify-center items-center ">
           <div className="flex flex-col gap-4 justify-center items-center max-w-2xl ">
             <Badge variant="secondary">How It Works</Badge>
-            <Balancer>
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-center">
-                Organizza le giornate di lavoro dei tuoi driver in 4 semplici
-                step.
-              </h2>
+            <Balancer className="text-center">
+              <SplitText
+                text="Organizza le giornate di lavoro dei tuoi driver in 4 semplici
+                step."
+                className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
+                delay={50}
+                animationFrom={{
+                  opacity: 0,
+                  transform: "translate3d(0,50px,0)",
+                }}
+                animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+                threshold={0.1}
+                rootMargin="-50px"
+              />
             </Balancer>
           </div>
           <div className="flex flex-col gap-32 w-full">
@@ -320,12 +363,12 @@ const HowItWorks = () => {
                 <div className="flex-1 flex flex-col gap-4 justify-center">
                   <h3 className="text-3xl font-medium tracking-tighter flex flex-row gap-4 items-center">
                     Conclusion of the service{" "}
-                    <Sparkles className="w-6 h-6 stroke-1" />
+                    <CircleCheckBig className="w-8 h-8 stroke-2" />
                   </h3>
                   <p className="text-lg">
-                    Potrai caricare tutte le tue corse direttamente dall’app
-                    attraverso un form dedicato oppure potrai utilizzare il
-                    nostro template per caricarle tutte insieme.
+                    You can upload all your rides directly through the app using
+                    a dedicated form, or you can use our template to upload them
+                    all together.
                   </p>
                   <Link href="https://my.fleetmo.app" className="w-full">
                     <Button variant="secondary" className="">
@@ -340,9 +383,9 @@ const HowItWorks = () => {
                       Completed
                     </Badge>
                     <p>
-                      Potrai caricare tutte le tue corse direttamente dall’app
-                      attraverso un form dedicato oppure potrai utilizzare il
-                      nostro template per caricarle tutte insieme.
+                      Once the driver uploads the signed voucher, the service
+                      status automatically updates to completed. Easily confirm
+                      the successful completion of your rides in real time.
                     </p>
                     <div className="w-full bg-white rounded-lg h-[250px]"></div>
                   </div>
@@ -352,9 +395,9 @@ const HowItWorks = () => {
                       No Show
                     </Badge>
                     <p>
-                      Potrai caricare tutte le tue corse direttamente dall’app
-                      attraverso un form dedicato oppure potrai utilizzare il
-                      nostro template per caricarle tutte insieme.
+                      If a customer doesn’t show up, the driver can take a photo
+                      as proof. The integrated No-Show System automatically logs
+                      evidence, updating the service status accordingly.
                     </p>
                     <div className="w-full bg-white rounded-lg h-[250px]"></div>
                   </div>
@@ -374,31 +417,39 @@ const DriverApp = () => {
       <Container>
         <div className="flex flex-col gap-4 mx-auto max-w-2xl justify-center items-center ">
           <Badge>Driver App</Badge>
-          <Balancer>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-center">
-              App dedicata per gestire i servizi alla perfezione.
-            </h2>
+          <Balancer className="text-center">
+            <SplitText
+              text="Dedicated app to manage services perfectly."
+              className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
+              delay={50}
+              animationFrom={{
+                opacity: 0,
+                transform: "translate3d(0,50px,0)",
+              }}
+              animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+              threshold={0.1}
+              rootMargin="-50px"
+            />
           </Balancer>
         </div>
         <div className="grid grid-cols-12 gap-auto md:gap-12 mt-20">
           <div className="col-span-12 md:col-span-3 flex flex-col gap-8 md:gap-[250px] w-full">
             <div className="flex flex-col gap-4 justify-center items-center md:justify-end md:items-end mt-28">
               <h3 className="text-xl  font-medium tracking-tighter">
-                View dei servizi giornarlieri
+                Daily Services View
               </h3>
               <p className="text-center md:text-right">
-                Aggiunti i tuoi driver, in questo modo creerai automaticamente
-                degli account per loro dove potranno ricevere e gestire i
-                servizi che gli assegnerai.
+                Add your drivers—this automatically creates accounts for them,
+                allowing them to receive and manage assigned services.
               </p>
             </div>
             <div className="flex flex-col gap-4 justify-center items-center md:justify-end md:items-end">
               <h3 className="text-xl font-medium tracking-tighter">
-                Live status dei voli
+                Live Flight Status
               </h3>
               <p className="text-center md:text-right">
-                Gestione delle corse, assegna e verifica lo stato delle tue
-                corse da un’unica piattaforma.
+                Manage your rides, assign and verify the status of your rides
+                from a single platform.
               </p>
             </div>
           </div>
@@ -414,20 +465,20 @@ const DriverApp = () => {
           <div className="col-span-12 md:col-span-3 flex flex-col gap-8 md:gap-[250px] justify-start md:justify-end">
             <div className="flex flex-col gap-4 mt-36">
               <h3 className="text-xl font-medium tracking-tighter text-center md:text-left">
-                Gestione avanzata dello stato delle corse
+                Advanced ride status management
               </h3>
               <p className="text-center md:text-left ">
-                Gestione delle corse, assegna e verifica lo stato delle tue
-                corse da un’unica piattaforma.
+                Manage your rides, assign and verify the status of your rides
+                from a single platform.
               </p>
             </div>
             <div className="flex flex-col gap-4 ">
               <h3 className="text-xl font-medium tracking-tighter text-center md:text-left">
-                Proof No-Show system integrato
+                Integrated Proof No-Show system
               </h3>
               <p className="text-center md:text-left">
-                Gestione delle corse, assegna e verifica lo stato delle tue
-                corse da un’unica piattaforma.
+                Manage your rides, assign and verify the status of your rides
+                from a single platform.
               </p>
             </div>
           </div>
@@ -462,13 +513,21 @@ const Pricing = () => {
       id="pricing"
     >
       <Container>
-        <div className="flex flex-col gap-4 mx-auto max-w-2xl justify-center items-center ">
+        <div className="flex flex-col gap-4 mx-auto max-w-3xl justify-center items-center ">
           <Badge>Pricing</Badge>
-          <Balancer>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-center">
-              Simple and trasparent.
-              <br />A single subscription for you business.
-            </h2>
+          <Balancer className="text-center">
+            <SplitText
+              text="Simple and trasparent. A single subscription for you business."
+              className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
+              delay={50}
+              animationFrom={{
+                opacity: 0,
+                transform: "translate3d(0,50px,0)",
+              }}
+              animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+              threshold={0.1}
+              rootMargin="-50px"
+            />
           </Balancer>
         </div>
         <div className="flex flex-col justify-center items-center ">
@@ -512,10 +571,20 @@ const ComingSoon = () => {
       <Container>
         <div className="flex flex-col gap-6 justify-start items-start">
           <Badge variant="secondary">Coming Soon</Badge>
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter ">
-            We are working hard <br />
-            To make it better.
-          </h2>
+          <Balancer className="max-w-2xl">
+            <SplitText
+              text="We are working hard to make it better."
+              className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
+              delay={50}
+              animationFrom={{
+                opacity: 0,
+                transform: "translate3d(0,50px,0)",
+              }}
+              animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+              threshold={0.1}
+              rootMargin="-50px"
+            />
+          </Balancer>
           <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4">
             <SpotlightCard
               className="custom-spotlight-card flex flex-col text-white rounded-lg gap-4 p-6"
