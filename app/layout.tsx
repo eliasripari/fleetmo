@@ -11,11 +11,12 @@ import { Section, Container } from "@/components/craft";
 import { Analytics } from "@vercel/analytics/react";
 import { siteConfig } from "@/site.config";
 import localFont from "next/font/local";
-
-import Balancer from "react-wrap-balancer";
-import Logo from "@/public/logo-fleetmo.svg";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+
+import Logo from "@/public/logo-fleetmo.svg";
+import Balancer from "react-wrap-balancer";
+import AnimatedContent from "@/components/AnimatedContent/AnimatedContent";
 
 import { cn } from "@/lib/utils";
 
@@ -113,7 +114,7 @@ const Nav = ({ className, children, id }: NavProps) => {
           </div>
         </div>
         <Button asChild className="hidden sm:flex" variant="secondary">
-          <Link href="https://github.com/9d8dev/next-wp">Get Started</Link>
+          <Link href="https://my.fleetmo.app">Get Started</Link>
         </Button>
         <MobileNav />
       </div>
@@ -124,19 +125,19 @@ const Nav = ({ className, children, id }: NavProps) => {
 const Footer = () => {
   return (
     <footer>
-      <Section>
-        <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
+      <Section className="bg-foreground !-mt-12 border-t border-white/10 !p-12 ">
+        <Container className="!p-0">
+          <Image
+            src={Logo}
+            alt="Logo"
+            loading="eager"
+            className="dark:invert w-screen"
+            width={1920}
+            height={1080}
+          ></Image>
+        </Container>
+        <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12 text-white !p-0 !py-12">
           <div className="flex flex-col gap-6 not-prose">
-            <Link href="/">
-              <h3 className="sr-only">{siteConfig.site_name}</h3>
-              <Image
-                src={Logo}
-                alt="Logo"
-                className="dark:invert"
-                width={42}
-                height={26.44}
-              ></Image>
-            </Link>
             <p>
               <Balancer>{siteConfig.site_description}</Balancer>
             </p>
@@ -166,10 +167,11 @@ const Footer = () => {
             ))}
           </div>
         </Container>
-        <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
+        <Container className="border-t border-white/10 not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center !container !px-0">
           {/* <ThemeToggle /> */}
           <p className="text-muted-foreground">
-            &copy; <a href="https://9d8.dev">9d8</a>. All rights reserved.
+            &copy; <a href="https://9d8.dev">{siteConfig.site_name}</a> -
+            Service offered by Wonder Rides FZCO - All rights reserved -
             2025-present.
           </p>
         </Container>

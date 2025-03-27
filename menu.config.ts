@@ -1,11 +1,10 @@
 // Define the menu items
 export const mainMenu = {
-  introduction: "https://github.com/9d8dev/next-wp",
-  "How It Works": "/posts",
-  "Driver App": "/posts",
-  Features: "/posts",
-  Pricing: "/posts",
-  "Coming Soon": "/posts",
+  introduction: "#introduction",
+  "How It Works": "#how-it-works",
+  "Driver App": "#driver-app",
+  Pricing: "#pricing",
+  "Coming Soon": "#coming-soon",
 };
 
 export const contentMenu = {

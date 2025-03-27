@@ -94,10 +94,13 @@ const Content = () => {
   ];
   return (
     <main className="space-y-6 ">
-      <section className="flex flex-col p-4 md:p-12 !pt-[300px] gap-8 bg-foreground text-white justify-center items-center -mt-[200px] ">
+      <section
+        className="flex flex-col p-4 md:p-12 !pt-[300px] gap-8 bg-foreground text-white justify-center items-center -mt-[200px] "
+        id="hero"
+      >
         <Balancer className="flex flex-col gap-4 text-center">
           <SplitText
-            text="Discover the most advanced Limo Software in the world"
+            text="Discover the most simple and intuitive Limo Software in the world."
             className="text-4xl md:text-6xl font-semibold max-w-4xl mx-auto tracking-tight text-center"
             delay={50}
             animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
@@ -129,10 +132,40 @@ const Content = () => {
         </AnimatedContent>
 
         <div className="flex justify-center gap-4">
-          <Button variant="outline" className="bg-foreground">
-            Discover more
-          </Button>
-          <Button variant="secondary">Get Started</Button>
+          <AnimatedContent
+            distance={50}
+            direction="vertical"
+            reverse={false}
+            config={{ tension: 80, friction: 20 }}
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.5}
+            delay={300}
+          >
+            <Link href="#introduction">
+              <Button variant="outline" className="bg-foreground">
+                Discover more
+              </Button>
+            </Link>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={50}
+            direction="vertical"
+            reverse={false}
+            config={{ tension: 80, friction: 20 }}
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.5}
+            delay={400}
+          >
+            <Link href="https://my.fleetmo.app" className="w-full">
+              <Button variant="secondary" className="w-full">
+                Get Started
+              </Button>
+            </Link>
+          </AnimatedContent>
         </div>
         <Image
           src={"/hero-intro.png"}
@@ -142,7 +175,7 @@ const Content = () => {
         />
       </section>
 
-      <section>
+      <section id="introduction">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div className=" h-full">
@@ -186,7 +219,7 @@ const Content = () => {
 
 const HowItWorks = () => {
   return (
-    <Section className="bg-foreground text-white">
+    <Section className="bg-foreground text-white" id="how-it-works">
       <Container>
         <div className="flex flex-col gap-28 justify-center items-center">
           <div className="flex flex-col gap-4 justify-center items-center max-w-2xl ">
@@ -199,8 +232,8 @@ const HowItWorks = () => {
             </Balancer>
           </div>
           <div className="flex flex-col gap-32 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-32 w-full">
-              <div className="flex flex-col gap-4 items-end justify-end">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 w-full">
+              <div className="flex flex-col gap-4 items-end justify-end hidden md:flex">
                 <AnimatedLine direction="left" />
               </div>
               <div className="flex flex-col gap-4 items-start justify-start">
@@ -217,7 +250,13 @@ const HowItWorks = () => {
                   enabling them to easily receive and manage the bookings you
                   assign.
                 </p>
-                <div className="w-full bg-white rounded-lg h-[250px]"></div>
+                <Image
+                  className="w-full rounded-lg h-[250px] object-cover"
+                  src="/appImages/addNewRides.png"
+                  alt="Upload Your Rides - Fleetmo"
+                  width={1000}
+                  height={1000}
+                ></Image>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-32 w-full">
@@ -234,14 +273,20 @@ const HowItWorks = () => {
                   Assign services individually or in bulk to your drivers, and
                   monitor the progress and status of each ride in real-time.
                 </p>
-                <div className="w-full bg-white rounded-lg h-[250px]"></div>
+                <Image
+                  className="w-full rounded-lg h-[250px] object-cover"
+                  src="/appImages/addNewDriver.png"
+                  alt="Add Your Drivers - Fleetmo"
+                  width={1000}
+                  height={1000}
+                ></Image>
               </div>
-              <div className="flex flex-col gap-4 items-start justify-end">
+              <div className="flex flex-col gap-4 items-start justify-end hidden md:flex">
                 <AnimatedLine direction="right" />
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-32 w-full">
-              <div className="flex flex-col gap-4 items-end justify-end">
+              <div className="flex flex-col gap-4 items-end justify-end hidden md:flex">
                 <AnimatedLine direction="left" />
               </div>
               <div className="flex flex-col gap-4 items-start justify-start">
@@ -258,7 +303,13 @@ const HowItWorks = () => {
                   dedicated form, or you can use our template to upload them all
                   at once.
                 </p>
-                <div className="w-full bg-white rounded-lg h-[250px]"></div>
+                <Image
+                  className="w-full rounded-lg h-[250px] object-cover"
+                  src="/appImages/assignDriver.png"
+                  alt="Assign Rides to your drivers - Fleetmo"
+                  width={1000}
+                  height={1000}
+                ></Image>
               </div>
             </div>
             <SpotlightCard
@@ -276,6 +327,11 @@ const HowItWorks = () => {
                     attraverso un form dedicato oppure potrai utilizzare il
                     nostro template per caricarle tutte insieme.
                   </p>
+                  <Link href="https://my.fleetmo.app" className="w-full">
+                    <Button variant="secondary" className="">
+                      Get Started
+                    </Button>
+                  </Link>
                 </div>
                 <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="flex flex-col gap-4 col-span-1 justify-start items-start">
@@ -314,10 +370,10 @@ const HowItWorks = () => {
 
 const DriverApp = () => {
   return (
-    <Section>
+    <Section id="driver-app">
       <Container>
         <div className="flex flex-col gap-4 mx-auto max-w-2xl justify-center items-center ">
-          <Badge>Introduction</Badge>
+          <Badge>Driver App</Badge>
           <Balancer>
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-center">
               App dedicata per gestire i servizi alla perfezione.
@@ -327,17 +383,18 @@ const DriverApp = () => {
         <div className="grid grid-cols-12 gap-auto md:gap-12 mt-20">
           <div className="col-span-12 md:col-span-3 flex flex-col gap-8 md:gap-[250px] w-full">
             <div className="flex flex-col gap-4 justify-center items-center md:justify-end md:items-end mt-28">
-              <h3 className="text-xl font-medium tracking-tighter">
-                Gestione delle corse
+              <h3 className="text-xl  font-medium tracking-tighter">
+                View dei servizi giornarlieri
               </h3>
-              <p className="text-centermd:text-right">
-                Gestione delle corse, assegna e verifica lo stato delle tue
-                corse da un’unica piattaforma.
+              <p className="text-center md:text-right">
+                Aggiunti i tuoi driver, in questo modo creerai automaticamente
+                degli account per loro dove potranno ricevere e gestire i
+                servizi che gli assegnerai.
               </p>
             </div>
             <div className="flex flex-col gap-4 justify-center items-center md:justify-end md:items-end">
               <h3 className="text-xl font-medium tracking-tighter">
-                Gestione delle corse
+                Live status dei voli
               </h3>
               <p className="text-center md:text-right">
                 Gestione delle corse, assegna e verifica lo stato delle tue
@@ -357,16 +414,16 @@ const DriverApp = () => {
           <div className="col-span-12 md:col-span-3 flex flex-col gap-8 md:gap-[250px] justify-start md:justify-end">
             <div className="flex flex-col gap-4 mt-36">
               <h3 className="text-xl font-medium tracking-tighter text-center md:text-left">
-                Gestione delle corse
+                Gestione avanzata dello stato delle corse
               </h3>
-              <p className="text-center md:text-right ">
+              <p className="text-center md:text-left ">
                 Gestione delle corse, assegna e verifica lo stato delle tue
                 corse da un’unica piattaforma.
               </p>
             </div>
             <div className="flex flex-col gap-4 ">
               <h3 className="text-xl font-medium tracking-tighter text-center md:text-left">
-                Gestione delle corse
+                Proof No-Show system integrato
               </h3>
               <p className="text-center md:text-left">
                 Gestione delle corse, assegna e verifica lo stato delle tue
@@ -400,7 +457,10 @@ const Pricing = () => {
   ];
 
   return (
-    <Section className="bg-gray-100 bg-[url('/globo.png')] bg-no-repeat bg-bottom bg-opacity-30">
+    <Section
+      className="bg-gray-100 bg-[url('/globo.png')] bg-no-repeat bg-bottom bg-opacity-30"
+      id="pricing"
+    >
       <Container>
         <div className="flex flex-col gap-4 mx-auto max-w-2xl justify-center items-center ">
           <Badge>Pricing</Badge>
@@ -436,7 +496,9 @@ const Pricing = () => {
                 </li>
               ))}
             </ul>
-            <Button className="mt-4">Get Started</Button>
+            <Link href="https://my.fleetmo.app" className="w-full">
+              <Button className="mt-4 w-full">Get Started</Button>
+            </Link>
           </div>
         </div>
       </Container>
@@ -446,7 +508,7 @@ const Pricing = () => {
 
 const ComingSoon = () => {
   return (
-    <Section className="bg-foreground text-white !mt-0">
+    <Section className="bg-foreground text-white !mt-0" id="coming-soon">
       <Container>
         <div className="flex flex-col gap-6 justify-start items-start">
           <Badge variant="secondary">Coming Soon</Badge>
@@ -504,15 +566,15 @@ const ComingSoon = () => {
             </SpotlightCard>
           </div>
           <div className="flex flex-col gap-6 w-full max-w-xl mx-auto mt-12">
-            <Balancer className="text-2xl">
+            <p className="text-2xl">
               With over 8 years of experience in the limo service industry, I
               recognized the need for a technological solution that could
               streamline and automate the complexities of managing my daily
               operations. Unable to find an existing platform specifically
               tailored to the unique demands of this business, I decided to
               create an advanced, practical, and user-friendly tool.
-            </Balancer>
-            <Balancer className="text-2xl">
+            </p>
+            <p className="text-2xl">
               The result is a specialized platform designed by limo service
               professionals for limo service professionals, built to simplify
               day-to-day management, enhance operational efficiency, and deliver
@@ -520,7 +582,7 @@ const ComingSoon = () => {
               solution to any company seeking to elevate their limousine
               services, automate workflows, reduce errors, and maximize
               profitability.
-            </Balancer>
+            </p>
             <div className="flex flex-row gap-4 items-center">
               <Image
                 src={"/emanuele.png"}
