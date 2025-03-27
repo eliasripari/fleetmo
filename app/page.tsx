@@ -220,8 +220,8 @@ const Content = () => {
 const HowItWorks = () => {
   return (
     <Section className="bg-foreground text-white" id="how-it-works">
-      <Container>
-        <div className="flex flex-col gap-28 justify-center items-center">
+      <Container className="p-8">
+        <div className="flex flex-col gap-28 justify-center items-center ">
           <div className="flex flex-col gap-4 justify-center items-center max-w-2xl ">
             <Badge variant="secondary">How It Works</Badge>
             <Balancer>
