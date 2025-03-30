@@ -61,11 +61,11 @@ const Content = () => {
       title: "Real-Time Flight Status Verification",
       badge: "Flight Status",
       description:
-        "Instantly access live flight information, including delays, early arrivals, or cancellations. Stay informed and proactively manage your transportation services to offer a reliable customer experience.",
+        "Instantly access live flight information, including delays, early arrivals, or cancellations. Stay informed and proactively manage your transportation rides to offer a reliable customer experience.",
       icon: PlaneTakeoff,
     },
     {
-      title: "Exchange Services with Other Suppliers",
+      title: "Exchange Rides with Other Suppliers",
       badge: "Exchange",
       description:
         "Conveniently exchange, transfer, or share bookings with your network of trusted partner suppliers. Optimize your capacity, reduce downtime, and enhance collaboration within your business ecosystem.",
@@ -132,9 +132,9 @@ const Content = () => {
         >
           <Balancer>
             <p className="text-center text-lg max-w-4xl mx-auto">
-              Fleetmo is the most advanced management system for NCC in the
-              world, add, manage and assign your rides. Receive directly from
-              your providers and distribute them to your collaborators and
+              Fleetmo is the most advanced management system for Limo Business
+              in the world, add, manage and assign your rides. Receive directly
+              from your providers and distribute them to your collaborators and
               dedicated app for your drivers.
             </p>
           </Balancer>
@@ -261,8 +261,7 @@ const HowItWorks = () => {
             <Badge variant="secondary">How It Works</Badge>
             <Balancer className="text-center">
               <SplitText
-                text="Organizza le giornate di lavoro dei tuoi driver in 4 semplici
-                step."
+                text="Organize your drivers' work days in 4 simple steps."
                 className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
                 delay={50}
                 animationFrom={{
@@ -314,7 +313,7 @@ const HowItWorks = () => {
                   </h3>
                 </div>
                 <p className="text-lg">
-                  Assign services individually or in bulk to your drivers, and
+                  Assign rides individually or in bulk to your drivers, and
                   monitor the progress and status of each ride in real-time.
                 </p>
                 <Image
@@ -363,7 +362,7 @@ const HowItWorks = () => {
               <div className="flex flex-col md:flex-row gap-32 w-full rounded-lg">
                 <div className="flex-1 flex flex-col gap-4 justify-center">
                   <h3 className="text-3xl font-medium tracking-tighter flex flex-row gap-4 items-center">
-                    Conclusion of the service{" "}
+                    Conclusion of the Ride{" "}
                     <CircleCheckBig className="w-8 h-8 stroke-2" />
                   </h3>
                   <p className="text-lg">
@@ -420,7 +419,7 @@ const DriverApp = () => {
           <Badge>Driver App</Badge>
           <Balancer className="text-center">
             <SplitText
-              text="Dedicated app to manage services perfectly."
+              text="Dedicated app to manage rides perfectly."
               className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
               delay={50}
               animationFrom={{
@@ -437,11 +436,11 @@ const DriverApp = () => {
           <div className="col-span-12 md:col-span-3 flex flex-col gap-8 md:gap-[250px] w-full">
             <div className="flex flex-col gap-4 justify-center items-center md:justify-end md:items-end mt-28">
               <h3 className="text-xl  font-medium tracking-tighter">
-                Daily Services View
+                Daily Rides View
               </h3>
               <p className="text-center md:text-right">
                 Add your drivers—this automatically creates accounts for them,
-                allowing them to receive and manage assigned services.
+                allowing them to receive and manage assigned rides.
               </p>
             </div>
             <div className="flex flex-col gap-4 justify-center items-center md:justify-end md:items-end">
@@ -492,11 +491,11 @@ const DriverApp = () => {
 const Pricing = () => {
   const featuresList = [
     "Add single Service or Bulk system",
-    "Swap services with other suppliers",
+    "Swap Rides with other suppliers",
     "Add and manage collaborators",
     "Add and manage drivers",
     "Native mobile app for drivers",
-    "Edit and assign services",
+    "Edit and assign rides",
     "Live flight status tracking",
     "Rides status",
     "Add and manage Providers",
@@ -536,7 +535,7 @@ const Pricing = () => {
             <div className="flex flex-col gap-2 justify-center items-center">
               <h3 className="text-3xl font-medium tracking-tighter text-center">
                 <span className="text-7xl font-bold relative">
-                  <sup className="text-lg absolute top-0 -left-4 top-1">€</sup>
+                  <sup className="text-lg absolute top-0 -left-4 top-1">$</sup>
                   100
                 </span>
               </h3>
@@ -612,7 +611,7 @@ const ComingSoon = () => {
                 Marketplace
               </h3>
               <p className="text-sm">
-                Easily publish your available services on the marketplace to
+                Easily publish your available rides on the marketplace to
                 facilitate quick trading among providers. Optimize fleet
                 utilization, monetize unused rides, and efficiently match demand
                 with available resources.
@@ -649,9 +648,8 @@ const ComingSoon = () => {
               professionals for limo service professionals, built to simplify
               day-to-day management, enhance operational efficiency, and deliver
               exceptional client experiences. Today, I am proud to offer this
-              solution to any company seeking to elevate their limousine
-              services, automate workflows, reduce errors, and maximize
-              profitability.
+              solution to any company seeking to elevate their limousine rides,
+              automate workflows, reduce errors, and maximize profitability.
             </p>
             <div className="flex flex-row gap-4 items-center">
               <Image
