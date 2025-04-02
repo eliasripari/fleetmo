@@ -517,7 +517,7 @@ const Pricing = () => {
           <Badge>Pricing</Badge>
           <Balancer className="text-center">
             <SplitText
-              text="Simple and transparent. A single subscription for you business."
+              text="Simple and transparent. A single subscription for your business."
               className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
               delay={50}
               animationFrom={{
