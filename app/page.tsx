@@ -387,7 +387,13 @@ const HowItWorks = () => {
                       status automatically updates to completed. Easily confirm
                       the successful completion of your rides in real time.
                     </p>
-                    <div className="w-full bg-white rounded-lg h-[250px]"></div>
+                    <div
+                      className="w-full rounded-lg h-[250px]"
+                      style={{
+                        backgroundImage: `url(${"/service_done.png"})`,
+                        backgroundSize: "cover",
+                      }}
+                    ></div>
                   </div>
                   <div className="flex flex-col gap-4 col-span-1 justify-start items-start">
                     <Badge className="text-orange-500 border-orange-500 flex flex-row gap-1 items-center pl-1">
@@ -399,7 +405,13 @@ const HowItWorks = () => {
                       as proof. The integrated No-Show System automatically logs
                       evidence, updating the service status accordingly.
                     </p>
-                    <div className="w-full bg-white rounded-lg h-[250px]"></div>
+                    <div
+                      className="w-full rounded-lg h-[250px]"
+                      style={{
+                        backgroundImage: `url(${"/service_noShow.png"})`,
+                        backgroundSize: "cover",
+                      }}
+                    ></div>
                   </div>
                 </div>
               </div>
