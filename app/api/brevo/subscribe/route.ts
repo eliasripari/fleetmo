@@ -24,13 +24,25 @@ export async function POST(request: Request) {
     const BREVO_API_KEY = process.env.BREVO_API_KEY;
     const LIST_ID = parseInt(process.env.BREVO_LIST_ID || "", 10) || 0;
 
-    console.log("API Key exists:", !!BREVO_API_KEY);
-    console.log("List ID:", LIST_ID);
+    // Log environment variables (without sensitive data)
+    console.log("Environment check:", {
+      hasApiKey: !!BREVO_API_KEY,
+      listId: LIST_ID,
+      environment: process.env.NODE_ENV,
+    });
 
-    if (!BREVO_API_KEY || !LIST_ID) {
-      console.error("Brevo API Key or List ID not configured properly");
+    if (!BREVO_API_KEY) {
+      console.error("Brevo API Key is missing");
       return NextResponse.json(
-        { error: "Server configuration error" },
+        { error: "Server configuration error: API Key is missing" },
+        { status: 500 }
+      );
+    }
+
+    if (!LIST_ID) {
+      console.error("Brevo List ID is missing or invalid");
+      return NextResponse.json(
+        { error: "Server configuration error: List ID is missing or invalid" },
         { status: 500 }
       );
     }
