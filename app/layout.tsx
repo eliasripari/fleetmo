@@ -13,11 +13,12 @@ import { siteConfig } from "@/site.config";
 import localFont from "next/font/local";
 import Link from "next/link";
 import Image from "next/image";
-
 import Logo from "@/public/logo-fleetmo.svg";
 import Balancer from "react-wrap-balancer";
 import AnimatedContent from "@/components/AnimatedContent/AnimatedContent";
 import Aurora from "@/components/Aurora/Aurora";
+import JoinWaitlist from "@/components/joinWaitlist";
+import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -114,9 +115,14 @@ const Nav = ({ className, children, id }: NavProps) => {
             ))}
           </div>
         </div>
-        <Button asChild className="hidden sm:flex" variant="secondary">
+        <Button asChild className="hidden" variant="secondary">
           <Link href="https://my.fleetmo.app">Get Started</Link>
         </Button>
+        <Link href="#introduction">
+          <Button variant="outline" className="bg-foreground text-white">
+            Discover more
+          </Button>
+        </Link>
         <MobileNav />
       </div>
     </nav>

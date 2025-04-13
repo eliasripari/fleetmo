@@ -37,6 +37,7 @@ import AnimatedLine from "@/components/svg/lineArrrowLeft";
 import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
 import SplitText from "@/components/SplitText";
 import AnimatedContent from "@/components/AnimatedContent/AnimatedContent";
+import JoinWaitlist from "@/components/joinWaitlist";
 
 // This page is using the craft.tsx component and design system
 export default function Home() {
@@ -102,7 +103,7 @@ const Content = () => {
     },
   ];
   return (
-    <main className="space-y-6 ">
+    <main className="space-y-6 " id="start">
       <section
         className="flex flex-col p-4 md:p-12 !pt-[300px] gap-8 bg-foreground text-white justify-center items-center -mt-[200px] "
         id="hero"
@@ -141,7 +142,7 @@ const Content = () => {
         </AnimatedContent>
 
         <div className="flex justify-center gap-4">
-          <AnimatedContent
+          {/* <AnimatedContent
             distance={50}
             direction="vertical"
             reverse={false}
@@ -174,6 +175,19 @@ const Content = () => {
                 Get Started
               </Button>
             </Link>
+          </AnimatedContent> */}
+          <AnimatedContent
+            distance={50}
+            direction="vertical"
+            reverse={false}
+            config={{ tension: 80, friction: 20 }}
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.5}
+            delay={400}
+          >
+            <JoinWaitlist />
           </AnimatedContent>
         </div>
         <Image
@@ -370,9 +384,9 @@ const HowItWorks = () => {
                     a dedicated form, or you can use our template to upload them
                     all together.
                   </p>
-                  <Link href="https://my.fleetmo.app" className="w-full">
+                  <Link href="#start" className="w-full">
                     <Button variant="secondary" className="">
-                      Get Started
+                      Join Waitlist
                     </Button>
                   </Link>
                 </div>
@@ -567,8 +581,8 @@ const Pricing = () => {
                 </li>
               ))}
             </ul>
-            <Link href="https://my.fleetmo.app" className="w-full">
-              <Button className="mt-4 w-full">Get Started</Button>
+            <Link href="#start" className="w-full">
+              <Button className="mt-4 w-full">Join Waitlist</Button>
             </Link>
           </div>
         </div>
