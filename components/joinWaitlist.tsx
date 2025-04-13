@@ -49,7 +49,7 @@ const WaitlistForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
           disabled={status === "loading"}
-          className="w-[300px] px-4 py-1 bg-[#1A1A1A] border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-[300px] px-4 py-1 bg-[#1A1A1A] border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2"
         />
         <button
           type="submit"
