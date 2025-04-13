@@ -76,7 +76,7 @@ const WaitlistForm = () => {
       {status === "success" && (
         <p className="text-green-500 text-sm">{message}</p>
       )}
-      {status === "error" && <p className="text-red-500 text-sm">{message}</p>}
+      {status === "error" && <p className="text-red-600 text-sm">{message}</p>}
     </form>
   );
 };
