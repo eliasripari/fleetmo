@@ -10,5 +10,5 @@ export const siteConfig: SiteConfig = {
   site_description: "Fleetmo is a platform for managing your fleet of vehicles",
   footer_description:
     "Fleetmo is a platform for managing your fleet of vehicles",
-  site_domain: "https://fleetmo.com",
+  site_domain: "https://fleetmo.app",
 };
