@@ -81,13 +81,13 @@ async function wordpressFetch<T>(
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error in wordpressFetch:", error);
     if (error instanceof WordPressAPIError) {
       throw error;
     }
     throw new WordPressAPIError(
-      `Failed to fetch from WordPress: ${error.message}`,
+      `Failed to fetch from WordPress: ${error?.message || "Unknown error"}`,
       500,
       url
     );
@@ -190,13 +190,13 @@ export async function getPostBySlug(
     }
 
     return posts[0];
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error in getPostBySlug:", error);
     if (error instanceof WordPressAPIError) {
       throw error;
     }
     throw new WordPressAPIError(
-      `Failed to fetch post: ${error.message}`,
+      `Failed to fetch post: ${error?.message || "Unknown error"}`,
       500,
       `posts?slug=${slug}`
     );
