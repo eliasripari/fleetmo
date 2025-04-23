@@ -79,6 +79,7 @@ export interface Post extends WPEntity {
   translations?: {
     [key: string]: number;
   };
+  lang: string;
 }
 
 export interface Page extends WPEntity {

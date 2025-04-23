@@ -18,20 +18,21 @@ import type { Metadata } from "next";
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
-  console.log(posts);
+  console.log("Generating static params for posts:", posts);
 
   return posts.map((post) => ({
     slug: post.slug,
+    locale: post.lang || "en",
   }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string; locale: string };
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const { slug, locale } = params;
+  const post = await getPostBySlug(slug, locale);
 
   if (!post) {
     return {};
@@ -39,7 +40,6 @@ export async function generateMetadata({
 
   const ogUrl = new URL(`${siteConfig.site_domain}/api/og`);
   ogUrl.searchParams.append("title", post.title.rendered);
-  // Strip HTML tags for description
   const description = post.excerpt.rendered.replace(/<[^>]*>/g, "").trim();
   ogUrl.searchParams.append("description", description);
 
@@ -78,6 +78,7 @@ export default async function Page({
   console.log("Fetching post with slug:", slug, "and locale:", locale);
   const post = await getPostBySlug(slug, locale);
   console.log("Post data:", JSON.stringify(post, null, 2));
+
   const featuredMedia = post.featured_media
     ? await getFeaturedMediaById(post.featured_media)
     : null;
