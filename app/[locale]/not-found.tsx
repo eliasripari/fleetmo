@@ -1,9 +1,10 @@
 import { Section, Container } from "@/components/craft";
 import { Button } from "@/components/ui/button";
-
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function NotFound() {
+  const t = useTranslations("NotFound");
   return (
     <Section>
       <Container>

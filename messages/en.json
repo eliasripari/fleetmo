@@ -1,0 +1,141 @@
+{
+  "HomePage": {
+    "titleHero": "Discover the most simple and intuitive Limo Software in the world.",
+    "paragraphHero": "Fleetmo is the most advanced management system for Limo Business in the world, add, manage and assign your rides. Receive directly from your providers and distribute them to your collaborators and dedicated app for your drivers.",
+    "introduction": "Introduzione",
+    "introductionTitle": "Receive, manage, assign, and monitor the status of your rides—all from a single platform.",
+    "features": {
+      "feature1": {
+        "title": "Upload or Add Your Rides",
+        "description": "Easily upload multiple bookings at once or manually add individual rides directly from your smartphone or tablet. Manage your schedule effortlessly and keep your operations running smoothly.",
+        "badge": "Upload"
+      },
+      "feature2": {
+        "title": "Real-Time Flight Status Verification",
+        "description": "Instantly access live flight information, including delays, early arrivals, or cancellations. Stay informed and proactively manage your transportation rides to offer a reliable customer experience.",
+        "badge": "Flight Status"
+      },
+      "feature3": {
+        "title": "Exchange Rides with Other Suppliers",
+        "description": "Conveniently exchange, transfer, or share bookings with your network of trusted partner suppliers. Optimize your capacity, reduce downtime, and enhance collaboration within your business ecosystem.",
+        "badge": "Exchange"
+      },
+      "feature4": {
+        "title": "Manage Vouchers and No-Shows",
+        "description": "Efficiently handle vouchers, cancellations, amendments, and no-shows directly from the application. Streamline your administrative tasks, reduce paperwork, and ensure accurate records for easy reporting.",
+        "badge": "Vouchers"
+      },
+      "feature5": {
+        "title": "Dedicated App for Your Drivers",
+        "description": "Efficiently handle vouchers, cancellations, amendments, and no-shows directly from the application. Streamline your administrative tasks, reduce paperwork, and ensure accurate records for easy reporting.",
+        "badge": "Driver App"
+      },
+      "feature6": {
+        "title": "Real-Time Ride Status Tracking",
+        "description": "Gain complete visibility of your rides through continuous real-time tracking. Monitor service progress, anticipate delays, and respond quickly to any situation to guarantee exceptional service reliability.",
+        "badge": "Tracking"
+      },
+      "feature7": {
+        "title": "No-Show System",
+        "description": "If a customer doesn't show up, the driver can take a photo as proof. Our integrated No-Show System automatically captures and records the exact GPS coordinates, date, and time directly on the photo, updating the service status accordingly.",
+        "badge": "No-Show"
+      }
+    },
+    "howItWorks": {
+      "badge": "How It Works",
+      "title": "Schedule your daily driver rides in 4 easy steps.",
+      "steps": {
+        "step1": {
+          "title": "Upload or add your rides",
+          "description": "You can upload all your rides directly through the app using a dedicated form, or you can use our template to upload them all at once."
+        },
+        "step2": {
+          "title": "Add your drivers",
+          "description": "Add your drivers to automatically create accounts for them, enabling them to easily receive and manage the bookings you assign."
+        },
+        "step3": {
+          "title": "Assign Rides to your drivers",
+          "description": "Assign rides individually or in bulk to your drivers, and monitor the progress and status of each ride in real-time."
+        }
+      },
+      "conclusion": {
+        "title": "Conclusion of the Ride",
+        "description": "You can upload all your rides directly through the app using a dedicated form, or you can use our template to upload them all together.",
+        "button": "Join Waitlist",
+        "status": {
+          "completed": "Completed",
+          "textCompleted": "Once the driver uploads the signed voucher, the service status automatically updates to completed. Easily confirm the successful completion of your rides in real time.",
+          "noShow": "No Show",
+          "textCancelled": "If a customer doesn't show up, the driver can take a photo as proof. The integrated No-Show System automatically logs evidence, updating the service status accordingly."
+        }
+      }
+    },
+    "driverApp": {
+      "badge": "Driver App",
+      "title": "Fleetmo offers a dedicated app for your drivers, allowing them to easily receive and manage the bookings you assign. It's easy to use and integrates seamlessly with your existing systems.",
+      "features": {
+        "feature1": {
+          "title": "Daily Rides View",
+          "description": "Add your drivers—this automatically creates accounts for them, allowing them to receive and manage assigned rides."
+        },
+        "feature2": {
+          "title": "Live Flight Status",
+          "description": "Manage your rides, assign and verify the status of your rides from a single platform."
+        },
+        "feature3": {
+          "title": "Advanced ride status management",
+          "description": "Manage your rides, assign and verify the status of your rides from a single platform."
+        },
+        "feature4": {
+          "title": "Integrated Proof No-Show system",
+          "description": "Manage your rides, assign and verify the status of your rides from a single platform."
+        }
+      }
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "Simple and transparent. A single subscription for your business.",
+      "description2": "All features included. No hidden fees.",
+      "button": "Join Waitlist",
+      "features": {
+        "feature1": "Add single Service or Bulk system",
+        "feature2": "Swap Rides with other suppliers",
+        "feature3": "Add and manage collaborators",
+        "feature4": "Add and manage drivers",
+        "feature5": "Native mobile app for drivers",
+        "feature6": "Edit and assign rides",
+        "feature7": "Live flight status tracking",
+        "feature8": "Rides status",
+        "feature9": "Add and manage Providers",
+        "feature10": "Rides Archive",
+        "feature11": "Advanced rides data table",
+        "feature12": "Advanced rides filter",
+        "feature13": "Summary dashboard with daily info",
+        "feature14": "Upload Voucher system",
+        "feature15": "Upload No Show system"
+      }
+    },
+    "comingSoon": {
+      "badge": "Coming Soon",
+      "title": "We are working hard to make it better.",
+      "box1": {
+        "title": "Live Tracking",
+        "description": "Keep an eye on every ride in real time, receiving instant location updates, status notifications, and performance analytics. Ensure timely pickups, proactive adjustments, and superior customer experiences."
+      },
+      "box2": {
+        "title": "Marketplace",
+        "description": "Easily publish your available rides on the marketplace to facilitate quick trading among providers. Optimize fleet utilization, monetize unused rides, and efficiently match demand with available resources."
+      },
+      "box3": {
+        "title": "AI Integration",
+        "description": "Harness the power of artificial intelligence to fully automate daily ride assignments to drivers, instantly reassign trips if a driver cancels or misses a service, and optimize schedules dynamically—saving time, reducing manual effort, and maximizing operational efficiency."
+      }
+    },
+    "testimonial": {
+      "text1": "With over 8 years of experience in the limo service industry, I recognized the need for a technological solution that could streamline and automate the complexities of managing my daily operations. Unable to find an existing platform specifically tailored to the unique demands of this business, I decided to create an advanced, practical, and user-friendly tool.",
+      "text2": "The result is a specialized platform designed by limo service professionals for limo service professionals, built to simplify day-to-day management, enhance operational efficiency, and deliver exceptional client experiences. Today, I am proud to offer this solution to any company seeking to elevate their limousine rides, automate workflows, reduce errors, and maximize profitability.",
+      "name": "Emanuele Campanari",
+      "position": "CEO & Founder of Fleetmo"
+    }
+  }
+}

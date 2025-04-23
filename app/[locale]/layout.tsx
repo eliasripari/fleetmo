@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
@@ -19,7 +19,10 @@ import AnimatedContent from "@/components/AnimatedContent/AnimatedContent";
 import Aurora from "@/components/Aurora/Aurora";
 import JoinWaitlist from "@/components/joinWaitlist";
 import { ArrowRight } from "lucide-react";
-
+import { NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import { hasLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 
 const font = FontSans({
@@ -28,13 +31,13 @@ const font = FontSans({
 });
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "../fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "../fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -49,13 +52,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  // Ensure that the incoming `locale` is valid
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head />
       <body
         className={cn(
@@ -71,7 +81,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Nav />
-          {children}
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
           <Footer />
         </ThemeProvider>
         <Analytics />

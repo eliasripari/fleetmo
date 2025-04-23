@@ -1,0 +1,141 @@
+{
+  "HomePage": {
+    "titleHero": "Scopri il software per limousine più semplice e intuitivo al mondo.",
+    "paragraphHero": "Fleetmo è il sistema di gestione più avanzato al mondo per il business delle limousine. Aggiungi, gestisci e assegna i tuoi servizi. Ricevi prenotazioni direttamente dai tuoi fornitori e distribuiscile ai collaboratori e all'app dedicata per i tuoi autisti.",
+    "introduction": "Introduzione",
+    "introductionTitle": "Ricevi, gestisci, assegna e monitora lo stato dei tuoi servizi — tutto da un'unica piattaforma.",
+    "features": {
+      "feature1": {
+        "title": "Carica o Aggiungi i tuoi Servizi",
+        "description": "Carica facilmente più prenotazioni in una volta sola o aggiungi manualmente singoli servizi direttamente dal tuo smartphone o tablet. Gestisci il tuo programma senza sforzo e mantieni le operazioni sempre attive.",
+        "badge": "Carica"
+      },
+      "feature2": {
+        "title": "Verifica Stato Volo in Tempo Reale",
+        "description": "Accedi istantaneamente alle informazioni sui voli in tempo reale, inclusi ritardi, arrivi anticipati o cancellazioni. Rimani aggiornato e gestisci in modo proattivo i servizi di trasporto per offrire un’esperienza affidabile ai clienti.",
+        "badge": "Stato Volo"
+      },
+      "feature3": {
+        "title": "Scambia Servizi con Altri Fornitori",
+        "description": "Scambia, trasferisci o condividi facilmente prenotazioni con la tua rete di fornitori partner fidati. Ottimizza la capacità, riduci i tempi morti e migliora la collaborazione nel tuo ecosistema aziendale.",
+        "badge": "Scambio"
+      },
+      "feature4": {
+        "title": "Gestisci Voucher e No-Show",
+        "description": "Gestisci in modo efficiente voucher, cancellazioni, modifiche e no-show direttamente dall’app. Semplifica i compiti amministrativi, riduci la burocrazia e garantisci registrazioni precise per report accurati.",
+        "badge": "Voucher"
+      },
+      "feature5": {
+        "title": "App Dedicata per i tuoi Autisti",
+        "description": "Gestisci in modo efficiente voucher, cancellazioni, modifiche e no-show direttamente dall’app. Semplifica i compiti amministrativi, riduci la burocrazia e garantisci registrazioni precise per report accurati.",
+        "badge": "App Autista"
+      },
+      "feature6": {
+        "title": "Tracciamento in Tempo Reale dello Stato del Servizio",
+        "description": "Ottieni visibilità completa dei tuoi servizi grazie al tracciamento continuo in tempo reale. Monitora l’avanzamento, anticipa i ritardi e rispondi rapidamente a ogni situazione per garantire un servizio eccezionale.",
+        "badge": "Tracciamento"
+      },
+      "feature7": {
+        "title": "Sistema No-Show",
+        "description": "Se un cliente non si presenta, l’autista può scattare una foto come prova. Il sistema No-Show integrato registra automaticamente coordinate GPS, data e ora sulla foto, aggiornando lo stato del servizio.",
+        "badge": "No-Show"
+      }
+    },
+    "howItWorks": {
+      "badge": "Come Funziona",
+      "title": "Pianifica i servizi giornalieri dei tuoi autisti in 4 semplici passaggi.",
+      "steps": {
+        "step1": {
+          "title": "Carica o aggiungi i tuoi servizi",
+          "description": "Puoi caricare tutti i tuoi servizi direttamente tramite l'app usando un modulo dedicato oppure utilizzare il nostro template per caricarli tutti in una volta."
+        },
+        "step2": {
+          "title": "Aggiungi i tuoi autisti",
+          "description": "Aggiungi i tuoi autisti per creare automaticamente i loro account, permettendo loro di ricevere e gestire facilmente le prenotazioni che assegni."
+        },
+        "step3": {
+          "title": "Assegna i servizi ai tuoi autisti",
+          "description": "Assegna i servizi singolarmente o in blocco ai tuoi autisti e monitora l’avanzamento e lo stato di ciascun servizio in tempo reale."
+        }
+      },
+      "conclusion": {
+        "title": "Conclusione del Servizio",
+        "description": "Puoi caricare tutti i tuoi servizi direttamente tramite l'app usando un modulo dedicato oppure utilizzare il nostro template per caricarli tutti insieme.",
+        "button": "Iscriviti alla Lista d'Attesa",
+        "status": {
+          "completed": "Completato",
+          "textCompleted": "Una volta che l'autista carica il voucher firmato, lo stato del servizio si aggiorna automaticamente come completato. Conferma facilmente in tempo reale l'avvenuta conclusione del servizio.",
+          "noShow": "No Show",
+          "textCancelled": "Se un cliente non si presenta, l'autista può scattare una foto come prova. Il sistema No-Show integrato registra automaticamente la prova, aggiornando lo stato del servizio di conseguenza."
+        }
+      }
+    },
+    "driverApp": {
+      "badge": "App Autista",
+      "title": "Fleetmo offre un'app dedicata per i tuoi autisti, permettendo loro di ricevere e gestire facilmente le prenotazioni assegnate. È facile da usare e si integra perfettamente con i tuoi sistemi esistenti.",
+      "features": {
+        "feature1": {
+          "title": "Vista Giornaliera dei Servizi",
+          "description": "Aggiungi i tuoi autisti—questo crea automaticamente un account per ciascuno, permettendo loro di ricevere e gestire i servizi assegnati."
+        },
+        "feature2": {
+          "title": "Stato Volo in Tempo Reale",
+          "description": "Gestisci i tuoi servizi, assegnali e verifica lo stato da un’unica piattaforma."
+        },
+        "feature3": {
+          "title": "Gestione Avanzata dello Stato del Servizio",
+          "description": "Gestisci i tuoi servizi, assegnali e verifica lo stato da un’unica piattaforma."
+        },
+        "feature4": {
+          "title": "Sistema No-Show Integrato",
+          "description": "Gestisci i tuoi servizi, assegnali e verifica lo stato da un’unica piattaforma."
+        }
+      }
+    },
+    "pricing": {
+      "title": "Prezzi",
+      "description": "Semplice e trasparente. Un unico abbonamento per la tua attività.",
+      "description2": "Tutte le funzionalità incluse. Nessun costo nascosto.",
+      "button": "Iscriviti alla Lista d'Attesa",
+      "features": {
+        "feature1": "Aggiunta singola o caricamento massivo dei servizi",
+        "feature2": "Scambio servizi con altri fornitori",
+        "feature3": "Aggiungi e gestisci i collaboratori",
+        "feature4": "Aggiungi e gestisci gli autisti",
+        "feature5": "App mobile nativa per autisti",
+        "feature6": "Modifica e assegnazione dei servizi",
+        "feature7": "Monitoraggio stato voli in tempo reale",
+        "feature8": "Stato dei servizi",
+        "feature9": "Aggiungi e gestisci i fornitori",
+        "feature10": "Archivio servizi",
+        "feature11": "Tabella avanzata dei dati dei servizi",
+        "feature12": "Filtro avanzato dei servizi",
+        "feature13": "Dashboard riepilogativa con info giornaliere",
+        "feature14": "Sistema di caricamento voucher",
+        "feature15": "Sistema di caricamento No Show"
+      }
+    },
+    "comingSoon": {
+      "badge": "Prossimamente",
+      "title": "Stiamo lavorando per renderlo ancora migliore.",
+      "box1": {
+        "title": "Tracciamento Live",
+        "description": "Monitora ogni servizio in tempo reale, ricevendo aggiornamenti istantanei sulla posizione, notifiche di stato e analisi delle prestazioni. Garantisci puntualità, interventi proattivi ed esperienze clienti superiori."
+      },
+      "box2": {
+        "title": "Marketplace",
+        "description": "Pubblica facilmente i tuoi servizi disponibili sul marketplace per facilitare lo scambio rapido tra fornitori. Ottimizza l'utilizzo della flotta, monetizza i servizi non utilizzati e abbina in modo efficiente domanda e offerta."
+      },
+      "box3": {
+        "title": "Integrazione con l'IA",
+        "description": "Sfrutta il potere dell'intelligenza artificiale per automatizzare completamente l’assegnazione quotidiana dei servizi agli autisti, riassegnare istantaneamente le corse in caso di cancellazioni e ottimizzare dinamicamente i programmi—risparmiando tempo, riducendo il lavoro manuale e massimizzando l’efficienza operativa."
+      }
+    },
+    "testimonial": {
+      "text1": "Con oltre 8 anni di esperienza nel settore delle limousine, ho riconosciuto la necessità di una soluzione tecnologica che potesse semplificare e automatizzare le complessità della gestione operativa quotidiana. Non trovando una piattaforma esistente davvero adatta alle esigenze specifiche di questo settore, ho deciso di crearne una avanzata, pratica e intuitiva.",
+      "text2": "Il risultato è una piattaforma specializzata progettata da professionisti delle limousine per professionisti delle limousine, nata per semplificare la gestione quotidiana, migliorare l’efficienza operativa e offrire esperienze eccezionali ai clienti. Oggi sono orgoglioso di offrire questa soluzione a tutte le aziende che vogliono migliorare i propri servizi, automatizzare i flussi di lavoro, ridurre gli errori e aumentare la redditività.",
+      "name": "Emanuele Campanari",
+      "position": "CEO & Founder di Fleetmo"
+    }
+  }
+}

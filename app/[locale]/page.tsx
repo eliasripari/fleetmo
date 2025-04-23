@@ -4,9 +4,11 @@ import Balancer from "react-wrap-balancer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 // Next.js Imports
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import React from "react";
+import { useTranslations } from "next-intl";
+
 // Icons
 import {
   File,
@@ -50,6 +52,7 @@ export default function Home() {
 
 // This is just some example TSX
 const Content = () => {
+  const t = useTranslations("HomePage");
   const features = [
     {
       title: "Upload or Add Your Rides",
@@ -98,7 +101,7 @@ const Content = () => {
       title: "No-Show System",
       badge: "No-Show",
       description:
-        "If a customer doesn’t show up, the driver can take a photo as proof. Our integrated No-Show System automatically captures and records the exact GPS coordinates, date, and time directly on the photo, updating the service status accordingly.",
+        "If a customer doesn't show up, the driver can take a photo as proof. Our integrated No-Show System automatically captures and records the exact GPS coordinates, date, and time directly on the photo, updating the service status accordingly.",
       icon: UserRoundX,
     },
   ];
@@ -110,7 +113,7 @@ const Content = () => {
       >
         <Balancer className="flex flex-col gap-4 text-center">
           <SplitText
-            text="Discover the most simple and intuitive Limo Software in the world."
+            text={t("titleHero")}
             className="text-4xl md:text-6xl font-semibold max-w-4xl mx-auto tracking-tight text-center"
             delay={50}
             animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
@@ -133,10 +136,7 @@ const Content = () => {
         >
           <Balancer>
             <p className="text-center text-lg max-w-4xl mx-auto">
-              Fleetmo is the most advanced management system for Limo Business
-              in the world, add, manage and assign your rides. Receive directly
-              from your providers and distribute them to your collaborators and
-              dedicated app for your drivers.
+              {t("paragraphHero")}
             </p>
           </Balancer>
         </AnimatedContent>
@@ -203,10 +203,9 @@ const Content = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div className=" h-full">
               <div className="flex flex-col gap-4 sticky top-28 items-start">
-                <Badge>Introduction</Badge>
+                <Badge>{t("introduction")}</Badge>
                 <SplitText
-                  text="Receive, manage, assign, and monitor the status of your
-                  rides—all from a single platform."
+                  text={t("introductionTitle")}
                   className="text-4xl md:text-5xl font-semibold tracking-tighter !text-left"
                   delay={50}
                   animationFrom={{
@@ -246,9 +245,9 @@ const Content = () => {
                       </span>
                       {React.createElement(feature.icon)}
                       <h3 className="text-2xl font-semibold tracking-tighter">
-                        {feature.title}
+                        {t(`features.feature${index + 1}.title`)}
                       </h3>
-                      <p>{feature.description}</p>
+                      <p>{t(`features.feature${index + 1}.description`)}</p>
                     </div>
                   </AnimatedContent>
                 </div>
@@ -267,15 +266,16 @@ const Content = () => {
 };
 
 const HowItWorks = () => {
+  const t = useTranslations("HomePage");
   return (
     <Section className="bg-foreground text-white" id="how-it-works">
       <Container className="p-8">
         <div className="flex flex-col gap-28 justify-center items-center ">
           <div className="flex flex-col gap-4 justify-center items-center max-w-2xl ">
-            <Badge variant="secondary">How It Works</Badge>
+            <Badge variant="secondary">{t("howItWorks.badge")}</Badge>
             <Balancer className="text-center">
               <SplitText
-                text="Schedule your daily driver rides in 4 easy steps."
+                text={t("howItWorks.title")}
                 className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
                 delay={50}
                 animationFrom={{
@@ -299,13 +299,11 @@ const HowItWorks = () => {
                     1
                   </span>
                   <h3 className="text-3xl font-medium tracking-tighter">
-                    Upload or add your rides.
+                    {t("howItWorks.steps.step1.title")}
                   </h3>
                 </div>
                 <p className="text-lg">
-                  Add your drivers to automatically create accounts for them,
-                  enabling them to easily receive and manage the bookings you
-                  assign.
+                  {t("howItWorks.steps.step1.description")}
                 </p>
                 <Image
                   className="w-full rounded-lg h-[250px] object-cover"
@@ -323,12 +321,11 @@ const HowItWorks = () => {
                     2
                   </span>
                   <h3 className="text-3xl font-medium tracking-tighter">
-                    Add your drivers.
+                    {t("howItWorks.steps.step2.title")}
                   </h3>
                 </div>
                 <p className="text-lg">
-                  Assign rides individually or in bulk to your drivers, and
-                  monitor the progress and status of each ride in real-time.
+                  {t("howItWorks.steps.step2.description")}
                 </p>
                 <Image
                   className="w-full rounded-lg h-[250px] object-cover"
@@ -352,13 +349,11 @@ const HowItWorks = () => {
                     3
                   </span>
                   <h3 className="text-3xl font-medium tracking-tighter">
-                    Assign Rides to your drivers.
+                    {t("howItWorks.steps.step3.title")}
                   </h3>
                 </div>
                 <p className="text-lg">
-                  You can upload all your rides directly through the app using a
-                  dedicated form, or you can use our template to upload them all
-                  at once.
+                  {t("howItWorks.steps.step3.description")}
                 </p>
                 <Image
                   className="w-full rounded-lg h-[250px] object-cover"
@@ -376,17 +371,15 @@ const HowItWorks = () => {
               <div className="flex flex-col md:flex-row gap-32 w-full rounded-lg">
                 <div className="flex-1 flex flex-col gap-4 justify-center">
                   <h3 className="text-3xl font-medium tracking-tighter flex flex-row gap-4 items-center">
-                    Conclusion of the Ride{" "}
+                    {t("howItWorks.conclusion.ti  tle")}
                     <CircleCheckBig className="w-8 h-8 stroke-2" />
                   </h3>
                   <p className="text-lg">
-                    You can upload all your rides directly through the app using
-                    a dedicated form, or you can use our template to upload them
-                    all together.
+                    {t("howItWorks.conclusion.description")}
                   </p>
                   <Link href="#start" className="w-full">
                     <Button variant="secondary" className="">
-                      Join Waitlist
+                      {t("howItWorks.conclusion.button")}
                     </Button>
                   </Link>
                 </div>
@@ -394,13 +387,9 @@ const HowItWorks = () => {
                   <div className="flex flex-col gap-4 col-span-1 justify-start items-start">
                     <Badge className="text-green-500 border-green-500 flex flex-row gap-1 items-center pl-1">
                       <Check className="w-4 h-4 stroke- 1" />
-                      Completed
+                      {t("howItWorks.conclusion.status.completed")}
                     </Badge>
-                    <p>
-                      Once the driver uploads the signed voucher, the service
-                      status automatically updates to completed. Easily confirm
-                      the successful completion of your rides in real time.
-                    </p>
+                    <p>{t("howItWorks.conclusion.status.textCompleted")}</p>
                     <div
                       className="w-full rounded-lg h-[250px]"
                       style={{
@@ -412,13 +401,9 @@ const HowItWorks = () => {
                   <div className="flex flex-col gap-4 col-span-1 justify-start items-start">
                     <Badge className="text-orange-500 border-orange-500 flex flex-row gap-1 items-center pl-1">
                       <X className="w-4 h-4 stroke-1" />
-                      No Show
+                      {t("howItWorks.conclusion.status.noShow")}
                     </Badge>
-                    <p>
-                      If a customer doesn’t show up, the driver can take a photo
-                      as proof. The integrated No-Show System automatically logs
-                      evidence, updating the service status accordingly.
-                    </p>
+                    <p>{t("howItWorks.conclusion.status.textCancelled")}</p>
                     <div
                       className="w-full rounded-lg h-[250px]"
                       style={{
@@ -438,6 +423,7 @@ const HowItWorks = () => {
 };
 
 const DriverApp = () => {
+  const t = useTranslations("HomePage");
   return (
     <Section id="driver-app">
       <Container>
@@ -445,7 +431,7 @@ const DriverApp = () => {
           <Badge>Driver App</Badge>
           <Balancer className="text-center">
             <SplitText
-              text="Dedicated app to manage rides perfectly."
+              text={t("driverApp.title")}
               className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
               delay={50}
               animationFrom={{
@@ -462,20 +448,18 @@ const DriverApp = () => {
           <div className="col-span-12 md:col-span-3 flex flex-col gap-8 md:gap-[250px] w-full">
             <div className="flex flex-col gap-4 justify-center items-center md:justify-end md:items-end mt-28">
               <h3 className="text-xl  font-medium tracking-tighter">
-                Daily Rides View
+                {t("driverApp.features.feature1.title")}
               </h3>
               <p className="text-center md:text-right">
-                Add your drivers—this automatically creates accounts for them,
-                allowing them to receive and manage assigned rides.
+                {t("driverApp.features.feature1.description")}
               </p>
             </div>
             <div className="flex flex-col gap-4 justify-center items-center md:justify-end md:items-end">
               <h3 className="text-xl font-medium tracking-tighter">
-                Live Flight Status
+                {t("driverApp.features.feature2.title")}
               </h3>
               <p className="text-center md:text-right">
-                Manage your rides, assign and verify the status of your rides
-                from a single platform.
+                {t("driverApp.features.feature2.description")}
               </p>
             </div>
           </div>
@@ -491,19 +475,18 @@ const DriverApp = () => {
           <div className="col-span-12 md:col-span-3 flex flex-col gap-8 md:gap-[250px] justify-start md:justify-end">
             <div className="flex flex-col gap-4 mt-36">
               <h3 className="text-xl font-medium tracking-tighter text-center md:text-left">
-                Advanced ride status management
+                {t("driverApp.features.feature3.title")}
               </h3>
               <p className="text-center md:text-left ">
-                Manage your rides, assign and verify the status of your rides
-                from a single platform.
+                {t("driverApp.features.feature3.description")}
               </p>
             </div>
             <div className="flex flex-col gap-4 ">
               <h3 className="text-xl font-medium tracking-tighter text-center md:text-left">
-                Integrated Proof No-Show system
+                {t("driverApp.features.feature4.title")}
               </h3>
               <p className="text-center md:text-left">
-                Manage your rides, assign and verify the status of your rides
+                {t("driverApp.features.feature4.description")}
                 from a single platform.
               </p>
             </div>
@@ -515,6 +498,7 @@ const DriverApp = () => {
 };
 
 const Pricing = () => {
+  const t = useTranslations("HomePage");
   const featuresList = [
     "Add single Service or Bulk system",
     "Swap Rides with other suppliers",
@@ -540,10 +524,10 @@ const Pricing = () => {
     >
       <Container>
         <div className="flex flex-col gap-4 mx-auto max-w-3xl justify-center items-center ">
-          <Badge>Pricing</Badge>
+          <Badge>{t("pricing.badge")}</Badge>
           <Balancer className="text-center">
             <SplitText
-              text="Simple and transparent. A single subscription for your business."
+              text={t("pricing.title")}
               className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
               delay={50}
               animationFrom={{
@@ -567,22 +551,20 @@ const Pricing = () => {
               </h3>
               <span className="">by month</span>
             </div>
-            <span className="font-semibold">
-              All features included. No hidden fees.
-            </span>
+            <span className="font-semibold">{t("pricing.description2")}</span>
             <ul className="flex flex-col  divide-y divide-gray-200">
-              {featuresList.map((feature) => (
+              {featuresList.map((feature: string, index: number) => (
                 <li
                   key={feature}
                   className="flex flex-row gap-2 items-center py-2"
                 >
                   <Check className="w-4 h-4 stroke-1" />
-                  {feature}
+                  {t(`pricing.features.feature${index + 1}`)}
                 </li>
               ))}
             </ul>
             <Link href="#start" className="w-full">
-              <Button className="mt-4 w-full">Join Waitlist</Button>
+              <Button className="mt-4 w-full">{t("pricing.button")}</Button>
             </Link>
           </div>
         </div>
@@ -592,14 +574,15 @@ const Pricing = () => {
 };
 
 const ComingSoon = () => {
+  const t = useTranslations("HomePage");
   return (
     <Section className="bg-foreground text-white !mt-0" id="coming-soon">
       <Container>
         <div className="flex flex-col gap-6 justify-start items-start">
-          <Badge variant="secondary">Coming Soon</Badge>
+          <Badge variant="secondary">{t("comingSoon.badge")}</Badge>
           <Balancer className="max-w-2xl">
             <SplitText
-              text="We are working hard to make it better."
+              text={t("comingSoon.title")}
               className="text-4xl md:text-5xl font-semibold tracking-tighter w-full"
               delay={50}
               animationFrom={{
@@ -618,14 +601,9 @@ const ComingSoon = () => {
             >
               <TrendingUpDown className="w-8 h-8 stroke-1" />
               <h3 className="text-xl font-semibold tracking-tighter flex flex-row gap-2 items-center">
-                Live Tracking
+                {t("comingSoon.box1.title")}
               </h3>
-              <p className="text-sm">
-                Keep an eye on every ride in real time, receiving instant
-                location updates, status notifications, and performance
-                analytics. Ensure timely pickups, proactive adjustments, and
-                superior customer experiences.
-              </p>
+              <p className="text-sm">{t("comingSoon.box1.description")}</p>
             </SpotlightCard>
 
             <SpotlightCard
@@ -634,14 +612,9 @@ const ComingSoon = () => {
             >
               <Store className="w-8 h-8 stroke-1" />
               <h3 className="text-xl font-semibold tracking-tighter flex flex-row gap-2 items-center">
-                Marketplace
+                {t("comingSoon.box2.title")}
               </h3>
-              <p className="text-sm">
-                Easily publish your available rides on the marketplace to
-                facilitate quick trading among providers. Optimize fleet
-                utilization, monetize unused rides, and efficiently match demand
-                with available resources.
-              </p>
+              <p className="text-sm">{t("comingSoon.box2.description")}</p>
             </SpotlightCard>
             <SpotlightCard
               className="custom-spotlight-card flex flex-col text-white rounded-lg gap-4 p-6"
@@ -649,34 +622,15 @@ const ComingSoon = () => {
             >
               <Bot className="w-8 h-8 stroke-1" />
               <h3 className="text-xl font-semibold tracking-tighter flex flex-row gap-2 items-center">
-                AI Integration
+                {t("comingSoon.box3.title")}
               </h3>
-              <p className="text-sm">
-                Harness the power of artificial intelligence to fully automate
-                daily ride assignments to drivers, instantly reassign trips if a
-                driver cancels or misses a service, and optimize schedules
-                dynamically—saving time, reducing manual effort, and maximizing
-                operational efficiency.
-              </p>
+              <p className="text-sm">{t("comingSoon.box3.description")}</p>
             </SpotlightCard>
           </div>
           <div className="flex flex-col gap-6 w-full max-w-xl mx-auto mt-12">
-            <p className="text-2xl">
-              With over 8 years of experience in the limo service industry, I
-              recognized the need for a technological solution that could
-              streamline and automate the complexities of managing my daily
-              operations. Unable to find an existing platform specifically
-              tailored to the unique demands of this business, I decided to
-              create an advanced, practical, and user-friendly tool.
-            </p>
-            <p className="text-2xl">
-              The result is a specialized platform designed by limo service
-              professionals for limo service professionals, built to simplify
-              day-to-day management, enhance operational efficiency, and deliver
-              exceptional client experiences. Today, I am proud to offer this
-              solution to any company seeking to elevate their limousine rides,
-              automate workflows, reduce errors, and maximize profitability.
-            </p>
+            <p className="text-2xl">{t("testimonial.text1")}</p>
+            <p className="text-2xl">{t("testimonial.text2")}</p>
+
             <div className="flex flex-row gap-4 items-center">
               <Image
                 src={"/emanuele.png"}
@@ -687,9 +641,9 @@ const ComingSoon = () => {
               />
               <div className="flex flex-col gap-0">
                 <span className="text-lg font-semibold">
-                  Emanuele Campanari
+                  {t("testimonial.name")}
                 </span>
-                <span className="text-sm">CEO & Founder</span>
+                <span className="text-sm">{t("testimonial.position")}</span>
               </div>
             </div>
           </div>
