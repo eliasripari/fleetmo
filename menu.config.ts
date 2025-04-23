@@ -1,10 +1,10 @@
 // Define the menu items
 export const mainMenu = {
   introduction: "#introduction",
-  "How It Works": "#how-it-works",
-  "Driver App": "#driver-app",
-  Pricing: "#pricing",
-  "Coming Soon": "#coming-soon",
+  howItWorks: "#how-it-works",
+  driverApp: "#driver-app",
+  pricing: "#pricing",
+  comingSoon: "#coming-soon",
 };
 
 export const contentMenu = {

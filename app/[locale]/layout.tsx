@@ -24,6 +24,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 const font = FontSans({
   subsets: ["latin"],
@@ -91,6 +92,7 @@ export default async function RootLayout({
 }
 
 const Nav = ({ className, children, id }: NavProps) => {
+  const t = useTranslations("Menu");
   return (
     <nav className={cn("sticky z-50 top-0 pt-4", className)} id={id}>
       <div
@@ -118,9 +120,7 @@ const Nav = ({ className, children, id }: NavProps) => {
           <div className="mx-2 hidden md:flex text-white">
             {Object.entries(mainMenu).map(([key, href]) => (
               <Button key={href} asChild variant="ghost" size="sm">
-                <Link href={href}>
-                  {key.charAt(0).toUpperCase() + key.slice(1)}
-                </Link>
+                <Link href={href}>{t(key)}</Link>
               </Button>
             ))}
           </div>
@@ -130,7 +130,7 @@ const Nav = ({ className, children, id }: NavProps) => {
         </Button>
         <Link href="#introduction">
           <Button variant="outline" className="bg-foreground text-white">
-            Discover more
+            {t("discoverMore")}
           </Button>
         </Link>
         <MobileNav />

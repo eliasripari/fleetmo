@@ -1,4 +1,12 @@
 {
+  "Menu": {
+    "introduction": "Introduzione",
+    "howItWorks": "Come Funziona",
+    "driverApp": "App Autista",
+    "pricing": "Prezzi",
+    "comingSoon": "Prossimamente",
+    "discoverMore": "Scopri di più"
+  },
   "HomePage": {
     "titleHero": "Scopri il software per limousine più semplice e intuitivo al mondo.",
     "paragraphHero": "Fleetmo è il sistema di gestione più avanzato al mondo per il business delle limousine. Aggiungi, gestisci e assegna i tuoi servizi. Ricevi prenotazioni direttamente dai tuoi fornitori e distribuiscile ai collaboratori e all'app dedicata per i tuoi autisti.",
@@ -72,7 +80,7 @@
     },
     "driverApp": {
       "badge": "App Autista",
-      "title": "Fleetmo offre un'app dedicata per i tuoi autisti, permettendo loro di ricevere e gestire facilmente le prenotazioni assegnate. È facile da usare e si integra perfettamente con i tuoi sistemi esistenti.",
+      "title": "App dedicata per gestire i servizi perfettamente.",
       "features": {
         "feature1": {
           "title": "Vista Giornaliera dei Servizi",

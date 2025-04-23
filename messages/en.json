@@ -1,4 +1,12 @@
 {
+  "Menu": {
+    "introduction": "Introduction",
+    "howItWorks": "How It Works",
+    "driverApp": "Driver App",
+    "pricing": "Pricing",
+    "comingSoon": "Coming Soon",
+    "discoverMore": "Discover More"
+  },
   "HomePage": {
     "titleHero": "Discover the most simple and intuitive Limo Software in the world.",
     "paragraphHero": "Fleetmo is the most advanced management system for Limo Business in the world, add, manage and assign your rides. Receive directly from your providers and distribute them to your collaborators and dedicated app for your drivers.",
@@ -72,7 +80,7 @@
     },
     "driverApp": {
       "badge": "Driver App",
-      "title": "Fleetmo offers a dedicated app for your drivers, allowing them to easily receive and manage the bookings you assign. It's easy to use and integrates seamlessly with your existing systems.",
+      "title": "Dedicated app to manage rides perfectly.",
       "features": {
         "feature1": {
           "title": "Daily Rides View",
