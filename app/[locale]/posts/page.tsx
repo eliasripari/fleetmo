@@ -34,6 +34,7 @@ export const revalidate = 600;
 
 export default async function Page({
   searchParams,
+  params: { locale },
 }: {
   searchParams: Promise<{
     author?: string;
@@ -42,13 +43,14 @@ export default async function Page({
     page?: string;
     search?: string;
   }>;
+  params: { locale: string };
 }) {
   const params = await searchParams;
   const { author, tag, category, page: pageParam, search } = params;
 
   // Fetch data based on search parameters
   const [posts, authors, tags, categories] = await Promise.all([
-    getAllPosts({ author, tag, category, search }),
+    getAllPosts({ author, tag, category, search, lang: locale }),
     search ? searchAuthors(search) : getAllAuthors(),
     search ? searchTags(search) : getAllTags(),
     search ? searchCategories(search) : getAllCategories(),

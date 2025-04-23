@@ -145,5 +145,23 @@
       "name": "Emanuele Campanari",
       "position": "CEO & Founder of Fleetmo"
     }
+  },
+  "Blog": {
+    "categories": {
+      "all": "All Posts",
+      "news": "News",
+      "updates": "Updates",
+      "guides": "Guides"
+    },
+    "posts": {
+      "post1": {
+        "title": "Post Title",
+        "excerpt": "Post excerpt",
+        "content": "Post content",
+        "category": "news",
+        "date": "2024-04-23",
+        "slug": "post-title"
+      }
+    }
   }
 }

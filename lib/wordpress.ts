@@ -83,11 +83,16 @@ export async function getAllPosts(filterParams?: {
   tag?: string;
   category?: string;
   search?: string;
+  lang?: string;
 }): Promise<Post[]> {
   const query: Record<string, any> = {
     _embed: true,
     per_page: 100,
   };
+
+  if (filterParams?.lang) {
+    query.lang = filterParams.lang;
+  }
 
   if (filterParams?.search) {
     // Search in post content and title
@@ -98,7 +103,7 @@ export async function getAllPosts(filterParams?: {
       query.author = filterParams.author;
     }
     if (filterParams?.tag) {
-      query.tags = filterParams.tag;
+      query.tag = filterParams.tag;
     }
     if (filterParams?.category) {
       query.categories = filterParams.category;
@@ -109,14 +114,19 @@ export async function getAllPosts(filterParams?: {
       query.author = filterParams.author;
     }
     if (filterParams?.tag) {
-      query.tags = filterParams.tag;
+      query.tag = filterParams.tag;
     }
     if (filterParams?.category) {
       query.categories = filterParams.category;
     }
   }
 
-  const url = getUrl("/wp-json/wp/v2/posts", query);
+  const url = getUrl(
+    `/wp-json/wp/v2/posts${
+      filterParams?.lang ? `?lang=${filterParams.lang}` : ""
+    }`,
+    query
+  );
   return wordpressFetch<Post[]>(url, {
     next: {
       ...defaultFetchOptions.next,
@@ -137,16 +147,27 @@ export async function getPostById(id: number): Promise<Post> {
   return response;
 }
 
-export async function getPostBySlug(slug: string): Promise<Post> {
-  const url = getUrl("/wp-json/wp/v2/posts", { slug });
-  const response = await wordpressFetch<Post[]>(url, {
-    next: {
-      ...defaultFetchOptions.next,
-      tags: ["wordpress", `post-${slug}`],
-    },
-  });
+export async function getPostBySlug(
+  slug: string,
+  lang?: string
+): Promise<Post> {
+  const query: Record<string, any> = {
+    _embed: true,
+  };
 
-  return response[0];
+  if (lang) {
+    query.lang = lang;
+  }
+
+  const url = getUrl(`/wp-json/wp/v2/posts`, { ...query, slug });
+  console.log("Fetching post with URL:", url);
+  const posts = await wordpressFetch<Post[]>(url);
+
+  if (!posts || posts.length === 0) {
+    throw new WordPressAPIError("Post not found", 404, url);
+  }
+
+  return posts[0];
 }
 
 export async function getAllCategories(): Promise<Category[]> {

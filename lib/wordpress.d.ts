@@ -76,6 +76,9 @@ export interface Post extends WPEntity {
   categories: number[];
   tags: number[];
   meta: Record<string, unknown>;
+  translations?: {
+    [key: string]: number;
+  };
 }
 
 export interface Page extends WPEntity {

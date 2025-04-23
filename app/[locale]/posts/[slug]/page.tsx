@@ -18,6 +18,7 @@ import type { Metadata } from "next";
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
+  console.log(posts);
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -71,10 +72,12 @@ export async function generateMetadata({
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string; locale: string };
 }) {
-  const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const { slug, locale } = params;
+  console.log("Fetching post with slug:", slug, "and locale:", locale);
+  const post = await getPostBySlug(slug, locale);
+  console.log("Post data:", JSON.stringify(post, null, 2));
   const featuredMedia = post.featured_media
     ? await getFeaturedMediaById(post.featured_media)
     : null;
