@@ -185,8 +185,39 @@ export async function getPostBySlug(
     console.log("Posts response:", posts);
 
     if (!posts || posts.length === 0) {
-      console.error("No posts found for slug:", slug, "and lang:", lang);
-      throw new WordPressAPIError("Post not found", 404, url);
+      // If no post found in the requested language, try to find the original post
+      const originalUrl = getUrl(`/wp-json/wp/v2/posts`, {
+        _embed: true,
+        slug,
+      });
+      console.log("Trying to fetch original post with URL:", originalUrl);
+
+      const originalPosts = await wordpressFetch<Post[]>(originalUrl);
+      console.log("Original posts response:", originalPosts);
+
+      if (!originalPosts || originalPosts.length === 0) {
+        throw new WordPressAPIError("Post not found", 404, url);
+      }
+
+      const originalPost = originalPosts[0];
+
+      // If the original post has translations and we have a language, try to get the translation
+      if (
+        lang &&
+        originalPost.translations &&
+        originalPost.translations[lang]
+      ) {
+        const translationId = originalPost.translations[lang];
+        const translationUrl = getUrl(`/wp-json/wp/v2/posts/${translationId}`, {
+          _embed: true,
+        });
+        console.log("Fetching translation with URL:", translationUrl);
+
+        const translation = await wordpressFetch<Post>(translationUrl);
+        return translation;
+      }
+
+      return originalPost;
     }
 
     return posts[0];
