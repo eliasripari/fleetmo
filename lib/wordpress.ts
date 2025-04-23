@@ -55,25 +55,43 @@ async function wordpressFetch<T>(
   url: string,
   options: FetchOptions = {}
 ): Promise<T> {
-  const userAgent = "Next.js WordPress Client";
+  try {
+    const userAgent = "Next.js WordPress Client";
 
-  const response = await fetch(url, {
-    ...defaultFetchOptions,
-    ...options,
-    headers: {
-      "User-Agent": userAgent,
-    },
-  });
+    console.log("Making request to:", url);
+    const response = await fetch(url, {
+      ...defaultFetchOptions,
+      ...options,
+      headers: {
+        "User-Agent": userAgent,
+      },
+    });
 
-  if (!response.ok) {
+    console.log("Response status:", response.status);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("WordPress API error response:", errorText);
+      throw new WordPressAPIError(
+        `WordPress API request failed: ${response.statusText}`,
+        response.status,
+        url
+      );
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error in wordpressFetch:", error);
+    if (error instanceof WordPressAPIError) {
+      throw error;
+    }
     throw new WordPressAPIError(
-      `WordPress API request failed: ${response.statusText}`,
-      response.status,
+      `Failed to fetch from WordPress: ${error.message}`,
+      500,
       url
     );
   }
-
-  return response.json();
 }
 
 // WordPress Functions
@@ -151,23 +169,38 @@ export async function getPostBySlug(
   slug: string,
   lang?: string
 ): Promise<Post> {
-  const query: Record<string, any> = {
-    _embed: true,
-  };
+  try {
+    const query: Record<string, any> = {
+      _embed: true,
+    };
 
-  if (lang) {
-    query.lang = lang;
+    if (lang) {
+      query.lang = lang;
+    }
+
+    const url = getUrl(`/wp-json/wp/v2/posts`, { ...query, slug });
+    console.log("Fetching post with URL:", url);
+
+    const posts = await wordpressFetch<Post[]>(url);
+    console.log("Posts response:", posts);
+
+    if (!posts || posts.length === 0) {
+      console.error("No posts found for slug:", slug, "and lang:", lang);
+      throw new WordPressAPIError("Post not found", 404, url);
+    }
+
+    return posts[0];
+  } catch (error) {
+    console.error("Error in getPostBySlug:", error);
+    if (error instanceof WordPressAPIError) {
+      throw error;
+    }
+    throw new WordPressAPIError(
+      `Failed to fetch post: ${error.message}`,
+      500,
+      `posts?slug=${slug}`
+    );
   }
-
-  const url = getUrl(`/wp-json/wp/v2/posts`, { ...query, slug });
-  console.log("Fetching post with URL:", url);
-  const posts = await wordpressFetch<Post[]>(url);
-
-  if (!posts || posts.length === 0) {
-    throw new WordPressAPIError("Post not found", 404, url);
-  }
-
-  return posts[0];
 }
 
 export async function getAllCategories(): Promise<Category[]> {
