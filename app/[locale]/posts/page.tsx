@@ -79,7 +79,7 @@ export default async function Page({
   return (
     <Section>
       <Container>
-        <div className="space-y-8">
+        <div className="space-y-8 mb-20">
           <Prose>
             <h2>All Posts</h2>
             <p className="text-muted-foreground">

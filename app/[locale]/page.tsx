@@ -8,7 +8,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import React from "react";
 import { useTranslations } from "next-intl";
-
+import Aurora from "@/components/Aurora/Aurora";
 // Icons
 import {
   File,
@@ -108,10 +108,10 @@ const Content = () => {
   return (
     <main className="space-y-6 " id="start">
       <section
-        className="flex flex-col p-4 md:p-12 !pt-[300px] gap-8 bg-foreground text-white justify-center items-center -mt-[200px] "
+        className="flex flex-col p-4 md:p-12 !pt-[300px] gap-8 bg-foreground text-white justify-center items-center -mt-[200px] relative"
         id="hero"
       >
-        <Balancer className="flex flex-col gap-4 text-center">
+        <Balancer className="flex flex-col gap-4 text-center z-10">
           <SplitText
             text={t("titleHero")}
             className="text-4xl md:text-6xl font-semibold max-w-4xl mx-auto tracking-tight text-center"
@@ -135,13 +135,13 @@ const Content = () => {
           delay={200}
         >
           <Balancer>
-            <p className="text-center text-lg max-w-4xl mx-auto">
+            <p className="text-center text-lg max-w-4xl mx-auto z-10">
               {t("paragraphHero")}
             </p>
           </Balancer>
         </AnimatedContent>
 
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-4 z-20">
           {/* <AnimatedContent
             distance={50}
             direction="vertical"
@@ -195,7 +195,16 @@ const Content = () => {
           alt="Fleetmo"
           width={1200}
           height={1000}
+          className="z-10"
         />
+        <div className="absolute bottom-0 left-0 w-full h-full rotate-180 z-0">
+          <Aurora
+            colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+            blend={3.5}
+            amplitude={1}
+            speed={0.5}
+          />
+        </div>
       </section>
 
       <section id="introduction">
