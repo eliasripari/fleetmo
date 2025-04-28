@@ -1,8 +1,5 @@
-"use client";
-
 // Dynamic imports
 import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
 
 // Lazy loaded components
 const SplitText = dynamic(() => import("@/components/SplitText"), {
@@ -68,19 +65,6 @@ export default function Home() {
 
 const Content = () => {
   const t = useTranslations("HomePage");
-  const [showAurora, setShowAurora] = useState(false);
-
-  useEffect(() => {
-    if ("requestIdleCallback" in window) {
-      requestIdleCallback(() => {
-        setShowAurora(true);
-      });
-    } else {
-      // Fallback per browser vecchi
-      setTimeout(() => setShowAurora(true), 200);
-    }
-  }, []);
-
   const features = [
     {
       title: "Upload or Add Your Rides",
@@ -187,16 +171,14 @@ const Content = () => {
           priority
         />
 
-        {showAurora && (
-          <div className="absolute bottom-0 left-0 w-full h-full rotate-180 z-0">
-            <Aurora
-              colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
-              blend={3.5}
-              amplitude={1}
-              speed={0.5}
-            />
-          </div>
-        )}
+        {/* <div className="absolute bottom-0 left-0 w-full h-full rotate-180 z-0">
+          <Aurora
+            colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+            blend={3.5}
+            amplitude={1}
+            speed={0.5}
+          />
+        </div> */}
       </section>
 
       <section id="introduction">
