@@ -171,14 +171,14 @@ const Content = () => {
           priority
         />
 
-        <div className="absolute bottom-0 left-0 w-full h-full rotate-180 z-0">
+        {/* <div className="absolute bottom-0 left-0 w-full h-full rotate-180 z-0">
           <Aurora
             colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
             blend={3.5}
             amplitude={1}
             speed={0.5}
           />
-        </div>
+        </div> */}
       </section>
 
       <section id="introduction">
