@@ -1,47 +1,60 @@
+// Dynamic imports
+import dynamic from "next/dynamic";
+
+// Lazy loaded components
+const SplitText = dynamic(() => import("@/components/SplitText"), {
+  ssr: false,
+});
+const AnimatedContent = dynamic(
+  () => import("@/components/AnimatedContent/AnimatedContent"),
+  { ssr: false }
+);
+const AnimatedLine = dynamic(() => import("@/components/svg/lineArrrowLeft"), {
+  ssr: false,
+});
+const Aurora = dynamic(() => import("@/components/Aurora/Aurora"), {
+  ssr: false,
+});
+const SpotlightCard = dynamic(
+  () => import("@/components/SpotlightCard/SpotlightCard"),
+  { ssr: false }
+);
+const JoinWaitlist = dynamic(() => import("@/components/joinWaitlist"), {
+  ssr: false,
+});
+
 // Craft Imports
 import { Section, Container, Prose } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+
 // Next.js Imports
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import React from "react";
 import { useTranslations } from "next-intl";
-import Aurora from "@/components/Aurora/Aurora";
+
 // Icons
 import {
-  File,
-  Pen,
-  Tag,
-  Diamond,
-  User,
-  Folder,
-  Sparkles,
-  Check,
-  X,
-  TrendingUpDown,
-  Store,
-  Bot,
   Upload,
   PlaneTakeoff,
-  PlaneLanding,
   ArrowRightLeft,
   TicketSlash,
   Airplay,
   CircleDotDashedIcon,
   UserRoundX,
   CircleCheckBig,
+  TrendingUpDown,
+  Store,
+  Bot,
+  Check,
+  X,
 } from "lucide-react";
+
 import { WordPressIcon } from "@/components/icons/wordpress";
 import { NextJsIcon } from "@/components/icons/nextjs";
-import AnimatedLine from "@/components/svg/lineArrrowLeft";
-import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
-import SplitText from "@/components/SplitText";
-import AnimatedContent from "@/components/AnimatedContent/AnimatedContent";
-import JoinWaitlist from "@/components/joinWaitlist";
 
-// This page is using the craft.tsx component and design system
 export default function Home() {
   return (
     <Section>
@@ -50,63 +63,55 @@ export default function Home() {
   );
 }
 
-// This is just some example TSX
 const Content = () => {
   const t = useTranslations("HomePage");
   const features = [
     {
       title: "Upload or Add Your Rides",
       badge: "Upload",
-      description:
-        "Easily upload multiple bookings at once or manually add individual rides directly from your smartphone or tablet. Manage your schedule effortlessly and keep your operations running smoothly.",
+      description: "Easily upload multiple bookings...",
       icon: Upload,
     },
     {
       title: "Real-Time Flight Status Verification",
       badge: "Flight Status",
-      description:
-        "Instantly access live flight information, including delays, early arrivals, or cancellations. Stay informed and proactively manage your transportation rides to offer a reliable customer experience.",
+      description: "Instantly access live flight information...",
       icon: PlaneTakeoff,
     },
     {
       title: "Exchange Rides with Other Suppliers",
       badge: "Exchange",
-      description:
-        "Conveniently exchange, transfer, or share bookings with your network of trusted partner suppliers. Optimize your capacity, reduce downtime, and enhance collaboration within your business ecosystem.",
+      description: "Conveniently exchange bookings...",
       icon: ArrowRightLeft,
     },
-
     {
       title: "Manage Vouchers and No-Shows",
       badge: "Vouchers",
-      description:
-        "Efficiently handle vouchers, cancellations, amendments, and no-shows directly from the application. Streamline your administrative tasks, reduce paperwork, and ensure accurate records for easy reporting.",
+      description: "Efficiently handle vouchers...",
       icon: TicketSlash,
     },
     {
       title: "Dedicated App for Your Drivers",
       badge: "Driver App",
-      description:
-        "Efficiently handle vouchers, cancellations, amendments, and no-shows directly from the application. Streamline your administrative tasks, reduce paperwork, and ensure accurate records for easy reporting.",
+      description: "Efficiently handle vouchers...",
       icon: Airplay,
     },
     {
       title: "Real-Time Ride Status Tracking",
       badge: "Tracking",
-      description:
-        "Gain complete visibility of your rides through continuous real-time tracking. Monitor service progress, anticipate delays, and respond quickly to any situation to guarantee exceptional service reliability.",
+      description: "Gain complete visibility of your rides...",
       icon: CircleDotDashedIcon,
     },
     {
       title: "No-Show System",
       badge: "No-Show",
-      description:
-        "If a customer doesn't show up, the driver can take a photo as proof. Our integrated No-Show System automatically captures and records the exact GPS coordinates, date, and time directly on the photo, updating the service status accordingly.",
+      description: "If a customer doesn't show up...",
       icon: UserRoundX,
     },
   ];
+
   return (
-    <main className="space-y-6 " id="start">
+    <main className="space-y-6" id="start">
       <section
         className="flex flex-col p-4 md:p-12 !pt-[300px] gap-8 bg-foreground text-white justify-center items-center -mt-[200px] relative"
         id="hero"
@@ -142,40 +147,6 @@ const Content = () => {
         </AnimatedContent>
 
         <div className="flex justify-center gap-4 z-20">
-          {/* <AnimatedContent
-            distance={50}
-            direction="vertical"
-            reverse={false}
-            config={{ tension: 80, friction: 20 }}
-            initialOpacity={0}
-            animateOpacity
-            scale={1}
-            threshold={0.5}
-            delay={300}
-          >
-            <Link href="#introduction">
-              <Button variant="outline" className="bg-foreground">
-                Discover more
-              </Button>
-            </Link>
-          </AnimatedContent>
-          <AnimatedContent
-            distance={50}
-            direction="vertical"
-            reverse={false}
-            config={{ tension: 80, friction: 20 }}
-            initialOpacity={0}
-            animateOpacity
-            scale={1}
-            threshold={0.5}
-            delay={400}
-          >
-            <Link href="https://my.fleetmo.app" className="w-full">
-              <Button variant="secondary" className="w-full">
-                Get Started
-              </Button>
-            </Link>
-          </AnimatedContent> */}
           <AnimatedContent
             distance={50}
             direction="vertical"
@@ -190,13 +161,16 @@ const Content = () => {
             <JoinWaitlist />
           </AnimatedContent>
         </div>
+
         <Image
-          src={"/hero-intro.png"}
+          src="/hero-intro.png"
           alt="Fleetmo"
           width={1200}
           height={1000}
           className="z-10"
+          priority
         />
+
         <div className="absolute bottom-0 left-0 w-full h-full rotate-180 z-0">
           <Aurora
             colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
@@ -380,7 +354,7 @@ const HowItWorks = () => {
               <div className="flex flex-col md:flex-row gap-32 w-full rounded-lg">
                 <div className="flex-1 flex flex-col gap-4 justify-center">
                   <h3 className="text-3xl font-medium tracking-tighter flex flex-row gap-4 items-center">
-                    {t("howItWorks.conclusion.ti  tle")}
+                    {t("howItWorks.conclusion.title")}
                     <CircleCheckBig className="w-8 h-8 stroke-2" />
                   </h3>
                   <p className="text-lg">
