@@ -9,19 +9,19 @@ export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const pages = await getAllPages();
-
   return pages.map((page) => ({
     slug: page.slug,
+    locale: page.lang || "en",
   }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string; locale: string };
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const page = await getPageBySlug(slug);
+  const { slug, locale } = params;
+  const page = await getPageBySlug(slug, locale);
 
   if (!page) {
     return {};
@@ -67,10 +67,10 @@ export async function generateMetadata({
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string; locale: string };
 }) {
-  const { slug } = await params;
-  const page = await getPageBySlug(slug);
+  const { slug, locale } = params;
+  const page = await getPageBySlug(slug, locale);
 
   return (
     <Section>

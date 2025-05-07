@@ -366,16 +366,53 @@ export async function getPageById(id: number): Promise<Page> {
   return response;
 }
 
-export async function getPageBySlug(slug: string): Promise<Page> {
-  const url = getUrl("/wp-json/wp/v2/pages", { slug });
-  const response = await wordpressFetch<Page[]>(url, {
-    next: {
-      ...defaultFetchOptions.next,
-      tags: ["wordpress", `page-${slug}`],
-    },
-  });
+export async function getPageBySlug(
+  slug: string,
+  lang?: string
+): Promise<Page> {
+  try {
+    const query: Record<string, any> = { _embed: true };
+    if (lang) query.lang = lang;
 
-  return response[0];
+    const url = getUrl(`/wp-json/wp/v2/pages`, { ...query, slug });
+    const pages = await wordpressFetch<Page[]>(url);
+
+    if (!pages || pages.length === 0) {
+      // Fallback: cerca la pagina originale
+      const originalUrl = getUrl(`/wp-json/wp/v2/pages`, {
+        _embed: true,
+        slug,
+      });
+      const originalPages = await wordpressFetch<Page[]>(originalUrl);
+
+      if (!originalPages || originalPages.length === 0) {
+        throw new WordPressAPIError("Page not found", 404, url);
+      }
+
+      const originalPage = originalPages[0];
+      // Se la pagina originale ha traduzioni, cerca la traduzione
+      if (
+        lang &&
+        originalPage.translations &&
+        originalPage.translations[lang]
+      ) {
+        const translationId = originalPage.translations[lang];
+        const translationUrl = getUrl(`/wp-json/wp/v2/pages/${translationId}`, {
+          _embed: true,
+        });
+        const translation = await wordpressFetch<Page>(translationUrl);
+        return translation;
+      }
+      return originalPage;
+    }
+    return pages[0];
+  } catch (error: any) {
+    throw new WordPressAPIError(
+      `Failed to fetch page: ${error?.message || "Unknown error"}`,
+      500,
+      `pages?slug=${slug}`
+    );
+  }
 }
 
 export async function getAllAuthors(): Promise<Author[]> {
