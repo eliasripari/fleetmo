@@ -109,3 +109,7 @@ pre {
     /* Firefox */
   }
 }
+
+h2.wp-block-heading {
+  @apply text-2xl !font-bold my-5;
+}
