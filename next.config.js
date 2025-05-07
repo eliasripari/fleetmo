@@ -14,6 +14,15 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      // Questa regola fa sì che /it/pages/chi-siamo punti a /it/chi-siamo
+      {
+        source: "/:locale/pages/:slug",
+        destination: "/:locale/:slug",
+      },
+    ];
+  },
 };
 
 module.exports = withNextIntl(nextConfig);
