@@ -43,14 +43,10 @@ export const DriverAppSection = () => {
       src: "/mobileApp6.png",
       alt: "Fleetmo Driver App - Screen 6",
     },
-    {
-      src: "/mobileApp7.png",
-      alt: "Fleetmo Driver App - Screen 7",
-    },
   ];
 
   return (
-    <Section id="driver-app" className="!py-20">
+    <Section id="driver-app" className="!py-20 ">
       <Container>
         <div className="flex flex-col gap-4 mx-auto max-w-2xl justify-center items-center ">
           <Badge>{t("driverApp.badge")}</Badge>
