@@ -1,53 +1,91 @@
 {
   "Menu": {
+    "home": "Home",
     "introduction": "Introduzione",
     "howItWorks": "Come Funziona",
     "driverApp": "App Autista",
     "pricing": "Prezzi",
     "comingSoon": "Prossimamente",
+    "providers": "Provider",
+    "suppliers": "Fornitori",
+    "blog": "Blog",
     "discoverMore": "Scopri di più",
-    "areYouProvider": "Sei un provider?"
+    "areYouProvider": "Sei un provider?",
+    "joinWaitlist": "Iscriviti alla lista d'attesa",
+    "brand": {
+      "name": "FleetMo",
+      "description": "Piattaforma completa di gestione flotte per aziende di trasporto"
+    },
+    "descriptions": {
+      "introduction": "Scopri le funzionalità principali di FleetMo",
+      "howItWorks": "Impara a gestire la tua flotta in 4 semplici passaggi",
+      "howitworks": "Impara a gestire la tua flotta in 4 semplici passaggi",
+      "driverApp": "App mobile dedicata per i tuoi autisti",
+      "driverapp": "App mobile dedicata per i tuoi autisti",
+      "pricing": "Piani tariffari semplici e trasparenti",
+      "comingSoon": "Funzionalità e miglioramenti in arrivo",
+      "comingsoon": "Funzionalità e miglioramenti in arrivo"
+    }
   },
   "HomePage": {
     "titleHero": "Scopri il software per limousine più semplice e intuitivo al mondo.",
     "paragraphHero": "Fleetmo è il sistema di gestione più avanzato al mondo per il business delle limousine. Aggiungi, gestisci e assegna i tuoi servizi. Ricevi prenotazioni direttamente dai tuoi fornitori e distribuiscile ai collaboratori e all'app dedicata per i tuoi autisti.",
+    "announcement": {
+      "badge": "Fleetmo è in versione Beta!",
+      "text": "Sarà disponibile presto"
+    },
     "introduction": "Introduzione",
     "introductionTitle": "Ricevi, gestisci, assegna e monitora lo stato dei tuoi servizi — tutto da un'unica piattaforma.",
     "features": {
       "feature1": {
-        "title": "Carica o Aggiungi i tuoi Servizi",
+        "title": "Gestione dei Servizi",
         "description": "Carica facilmente più prenotazioni in una volta sola o aggiungi manualmente singoli servizi direttamente dal tuo smartphone o tablet. Gestisci il tuo programma senza sforzo e mantieni le operazioni sempre attive.",
         "badge": "Carica"
       },
       "feature2": {
-        "title": "Verifica Stato Volo in Tempo Reale",
-        "description": "Accedi istantaneamente alle informazioni sui voli in tempo reale, inclusi ritardi, arrivi anticipati o cancellazioni. Rimani aggiornato e gestisci in modo proattivo i servizi di trasporto per offrire un’esperienza affidabile ai clienti.",
+        "title": "Stato dei voli",
+        "description": "Accedi istantaneamente alle informazioni sui voli in tempo reale, inclusi ritardi, arrivi anticipati o cancellazioni. Rimani aggiornato e gestisci in modo proattivo i servizi di trasporto per offrire un'esperienza affidabile ai clienti.",
         "badge": "Stato Volo"
       },
       "feature3": {
-        "title": "Scambia Servizi con Altri Fornitori",
+        "title": "Scambia i servizi",
         "description": "Scambia, trasferisci o condividi facilmente prenotazioni con la tua rete di fornitori partner fidati. Ottimizza la capacità, riduci i tempi morti e migliora la collaborazione nel tuo ecosistema aziendale.",
         "badge": "Scambio"
       },
       "feature4": {
-        "title": "Gestisci Voucher e No-Show",
-        "description": "Gestisci in modo efficiente voucher, cancellazioni, modifiche e no-show direttamente dall’app. Semplifica i compiti amministrativi, riduci la burocrazia e garantisci registrazioni precise per report accurati.",
+        "title": "Voucher e No-Show",
+        "description": "Gestisci in modo efficiente voucher, cancellazioni, modifiche e no-show direttamente dall'app. Semplifica i compiti amministrativi, riduci la burocrazia e garantisci registrazioni precise per report accurati.",
         "badge": "Voucher"
       },
       "feature5": {
-        "title": "App Dedicata per i tuoi Autisti",
-        "description": "Gestisci in modo efficiente voucher, cancellazioni, modifiche e no-show direttamente dall’app. Semplifica i compiti amministrativi, riduci la burocrazia e garantisci registrazioni precise per report accurati.",
+        "title": "Driver App",
+        "description": "Gestisci in modo efficiente voucher, cancellazioni, modifiche e no-show direttamente dall'app. Semplifica i compiti amministrativi, riduci la burocrazia e garantisci registrazioni precise per report accurati.",
         "badge": "App Autista"
       },
       "feature6": {
-        "title": "Tracciamento in Tempo Reale dello Stato del Servizio",
-        "description": "Ottieni visibilità completa dei tuoi servizi grazie al tracciamento continuo in tempo reale. Monitora l’avanzamento, anticipa i ritardi e rispondi rapidamente a ogni situazione per garantire un servizio eccezionale.",
+        "title": "Tracciamento completo",
+        "description": "Ottieni visibilità completa dei tuoi servizi grazie al tracciamento continuo in tempo reale. Monitora l'avanzamento, anticipa i ritardi e rispondi rapidamente a ogni situazione per garantire un servizio eccezionale.",
         "badge": "Tracciamento"
       },
       "feature7": {
         "title": "Sistema No-Show",
-        "description": "Se un cliente non si presenta, l’autista può scattare una foto come prova. Il sistema No-Show integrato registra automaticamente coordinate GPS, data e ora sulla foto, aggiornando lo stato del servizio.",
+        "description": "Se un cliente non si presenta, l'autista può scattare una foto come prova. Il nostro Sistema No-Show integrato cattura e registra automaticamente le coordinate GPS esatte, data e ora direttamente sulla foto, aggiornando di conseguenza lo stato del servizio.",
         "badge": "No-Show"
+      },
+      "feature8": {
+        "title": "Sistema di Gestione Transazioni",
+        "description": "Tracciamento finanziario completo e gestione della fatturazione. Monitora i pagamenti, genera fatture, traccia i ricavi e gestisce le relazioni finanziarie con fornitori e autisti da una dashboard centralizzata.",
+        "badge": "Transazioni"
+      },
+      "feature9": {
+        "title": "Gestione Avanzata Driver",
+        "description": "Gestione completa del ciclo di vita dei driver inclusi analisi delle performance, tracciamento certificazioni, ottimizzazione programmazione e reportistica dettagliata. Semplifica l'onboarding, monitora l'efficienza e garantisce la conformità.",
+        "badge": "Gestione Driver"
+      },
+      "feature10": {
+        "title": "Assegnazione Intelligente AI",
+        "description": "Sistema di assegnazione servizi intelligente che abbina automaticamente le corse ai driver più adatti basandosi su posizione, disponibilità, storico performance e preferenze clienti usando algoritmi avanzati di machine learning.",
+        "badge": "AI Assegnazione"
       }
     },
     "howItWorks": {
@@ -64,7 +102,7 @@
         },
         "step3": {
           "title": "Assegna i servizi ai tuoi autisti",
-          "description": "Assegna i servizi singolarmente o in blocco ai tuoi autisti e monitora l’avanzamento e lo stato di ciascun servizio in tempo reale."
+          "description": "Assegna i servizi singolarmente o in blocco ai tuoi autisti e monitora l'avanzamento e lo stato di ciascun servizio in tempo reale."
         }
       },
       "conclusion": {
@@ -89,23 +127,39 @@
         },
         "feature2": {
           "title": "Stato Volo in Tempo Reale",
-          "description": "Gestisci i tuoi servizi, assegnali e verifica lo stato da un’unica piattaforma."
+          "description": "Gestisci i tuoi servizi, assegnali e verifica lo stato da un'unica piattaforma."
         },
         "feature3": {
           "title": "Gestione Avanzata dello Stato del Servizio",
-          "description": "Gestisci i tuoi servizi, assegnali e verifica lo stato da un’unica piattaforma."
+          "description": "Gestisci i tuoi servizi, assegnali e verifica lo stato da un'unica piattaforma."
         },
         "feature4": {
           "title": "Sistema No-Show Integrato",
-          "description": "Gestisci i tuoi servizi, assegnali e verifica lo stato da un’unica piattaforma."
+          "description": "Gestisci i tuoi servizi, assegnali e verifica lo stato da un'unica piattaforma."
         }
       }
     },
     "pricing": {
+      "badge": "Prezzi",
       "title": "Prezzi",
-      "description": "Semplice e trasparente. Un unico abbonamento per la tua attività.",
-      "description2": "Tutte le funzionalità incluse. Nessun costo nascosto.",
-      "button": "Iscriviti alla Lista d'Attesa",
+      "description": "Semplice e trasparente. Scegli il piano adatto alla tua attività.",
+      "plans": {
+        "standard": {
+          "name": "Standard",
+          "price": "$100",
+          "period": "al mese",
+          "description": "Perfetto per aziende di trasporto in crescita",
+          "button": "Iscriviti alla Lista d'Attesa"
+        },
+        "pro": {
+          "name": "Pro + AI",
+          "price": "$199",
+          "period": "al mese",
+          "description": "Gestione avanzata della flotta con intelligenza artificiale",
+          "button": "Iscriviti alla Lista d'Attesa",
+          "badge": "Più Popolare"
+        }
+      },
       "features": {
         "feature1": "Aggiunta singola o caricamento massivo dei servizi",
         "feature2": "Scambio servizi con altri fornitori",
@@ -122,6 +176,13 @@
         "feature13": "Dashboard riepilogativa con info giornaliere",
         "feature14": "Sistema di caricamento voucher",
         "feature15": "Sistema di caricamento No Show"
+      },
+      "aiFeatures": {
+        "feature1": "Ottimizzazione percorsi con IA",
+        "feature2": "Previsione intelligente della domanda",
+        "feature3": "Suggerimenti automatici sui prezzi",
+        "feature4": "Chatbot IA per assistenza clienti",
+        "feature5": "Avvisi predittivi di manutenzione"
       }
     },
     "comingSoon": {
@@ -137,14 +198,357 @@
       },
       "box3": {
         "title": "Integrazione con l'IA",
-        "description": "Sfrutta il potere dell'intelligenza artificiale per automatizzare completamente l’assegnazione quotidiana dei servizi agli autisti, riassegnare istantaneamente le corse in caso di cancellazioni e ottimizzare dinamicamente i programmi—risparmiando tempo, riducendo il lavoro manuale e massimizzando l’efficienza operativa."
+        "description": "Sfrutta il potere dell'intelligenza artificiale per automatizzare completamente l'assegnazione quotidiana dei servizi agli autisti, riassegnare istantaneamente le corse in caso di cancellazioni e ottimizzare dinamicamente i programmi—risparmiando tempo, riducendo il lavoro manuale e massimizzando l'efficienza operativa."
       }
     },
     "testimonial": {
       "text1": "Con oltre 8 anni di esperienza nel settore delle limousine, ho riconosciuto la necessità di una soluzione tecnologica che potesse semplificare e automatizzare le complessità della gestione operativa quotidiana. Non trovando una piattaforma esistente davvero adatta alle esigenze specifiche di questo settore, ho deciso di crearne una avanzata, pratica e intuitiva.",
-      "text2": "Il risultato è una piattaforma specializzata progettata da professionisti delle limousine per professionisti delle limousine, nata per semplificare la gestione quotidiana, migliorare l’efficienza operativa e offrire esperienze eccezionali ai clienti. Oggi sono orgoglioso di offrire questa soluzione a tutte le aziende che vogliono migliorare i propri servizi, automatizzare i flussi di lavoro, ridurre gli errori e aumentare la redditività.",
+      "text2": "Il risultato è una piattaforma specializzata progettata da professionisti delle limousine per professionisti delle limousine, nata per semplificare la gestione quotidiana, migliorare l'efficienza operativa e offrire esperienze eccezionali ai clienti. Oggi sono orgoglioso di offrire questa soluzione a tutte le aziende che vogliono migliorare i propri servizi, automatizzare i flussi di lavoro, ridurre gli errori e aumentare la redditività.",
       "name": "Emanuele Campanari",
       "position": "CEO & Founder di Fleetmo"
+    }
+  },
+  "SuppliersPage": {
+    "hero": {
+      "badge": "Network Partner",
+      "title": "Scala le operazioni della tua flotta con FleetMo",
+      "subtitle": "Unisciti alla rete FleetMo come partner operativo gestendo flotte locali e driver nella catena di assegnazione completa",
+      "primaryCta": "Diventa Supplier",
+      "secondaryCta": "Scopri di più"
+    },
+    "introduction": {
+      "badge": "Funzionalità Supplier",
+      "title": "Strumenti completi di gestione flotta per supplier",
+      "subtitle": "Accedi a funzionalità potenti progettate specificamente per operatori di flotta che coordinano driver ed eseguono servizi da provider partner",
+      "features": {
+        "feature1": {
+          "title": "Gestione Corse in Entrata",
+          "description": "Ricevi e gestisci corse assegnate dai provider partner con coda basata su priorità e controlli di accettazione",
+          "badge": "Coda Corse"
+        },
+        "feature2": {
+          "title": "Assegnazione Driver AI",
+          "description": "Sistema di assegnazione intelligente che considera orari di lavoro, disponibilità, matching veicoli e bilanciamento carichi",
+          "badge": "Prossimamente"
+        },
+        "feature3": {
+          "title": "Rete Catena Supplier",
+          "description": "Sub-appalta ad altri supplier partner attraverso il sistema friends con tracking completo della catena",
+          "badge": "Rete Catena"
+        },
+        "feature4": {
+          "title": "Gestione Flotta Driver",
+          "description": "Gestione completa profili driver con orari di lavoro, modelli di compensazione e tracking performance",
+          "badge": "Controllo Flotta"
+        },
+        "feature5": {
+          "title": "Tracking GPS Real-Time",
+          "description": "Tracking driver live con integrazione Mapbox e dashboard operativa per gestione emergenze",
+          "badge": "GPS Tracking"
+        },
+        "feature6": {
+          "title": "Gestione Commissioni",
+          "description": "Calcolo automatico commissioni con supporto per modelli di compensazione salary e commission-based",
+          "badge": "Commissioni"
+        }
+      }
+    },
+    "benefits": {
+      "badge": "Eccellenza Operativa",
+      "title": "Strumenti avanzati per supplier",
+      "subtitle": "Soluzioni complete per gestire i servizi ricevuti e ottimizzare le operazioni quotidiane con la massima precisione.",
+      "tools": {
+        "incoming": {
+          "title": "Servizi in Entrata",
+          "subtitle": "Gestione intuitiva dei servizi ricevuti dai provider.",
+          "description": "Ricevi, valuta e gestisci tutti i servizi assegnati dai provider. Accetta o rifiuta i servizi con semplicità, aggiorna i dettagli e coordina la coda incoming per massimizzare l'efficienza operativa della tua azienda.",
+          "badge": "Dashboard",
+          "joinWaitlist": "Iscriviti alla Lista d'Attesa"
+        },
+        "assignment": {
+          "title": "Assignment Driver",
+          "subtitle": "Assegna rapidamente i servizi ai driver manualmente o tramite AI intelligente.",
+          "description": "Utilizza la nostra interfaccia avanzata per assegnare i servizi ai tuoi driver in modo diretto o sfrutta gli algoritmi intelligenti (Piano Pro) per bilanciare automaticamente il carico, risolvere conflitti e ottimizzare l'uso della tua flotta.",
+          "badge": "Assegnazione",
+          "joinWaitlist": "Iscriviti alla Lista d'Attesa"
+        },
+        "fleet": {
+          "title": "Fleet Management",
+          "subtitle": "Controlla ogni aspetto della gestione dei tuoi driver e veicoli.",
+          "description": "Amministra i profili dei driver, le disponibilità, gli orari di lavoro e gestisci l'assegnazione dei veicoli. Utilizza strumenti avanzati per il monitoraggio delle performance, la gestione delle commissioni e il training continuo del tuo team.",
+          "badge": "Flotta",
+          "joinWaitlist": "Iscriviti alla Lista d'Attesa"
+        },
+        "dashboard": {
+          "title": "Dashboard Operativa",
+          "subtitle": "Visualizzazione live delle operazioni e del tracking GPS.",
+          "description": "Una vista centralizzata in tempo reale per monitorare i servizi attivi, la posizione dei driver e la gestione delle emergenze. Ottimizza il dispatch e garantisci una risposta immediata ad ogni necessità operativa.",
+          "badge": "Network",
+          "joinWaitlist": "Iscriviti alla Lista d'Attesa"
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "Come Funziona",
+      "title": "Il tuo percorso come supplier FleetMo",
+      "subtitle": "Dalla registrazione all'ottimizzazione della flotta, scopri come FleetMo trasforma le tue operazioni",
+      "steps": {
+        "step1": {
+          "title": "Entra nella Rete",
+          "description": "Registrati come partner supplier e connettiti con le aziende provider nella tua area operativa. Completa il profilo e i dettagli della flotta per iniziare a ricevere assegnazioni di corse."
+        },
+        "step2": {
+          "title": "Ricevi e Gestisci Corse",
+          "description": "Ottieni assegnazioni di corse dai provider partner attraverso la dashboard delle corse in entrata. Accetta, prioritizza e gestisci la coda con controllo completo sulla capacità operativa."
+        },
+        "step3": {
+          "title": "Assegna ai Driver",
+          "description": "Usa il nostro sistema di assegnazione intelligente per abbinare le corse ai tuoi driver. Sfrutta l'ottimizzazione AI o il controllo manuale per garantire il matching perfetto driver-servizio."
+        },
+        "step4": {
+          "title": "Traccia e Ottimizza",
+          "description": "Monitora il tracking GPS in tempo reale della tua flotta, gestisci modelli di compensazione e accedi ad analytics dettagliate per ottimizzare continuamente operazioni e redditività."
+        }
+      },
+      "conclusion": {
+        "title": "Conclusione del Servizio",
+        "description": "Puoi caricare tutti i tuoi servizi direttamente tramite l'app usando un modulo dedicato oppure utilizzare il nostro template per caricarli tutti insieme.",
+        "button": "Iscriviti alla Lista d'Attesa",
+        "status": {
+          "completed": "Completato",
+          "textCompleted": "Una volta che l'autista carica il voucher firmato, lo stato del servizio si aggiorna automaticamente come completato. Conferma facilmente in tempo reale l'avvenuta conclusione del servizio.",
+          "noShow": "No Show",
+          "textCancelled": "Se un cliente non si presenta, l'autista può scattare una foto come prova. Il sistema No-Show integrato registra automaticamente la prova, aggiornando lo stato del servizio di conseguenza."
+        }
+      }
+    },
+    "pricing": {
+      "badge": "Piani Supplier",
+      "title": "Scegli il tuo piano supplier",
+      "subtitle": "Due piani completi progettati specificamente per operazioni supplier con tutti gli strumenti necessari",
+      "plans": {
+        "standard": {
+          "name": "Standard",
+          "price": "€49",
+          "period": "al mese",
+          "description": "Toolkit supplier completo per gestione flotta",
+          "button": "Iscriviti alla Lista d'Attesa",
+          "features": [
+            "Gestione corse in entrata",
+            "Assegnazione driver manuale",
+            "Gestione flotta base",
+            "Tracking commissioni",
+            "Dashboard tracking GPS",
+            "Accesso network provider",
+            "Catena supplier-to-supplier",
+            "Gestione orari lavoro",
+            "Analytics performance",
+            "Supporto email"
+          ]
+        },
+        "pro": {
+          "name": "Pro + AI",
+          "price": "€99",
+          "period": "al mese",
+          "description": "Ottimizzazione flotta avanzata con AI",
+          "button": "Iscriviti alla Lista d'Attesa",
+          "badge": "Più Popolare",
+          "features": [
+            "Tutto del piano Standard",
+            "Assegnazione driver AI",
+            "Bilanciamento carichi intelligente",
+            "Rilevamento conflitti avanzato",
+            "Algoritmi di ottimizzazione",
+            "Matching tipo veicolo",
+            "Ottimizzazione buffer time",
+            "Dashboard analytics avanzata",
+            "Supporto prioritario",
+            "Accesso API"
+          ]
+        }
+      }
+    },
+    "cta": {
+      "title": "Pronto a far crescere il tuo business?",
+      "subtitle": "Unisciti a migliaia di supplier che hanno già scelto FleetMo per espandere la loro attività",
+      "primaryButton": "Iscriviti alla Lista d'Attesa",
+      "secondaryButton": "Scopri di Più"
+    }
+  },
+  "WaitlistModal": {
+    "title": "Iscriviti alla Lista d'Attesa",
+    "description": "Sii il primo a sapere quando FleetMo sarà lanciato e ottieni accesso esclusivo in anteprima alla nostra piattaforma.",
+    "form": {
+      "emailLabel": "Indirizzo Email",
+      "emailPlaceholder": "Inserisci il tuo indirizzo email",
+      "cancel": "Annulla",
+      "joinWaitlist": "Iscriviti alla Lista d'Attesa",
+      "subscribing": "Iscrizione..."
+    },
+    "success": {
+      "title": "Benvenuto nella Lista d'Attesa!",
+      "autoClose": "Questa finestra si chiuderà automaticamente tra pochi secondi."
+    }
+  },
+  "ProvidersPage": {
+    "hero": {
+      "badge": "Per Aziende di Trasporto",
+      "title": "Guida la rivoluzione del fleet management",
+      "subtitle": "Coordina l'intera operazione di trasporto con la piattaforma avanzata di FleetMo. Gestisci clienti, fornitori e autisti da un'unica dashboard con tracking real-time e ottimizzazione AI.",
+      "cta": "Iscriviti alla Lista d'Attesa",
+      "secondary": "Scopri di Più"
+    },
+    "introduction": {
+      "badge": "Funzionalità Provider",
+      "title": "Piattaforma di coordinamento completa",
+      "subtitle": "Tutto ciò di cui hai bisogno per gestire la tua azienda di trasporti in modo efficiente e scalare le operazioni con fiducia.",
+      "features": {
+        "clients": {
+          "title": "Gestione Clienti",
+          "description": "Ricevi e gestisci le richieste dei clienti con creazione servizi completa, gestione calendario e caricamento massivo tramite CSV.",
+          "badge": "Clienti"
+        },
+        "coordination": {
+          "title": "Coordinamento Servizi",
+          "description": "Orchestra l'intera catena di servizio dalla richiesta del cliente alla consegna con tracking completo e audit trail di tutte le operazioni.",
+          "badge": "Coordinamento"
+        },
+        "network": {
+          "title": "Rete Fornitori",
+          "description": "Gestisci la tua rete di partner con strumenti per relazioni business, richieste di partnership e monitoraggio performance.",
+          "badge": "Network"
+        },
+        "tracking": {
+          "title": "Monitoraggio Flotta",
+          "description": "Dashboard GPS real-time con integrazione Mapbox per visibilità completa della flotta e tracking live delle posizioni autisti.",
+          "badge": "Tracking"
+        },
+        "analytics": {
+          "title": "Business Intelligence",
+          "description": "Analytics avanzate con metriche operative, tracking ROI, report performance fornitori e analisi trend per crescita strategica.",
+          "badge": "Analytics"
+        },
+        "ai": {
+          "title": "Ottimizzazione AI",
+          "description": "Algoritmi intelligenti per assegnazione automatica servizi, ottimizzazione percorsi e analytics predittive per massima efficienza.",
+          "badge": "AI Pro"
+        }
+      }
+    },
+    "benefits": {
+      "badge": "Strumenti Gestione",
+      "title": "Strumenti professionali per provider",
+      "subtitle": "Interfacce dedicate per gestire ogni aspetto della tua azienda di trasporti con massima efficienza.",
+      "tools": {
+        "assignment": {
+          "title": "Modal Assegnazione",
+          "subtitle": "Interfaccia dedicata per assegnazione servizi massiva o singola ai partner fornitori con negoziazione prezzi e gestione budget.",
+          "description": "La Modal Assegnazione ti permette di assegnare rapidamente i servizi, sia singolarmente che in modalità multipla, ai supplier partner. Grazie a una chiara interfaccia puoi definire budget, negoziare i prezzi e monitorare l'intera catena di assegnazione con semplicità.",
+          "badge": "Assegnazione",
+          "joinWaitlist": "Iscriviti alla Lista d'Attesa"
+        },
+        "dashboard": {
+          "title": "Dashboard Provider",
+          "subtitle": "Tutte le operazioni sotto controllo in tempo reale.",
+          "description": "Accedi a metriche operative e analytics avanzate in una dashboard centralizzata, monitorando performance, status dei servizi attivi e andamento della rete fornitori. Identifica rapidamente criticità e opportunità per ottimizzare i processi e incrementare il profitto.",
+          "badge": "Dashboard",
+          "joinWaitlist": "Iscriviti alla Lista d'Attesa"
+        },
+        "network": {
+          "title": "Rete Fornitori",
+          "subtitle": "Gestisci e amplia facilmente la tua rete di supplier partner.",
+          "description": "Un'interfaccia intuitiva per la gestione della tua rete di fornitori: invia richieste di collaborazione, monitora le performance e ottimizza la tua copertura geografica. Espandi il tuo network strategicamente per garantire il massimo livello di servizio ai clienti.",
+          "badge": "Network",
+          "joinWaitlist": "Iscriviti alla Lista d'Attesa"
+        },
+        "tracking": {
+          "title": "Tracking Live",
+          "subtitle": "Monitoraggio della flotta in tempo reale con tracking GPS avanzato.",
+          "description": "Controlla la posizione esatta di ogni veicolo della flotta in tempo reale grazie all'integrazione con Mapbox. Gestisci le emergenze, monitora lo stato dei servizi attivi e consulta lo storico dei percorsi per un controllo operativo completo e affidabile.",
+          "badge": "Tracking",
+          "joinWaitlist": "Iscriviti alla Lista d'Attesa"
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "Workflow Provider",
+      "title": "Come operano i provider",
+      "subtitle": "Dalla richiesta del cliente al completamento del servizio, gestisci l'intera operazione con massima efficienza e trasparenza.",
+      "steps": {
+        "create": {
+          "title": "Creazione Servizi",
+          "description": "Ricevi richieste clienti e crea servizi completi con tutti i dettagli inclusi pickup, dropoff, passeggeri e informazioni volo.",
+          "status": "Acquisizione",
+          "tool": "Service Manager"
+        },
+        "assign": {
+          "title": "Assegnazione Fornitori",
+          "description": "Assegna servizi alla tua rete di partner fornitori con negoziazione prezzi, impostazione budget e tracking catena completo.",
+          "status": "Assegnazione",
+          "tool": "Modal Assegnazione"
+        },
+        "monitor": {
+          "title": "Monitoraggio Operazioni",
+          "description": "Monitora l'esecuzione servizi in tempo reale con tracking GPS, aggiornamenti status e comunicazione diretta con il campo.",
+          "status": "Attivo",
+          "tool": "Dashboard Live"
+        }
+      },
+      "conclusion": {
+        "title": "Conclusione del Servizio",
+        "description": "Puoi caricare tutti i tuoi servizi direttamente tramite l'app usando un modulo dedicato oppure utilizzare il nostro template per caricarli tutti insieme.",
+        "button": "Iscriviti alla Lista d'Attesa",
+        "status": {
+          "completed": "Completato",
+          "textCompleted": "Una volta che l'autista carica il voucher firmato, lo stato del servizio si aggiorna automaticamente come completato. Conferma facilmente in tempo reale l'avvenuta conclusione del servizio.",
+          "noShow": "No Show",
+          "textCancelled": "Se un cliente non si presenta, l'autista può scattare una foto come prova. Il sistema No-Show integrato registra automaticamente la prova, aggiornando lo stato del servizio di conseguenza."
+        }
+      }
+    },
+    "pricing": {
+      "badge": "Piani Provider",
+      "title": "Scegli il tuo piano provider",
+      "subtitle": "Piani flessibili progettati per aziende di trasporto di tutte le dimensioni, dalle startup alle grandi imprese.",
+      "plans": {
+        "standard": {
+          "name": "Standard",
+          "description": "Perfetto per aziende di trasporto in crescita",
+          "price": "Gratuito",
+          "period": "per sempre",
+          "cta": "Iscriviti alla Lista d'Attesa",
+          "features": [
+            "Gestione clienti illimitata",
+            "Strumenti rete fornitori",
+            "Tracking GPS real-time",
+            "Dashboard provider",
+            "Supporto email"
+          ]
+        },
+        "pro": {
+          "name": "Pro + AI",
+          "description": "Funzionalità avanzate con ottimizzazione AI",
+          "price": "Prossimamente",
+          "period": "",
+          "cta": "Iscriviti alla Lista d'Attesa",
+          "popularLabel": "Prossimamente",
+          "features": [
+            "Tutte le funzionalità Standard",
+            "Ottimizzazione AI",
+            "Analytics business avanzate",
+            "Strumenti automazione",
+            "Supporto prioritario"
+          ]
+        }
+      },
+      "guarantee": "Garanzia rimborso 14 giorni",
+      "note": "Tutti i piani includono connessioni fornitori e assegnazioni autisti illimitate."
+    },
+    "cta": {
+      "title": "Pronto a rivoluzionare la tua azienda di trasporti?",
+      "subtitle": "Unisciti a centinaia di aziende di trasporto che hanno già scelto FleetMo per ottimizzare le operazioni e scalare il business.",
+      "primary": "Iscriviti alla Lista d'Attesa",
+      "secondary": "Scopri di Più"
     }
   }
 }

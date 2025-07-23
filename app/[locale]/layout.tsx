@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Button } from "@/components/ui/button";
-import { MobileNav } from "@/components/nav/mobile-nav";
+import { Nav as MegaNav } from "@/components/nav/mega-nav";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
-import { mainMenu, footerMenu } from "@/menu.config";
+import { footerMenu } from "@/menu.config";
 import { Section, Container } from "@/components/craft";
 import { Analytics } from "@vercel/analytics/react";
 import { siteConfig } from "@/site.config";
@@ -26,6 +26,7 @@ import { hasLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
+import { WaitlistProvider } from "@/components/WaitlistProvider";
 const font = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -65,6 +66,9 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  // Import messages for the locale
+  const messages = (await import(`../../messages/${locale}.json`)).default;
   return (
     <html lang={locale} suppressHydrationWarning>
       <head />
@@ -81,8 +85,12 @@ export default async function RootLayout({
           enableSystem={true}
           disableTransitionOnChange
         >
-          <Nav />
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider messages={messages}>
+            <WaitlistProvider>
+              <MegaNav />
+              {children}
+            </WaitlistProvider>
+          </NextIntlClientProvider>
           <Footer />
         </ThemeProvider>
         <Analytics />
@@ -91,73 +99,13 @@ export default async function RootLayout({
   );
 }
 
-const Nav = ({ className, children, id }: NavProps) => {
-  const t = useTranslations("Menu");
-  return (
-    <nav className={cn("sticky z-50 top-0 pt-4", className)} id={id}>
-      <div
-        id="nav-container"
-        className="w-[calc(100%-2rem)] grid grid-cols-[1fr_auto_1fr] mx-auto py-4 px-4 sm:px-6 flex justify-between items-center bg-foreground rounded-xl"
-      >
-        <Link
-          className="hover:opacity-75 transition-all flex gap-4 items-center relative"
-          href="/"
-        >
-          <div className="relative">
-            <Image
-              src={Logo}
-              alt="Logo"
-              loading="eager"
-              className="dark:invert"
-              width={200}
-              height={26.44}
-            ></Image>
-            <h2 className="text-[10px] text-white border-[1px] rounded-full px-1 py-0.2 absolute -top-2 -right-10">
-              Beta
-            </h2>
-          </div>
-        </Link>
-        {children}
-        <div className="flex items-center gap-2 ">
-          <div className="mx-2 hidden md:flex text-white">
-            {Object.entries(mainMenu).map(([key, href]) => (
-              <Button key={href} asChild variant="ghost" size="sm">
-                <Link href={href}>{t(key)}</Link>
-              </Button>
-            ))}
-          </div>
-        </div>
-        <Button asChild className="hidden" variant="secondary">
-          <Link href="https://my.fleetmo.app">Get Started</Link>
-        </Button>
-        <div className="flex items-center gap-2 justify-end">
-          <Link href="#introduction">
-            <Button variant="outline" className="bg-foreground text-white">
-              {t("discoverMore")}
-            </Button>
-          </Link>
-          <Link href="" className="relative">
-            <Button
-              disabled
-              className="bg-white text-foreground hover:bg-white/80 relative"
-            >
-              {t("areYouProvider")}
-            </Button>
-          </Link>
-        </div>
-        <MobileNav />
-      </div>
-    </nav>
-  );
-};
-
 const Footer = () => {
   return (
     <footer>
-      <Section className="bg-foreground !-mt-12 border-t border-white/10  !p-0 !bg-black">
+      <Section className="bg-foreground !-mt-12 border-t border-white/10  !p-0 bg-black">
         <div className="w-full min-h-[200px]">
           <Aurora
-            colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+            colorStops={["#41CF8F", "#22C55E", "#10B981"]}
             blend={3.5}
             amplitude={1}
             speed={0.5}

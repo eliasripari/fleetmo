@@ -1,16 +1,39 @@
 {
   "Menu": {
+    "home": "Home",
     "introduction": "Introduction",
     "howItWorks": "How It Works",
     "driverApp": "Driver App",
     "pricing": "Pricing",
     "comingSoon": "Coming Soon",
-    "discoverMore": "Discover More",
-    "areYouProvider": "Are you a provider?"
+    "providers": "Providers",
+    "suppliers": "Suppliers",
+    "blog": "Blog",
+    "discoverMore": "For Suppliers",
+    "areYouProvider": "For Providers",
+    "joinWaitlist": "Join the waitlist",
+    "brand": {
+      "name": "FleetMo",
+      "description": "Complete fleet management platform for transport companies"
+    },
+    "descriptions": {
+      "introduction": "Discover FleetMo's core features and capabilities",
+      "howItWorks": "Learn how to manage your fleet in 4 simple steps",
+      "howitworks": "Learn how to manage your fleet in 4 simple steps",
+      "driverApp": "Dedicated mobile app for your drivers",
+      "driverapp": "Dedicated mobile app for your drivers",
+      "pricing": "Simple and transparent pricing plans",
+      "comingSoon": "Upcoming features and improvements",
+      "comingsoon": "Upcoming features and improvements"
+    }
   },
   "HomePage": {
     "titleHero": "Discover the most simple and intuitive Limo Software in the world.",
     "paragraphHero": "Fleetmo is the most advanced management system for Limo Business in the world, add, manage and assign your rides. Receive directly from your providers and distribute them to your collaborators and dedicated app for your drivers.",
+    "announcement": {
+      "badge": "Fleetmo is in Beta version!",
+      "text": "Will be available soon"
+    },
     "introduction": "Introduzione",
     "introductionTitle": "Receive, manage, assign, and monitor the status of your rides—all from a single platform.",
     "features": {
@@ -48,6 +71,21 @@
         "title": "No-Show System",
         "description": "If a customer doesn't show up, the driver can take a photo as proof. Our integrated No-Show System automatically captures and records the exact GPS coordinates, date, and time directly on the photo, updating the service status accordingly.",
         "badge": "No-Show"
+      },
+      "feature8": {
+        "title": "Transaction Management System",
+        "description": "Comprehensive financial tracking and billing management. Monitor payments, generate invoices, track revenue, and manage financial relationships with suppliers and drivers from a centralized dashboard.",
+        "badge": "Transactions"
+      },
+      "feature9": {
+        "title": "Advanced Driver Management",
+        "description": "Complete driver lifecycle management including performance analytics, certification tracking, scheduling optimization, and detailed reporting. Streamline onboarding, monitor driver efficiency, and ensure compliance.",
+        "badge": "Driver Management"
+      },
+      "feature10": {
+        "title": "AI-Powered Smart Assignment",
+        "description": "Intelligent service assignment system that automatically matches rides to the most suitable drivers based on location, availability, performance history, and customer preferences using advanced machine learning algorithms.",
+        "badge": "Coming Soon"
       }
     },
     "howItWorks": {
@@ -102,10 +140,26 @@
       }
     },
     "pricing": {
+      "badge": "Pricing",
       "title": "Pricing",
-      "description": "Simple and transparent. A single subscription for your business.",
-      "description2": "All features included. No hidden fees.",
-      "button": "Join Waitlist",
+      "description": "Simple and transparent. Choose the plan that fits your business.",
+      "plans": {
+        "standard": {
+          "name": "Standard",
+          "price": "$100",
+          "period": "per month",
+          "description": "Perfect for growing transport businesses",
+          "button": "Join Waitlist"
+        },
+        "pro": {
+          "name": "Pro + AI",
+          "price": "$199",
+          "period": "per month",
+          "description": "Advanced AI-powered fleet management",
+          "button": "Join Waitlist",
+          "badge": "Most Popular"
+        }
+      },
       "features": {
         "feature1": "Add single Service or Bulk system",
         "feature2": "Swap Rides with other suppliers",
@@ -122,6 +176,13 @@
         "feature13": "Summary dashboard with daily info",
         "feature14": "Upload Voucher system",
         "feature15": "Upload No Show system"
+      },
+      "aiFeatures": {
+        "feature1": "AI-powered route optimization",
+        "feature2": "Smart demand prediction",
+        "feature3": "Automated pricing suggestions",
+        "feature4": "AI customer service chatbot",
+        "feature5": "Predictive maintenance alerts"
       }
     },
     "comingSoon": {
@@ -147,6 +208,188 @@
       "position": "CEO & Founder of Fleetmo"
     }
   },
+  "SuppliersPage": {
+    "hero": {
+      "badge": "Partner Network",
+      "title": "Scale your fleet operations with FleetMo",
+      "subtitle": "Join the FleetMo supplier network as an operational partner managing local fleets and drivers in the comprehensive assignment chain",
+      "primaryCta": "Become a Supplier",
+      "secondaryCta": "Learn More"
+    },
+    "introduction": {
+      "badge": "Supplier Features",
+      "title": "Complete fleet management tools for suppliers",
+      "subtitle": "Access powerful features designed specifically for fleet operators who coordinate drivers and execute services from provider partners",
+      "features": {
+        "feature1": {
+          "title": "Incoming Rides Management",
+          "description": "Receive and manage rides assigned by provider partners with priority-based queue and acceptance controls",
+          "badge": "Rides Queue"
+        },
+        "feature2": {
+          "title": "AI Driver Assignment",
+          "description": "Intelligent assignment system considering working hours, availability, vehicle matching and workload balancing",
+          "badge": "Coming Soon"
+        },
+        "feature3": {
+          "title": "Supplier Chain Network",
+          "description": "Sub-contract to other supplier partners through the friends system with full chain tracking",
+          "badge": "Chain Network"
+        },
+        "feature4": {
+          "title": "Driver Fleet Management",
+          "description": "Complete driver profile management with working hours, compensation models and performance tracking",
+          "badge": "Fleet Control"
+        },
+        "feature5": {
+          "title": "Real-Time GPS Tracking",
+          "description": "Live driver tracking with Mapbox integration and operational dashboard for emergency management",
+          "badge": "GPS Tracking"
+        },
+        "feature6": {
+          "title": "Commission Management",
+          "description": "Automatic commission calculation with support for salary and commission-based compensation models",
+          "badge": "Commission"
+        }
+      }
+    },
+    "benefits": {
+      "badge": "Operational Excellence",
+      "title": "Advanced Tools for Suppliers",
+      "subtitle": "Comprehensive solutions to manage assigned services and optimize daily operations with maximum precision.",
+      "tools": {
+        "incoming": {
+          "title": "Incoming Services",
+          "subtitle": "Intuitive management of services assigned by providers.",
+          "description": "Receive, evaluate, and manage all services assigned by providers. Easily accept or reject services, update service details, and efficiently coordinate your incoming queue to maximize your company's operational efficiency.",
+          "badge": "Dashboard",
+          "joinWaitlist": "Join Waitlist"
+        },
+        "assignment": {
+          "title": "Driver Assignment",
+          "subtitle": "Quickly assign services to drivers manually or using intelligent AI automation.",
+          "description": "Use our advanced interface to directly assign services to your drivers or leverage intelligent algorithms (Pro Plan) to automatically balance workloads, resolve conflicts, and optimize fleet utilization.",
+          "badge": "Assignment",
+          "joinWaitlist": "Join Waitlist"
+        },
+        "fleet": {
+          "title": "Fleet Management",
+          "subtitle": "Comprehensive control of your driver and vehicle management.",
+          "description": "Administer driver profiles, manage availability and working hours, and coordinate vehicle assignments. Utilize advanced tools for performance monitoring, commission management, and continuous team training.",
+          "badge": "Fleet",
+          "joinWaitlist": "Join Waitlist"
+        },
+        "dashboard": {
+          "title": "Operational Dashboard",
+          "subtitle": "Real-time visualization of operations and GPS tracking.",
+          "description": "A centralized, real-time view to monitor active services, track driver positions, and manage emergencies. Optimize dispatch processes and ensure an immediate response to operational needs.",
+          "badge": "Network",
+          "joinWaitlist": "Join Waitlist"
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "How It Works",
+      "title": "Your journey as a FleetMo supplier",
+      "subtitle": "From registration to fleet optimization, discover how FleetMo transforms your operations",
+      "steps": {
+        "step1": {
+          "title": "Join the Network",
+          "description": "Register as a supplier partner and connect with provider companies in your operational area. Complete your profile and fleet details to start receiving ride assignments."
+        },
+        "step2": {
+          "title": "Receive & Manage Rides",
+          "description": "Get ride assignments from provider partners through our incoming rides dashboard. Accept, prioritize and manage your queue with full control over your operational capacity."
+        },
+        "step3": {
+          "title": "Assign to Drivers",
+          "description": "Use our intelligent assignment system to match rides with your drivers. Leverage AI optimization or manual control to ensure perfect driver-service matching."
+        },
+        "step4": {
+          "title": "Track & Optimize",
+          "description": "Monitor real-time GPS tracking of your fleet, manage compensation models, and access detailed analytics to continuously optimize your operations and profitability."
+        }
+      },
+      "conclusion": {
+        "title": "Conclusion of the Ride",
+        "description": "You can upload all your rides directly through the app using a dedicated form, or you can use our template to upload them all together.",
+        "button": "Join Waitlist",
+        "status": {
+          "completed": "Completed",
+          "textCompleted": "Once the driver uploads the signed voucher, the service status automatically updates to completed. Easily confirm the successful completion of your rides in real time.",
+          "noShow": "No Show",
+          "textCancelled": "If a customer doesn't show up, the driver can take a photo as proof. The integrated No-Show System automatically logs evidence, updating the service status accordingly."
+        }
+      }
+    },
+    "pricing": {
+      "badge": "Supplier Plans",
+      "title": "Choose your supplier plan",
+      "subtitle": "Two comprehensive plans designed specifically for supplier operations with all the tools you need",
+      "plans": {
+        "standard": {
+          "name": "Standard",
+          "price": "€49",
+          "period": "per month",
+          "description": "Complete supplier toolkit for fleet management",
+          "button": "Join Waitlist",
+          "features": [
+            "Incoming rides management",
+            "Manual driver assignment",
+            "Basic fleet management",
+            "Commission tracking",
+            "GPS tracking dashboard",
+            "Provider network access",
+            "Supplier-to-supplier chain",
+            "Working hours management",
+            "Performance analytics",
+            "Email support"
+          ]
+        },
+        "pro": {
+          "name": "Pro + AI",
+          "price": "€99",
+          "period": "per month",
+          "description": "Advanced AI-powered fleet optimization",
+          "button": "Join Waitlist",
+          "badge": "Most Popular",
+          "features": [
+            "Everything in Standard plan",
+            "AI-powered driver assignment",
+            "Intelligent workload balancing",
+            "Advanced conflict detection",
+            "Optimization algorithms",
+            "Vehicle type matching",
+            "Buffer time optimization",
+            "Advanced analytics dashboard",
+            "Priority support",
+            "API access"
+          ]
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to grow your business?",
+      "subtitle": "Join thousands of suppliers who have already chosen FleetMo to expand their business",
+      "primaryButton": "Join Waitlist",
+      "secondaryButton": "Learn More"
+    }
+  },
+  "WaitlistModal": {
+    "title": "Join the Waitlist",
+    "description": "Be the first to know when FleetMo launches and get exclusive early access to our platform.",
+    "form": {
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "cancel": "Cancel",
+      "joinWaitlist": "Join Waitlist",
+      "subscribing": "Subscribing..."
+    },
+    "success": {
+      "title": "Welcome to the Waitlist!",
+      "autoClose": "This window will close automatically in a few seconds."
+    }
+  },
   "Blog": {
     "categories": {
       "all": "All Posts",
@@ -163,6 +406,167 @@
         "date": "2024-04-23",
         "slug": "post-title"
       }
+    }
+  },
+  "ProvidersPage": {
+    "hero": {
+      "badge": "For Transport Companies",
+      "title": "Lead the fleet management revolution",
+      "subtitle": "Coordinate your entire transport operation with FleetMo's advanced platform. Manage clients, suppliers, and drivers from a single dashboard with real-time tracking and AI-powered optimization.",
+      "cta": "Join Waitlist",
+      "secondary": "View Demo"
+    },
+    "introduction": {
+      "badge": "Provider Features",
+      "title": "Complete coordination platform",
+      "subtitle": "Everything you need to manage your transport business efficiently and scale your operations with confidence.",
+      "features": {
+        "clients": {
+          "title": "Client Management",
+          "description": "Receive and manage client requests with complete service creation, calendar management, and bulk upload capabilities via CSV.",
+          "badge": "Clients"
+        },
+        "coordination": {
+          "title": "Service Coordination",
+          "description": "Orchestrate the entire service chain from client request to delivery with full tracking and audit trail of all operations.",
+          "badge": "Coordination"
+        },
+        "network": {
+          "title": "Supplier Network",
+          "description": "Manage your partner network with business relationship tools, partnership requests, and performance monitoring.",
+          "badge": "Network"
+        },
+        "tracking": {
+          "title": "Fleet Monitoring",
+          "description": "Real-time GPS dashboard with Mapbox integration for complete fleet visibility and live driver position tracking.",
+          "badge": "Tracking"
+        },
+        "analytics": {
+          "title": "Business Intelligence",
+          "description": "Advanced analytics with operational metrics, ROI tracking, supplier performance reports, and trend analysis for strategic growth.",
+          "badge": "Analytics"
+        },
+        "ai": {
+          "title": "AI-Powered Optimization",
+          "description": "Intelligent algorithms for automatic service assignment, route optimization, and predictive analytics for maximum efficiency.",
+          "badge": "AI Pro"
+        }
+      }
+    },
+    "benefits": {
+      "badge": "Management Tools",
+      "title": "Professional Tools for Providers",
+      "subtitle": "Dedicated interfaces to efficiently manage every aspect of your transportation business.",
+      "tools": {
+        "assignment": {
+          "title": "Assignment Modal",
+          "subtitle": "Dedicated interface for bulk or individual assignment of services to supplier partners with price negotiation and budget management.",
+          "description": "The Assignment Modal allows you to quickly assign services—individually or in bulk—to your supplier partners. With a clear interface, you can define budgets, negotiate prices, and effortlessly track the entire assignment chain.",
+          "badge": "Assignment",
+          "joinWaitlist": "Join the waitlist"
+        },
+        "dashboard": {
+          "title": "Provider Dashboard",
+          "subtitle": "All your operations under real-time control.",
+          "description": "Access operational metrics and advanced analytics from a centralized dashboard. Monitor performance, track the status of active services, and analyze your supplier network's efficiency. Quickly identify critical issues and opportunities to streamline processes and improve profitability.",
+          "badge": "Dashboard",
+          "joinWaitlist": "Join the waitlist"
+        },
+        "network": {
+          "title": "Supplier Network",
+          "subtitle": "Easily manage and expand your supplier partnership network.",
+          "description": "An intuitive interface for managing your supplier network: send collaboration requests, monitor partner performance, and optimize geographic coverage. Strategically expand your network to ensure the highest service quality for your customers.",
+          "badge": "Network",
+          "joinWaitlist": "Join the waitlist"
+        },
+        "tracking": {
+          "title": "Live Tracking",
+          "subtitle": "Real-time fleet monitoring with advanced GPS tracking.",
+          "description": "Monitor the exact position of every vehicle in your fleet in real time, thanks to Mapbox integration. Handle emergencies, keep track of active services, and consult historical routes for complete and reliable operational control.",
+          "badge": "Tracking",
+          "joinWaitlist": "Join the waitlist"
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "Provider Workflow",
+      "title": "How providers operate",
+      "subtitle": "From client request to service completion, manage your entire operation with maximum efficiency and transparency.",
+      "steps": {
+        "create": {
+          "title": "Service Creation",
+          "description": "Receive client requests and create complete services with all details including pickup, dropoff, passengers, and flight information.",
+          "status": "Intake",
+          "tool": "Service Manager"
+        },
+        "assign": {
+          "title": "Supplier Assignment",
+          "description": "Assign services to your supplier partner network with price negotiation, budget setting, and complete chain tracking.",
+          "status": "Assignment",
+          "tool": "Assignment Modal"
+        },
+        "monitor": {
+          "title": "Operation Monitoring",
+          "description": "Monitor service execution in real-time with GPS tracking, status updates, and direct communication with the field.",
+          "status": "Active",
+          "tool": "Live Dashboard"
+        }
+      },
+      "conclusion": {
+        "title": "Conclusion of the Ride",
+        "description": "You can upload all your rides directly through the app using a dedicated form, or you can use our template to upload them all together.",
+        "button": "Join Waitlist",
+        "status": {
+          "completed": "Completed",
+          "textCompleted": "Once the driver uploads the signed voucher, the service status automatically updates to completed. Easily confirm the successful completion of your rides in real time.",
+          "noShow": "No Show",
+          "textCancelled": "If a customer doesn't show up, the driver can take a photo as proof. The integrated No-Show System automatically logs evidence, updating the service status accordingly."
+        }
+      }
+    },
+    "pricing": {
+      "badge": "Provider Plans",
+      "title": "Choose your provider plan",
+      "subtitle": "Flexible plans designed for transport companies of all sizes, from startups to large enterprises.",
+      "plans": {
+        "standard": {
+          "name": "Standard",
+          "description": "Perfect for growing transport companies",
+          "price": "Free",
+          "period": "forever",
+          "cta": "Join Waitlist",
+          "features": [
+            "Unlimited client management",
+            "Supplier network tools",
+            "Real-time GPS tracking",
+            "Provider dashboard",
+            "Email support"
+          ]
+        },
+        "pro": {
+          "name": "Pro + AI",
+          "description": "Advanced features with AI optimization",
+          "price": "Coming Soon",
+          "period": "",
+          "cta": "Join Waitlist",
+          "popularLabel": "Coming Soon",
+          "features": [
+            "All Standard features",
+            "AI-powered optimization",
+            "Advanced business analytics",
+            "Automation tools",
+            "Priority support"
+          ]
+        }
+      },
+      "guarantee": "14-day money-back guarantee",
+      "note": "All plans include unlimited supplier connections and driver assignments."
+    },
+    "cta": {
+      "title": "Ready to revolutionize your transport business?",
+      "subtitle": "Join hundreds of transport companies that have already chosen FleetMo to optimize their operations and scale their business.",
+      "primary": "Join Waitlist",
+      "secondary": "Learn More"
     }
   }
 }

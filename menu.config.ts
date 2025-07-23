@@ -1,4 +1,30 @@
-// Define the menu items
+// Define the mega menu structure
+export const megaMenu = {
+  home: {
+    label: "Home",
+    submenu: {
+      introduction: { href: "/#introduction", label: "introduction" },
+      howItWorks: { href: "/#how-it-works", label: "howItWorks" },
+      driverApp: { href: "/#driver-app", label: "driverApp" },
+      pricing: { href: "/#pricing", label: "pricing" },
+      comingSoon: { href: "/#coming-soon", label: "comingSoon" },
+    },
+  },
+  providers: {
+    label: "Providers",
+    href: "/providers",
+  },
+  suppliers: {
+    label: "Suppliers",
+    href: "/suppliers",
+  },
+  blog: {
+    label: "Blog",
+    href: "/posts",
+  },
+};
+
+// Legacy menu items for backwards compatibility
 export const mainMenu = {
   introduction: "#introduction",
   howItWorks: "#how-it-works",

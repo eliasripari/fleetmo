@@ -49,12 +49,13 @@ const WaitlistForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
           disabled={status === "loading"}
-          className="w-[300px] px-4 py-1 bg-[#1A1A1A] border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2"
+          className="w-[300px] px-4 py-1 bg-foreground border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2"
         />
-        <button
+        <Button
           type="submit"
+          variant="green"
           disabled={status === "loading"}
-          className="w-full py-2 px-4 bg-black border border-gray-700 text-white font-medium rounded-md transition-colors disabled:opacity-50 !mt-0"
+          className="w-full !mt-0"
         >
           {status === "loading" ? (
             <ShinyText
@@ -71,7 +72,7 @@ const WaitlistForm = () => {
               className="custom-class"
             />
           )}
-        </button>
+        </Button>
       </div>
       {status === "success" && (
         <p className="text-green-500 text-sm">{message}</p>
