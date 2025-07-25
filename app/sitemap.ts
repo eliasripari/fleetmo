@@ -39,13 +39,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             : page === "/providers" || page === "/suppliers"
             ? 0.9
             : 0.5,
-        alternates: {
-          languages: locales.reduce((acc, loc) => {
-            const altPath = loc === defaultLocale ? page : `/${loc}${page}`;
-            acc[loc] = `${siteConfig.site_domain}${altPath}`;
-            return acc;
-          }, {} as Record<string, string>),
-        },
       });
     });
   });
@@ -65,16 +58,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: new Date(post.modified),
         changeFrequency: "monthly",
         priority: 0.6,
-        alternates: {
-          languages: locales.reduce((acc, loc) => {
-            const altPath =
-              loc === defaultLocale
-                ? `/posts/${post.slug}`
-                : `/${loc}/posts/${post.slug}`;
-            acc[loc] = `${siteConfig.site_domain}${altPath}`;
-            return acc;
-          }, {} as Record<string, string>),
-        },
       });
     });
   });
