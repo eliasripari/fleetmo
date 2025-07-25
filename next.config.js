@@ -12,6 +12,12 @@ const nextConfig = {
         port: "",
         pathname: "/fleetmo/**",
       },
+      {
+        protocol: "https",
+        hostname: "wp.fleetmo.app",
+        port: "",
+        pathname: "/wp-content/uploads/**",
+      },
     ],
   },
   async rewrites() {

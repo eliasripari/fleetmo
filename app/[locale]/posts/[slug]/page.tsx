@@ -121,23 +121,26 @@ export default async function Page({
             </h1>
             <div className="flex justify-between items-center gap-4 text-sm mb-4">
               <h5>
-                Published {date} by{" "}
-                {author.name && (
+                Published {date}
+                {author?.name && (
                   <span>
-                    <a href={`/posts/?author=${author.id}`}>{author.name}</a>{" "}
+                    {" "}
+                    by <a href={`/posts/?author=${author.id}`}>{author.name}</a>
                   </span>
                 )}
               </h5>
 
-              <Link
-                href={`/posts/?category=${category.id}`}
-                className={cn(
-                  badgeVariants({ variant: "outline" }),
-                  "!no-underline"
-                )}
-              >
-                {category.name}
-              </Link>
+              {category && (
+                <Link
+                  href={`/posts/?category=${category.id}`}
+                  className={cn(
+                    badgeVariants({ variant: "outline" }),
+                    "!no-underline"
+                  )}
+                >
+                  {category.name}
+                </Link>
+              )}
             </div>
             {featuredMedia?.source_url && (
               <div className="h-96 my-12 md:h-[500px] overflow-hidden flex items-center justify-center border rounded-lg bg-accent/25">

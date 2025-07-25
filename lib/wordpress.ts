@@ -102,6 +102,7 @@ export async function getAllPosts(filterParams?: {
   category?: string;
   search?: string;
   lang?: string;
+  useFallback?: boolean;
 }): Promise<Post[]> {
   try {
     const query: Record<string, any> = {
@@ -148,8 +149,12 @@ export async function getAllPosts(filterParams?: {
       },
     });
 
-    // If we have a specific language and no posts found, try fallback to default language
-    if (filterParams?.lang && (!posts || posts.length === 0)) {
+    // If we have a specific language and no posts found, try fallback to default language (only if useFallback is true)
+    if (
+      filterParams?.lang &&
+      filterParams.useFallback !== false &&
+      (!posts || posts.length === 0)
+    ) {
       console.log(
         `No posts found for language ${filterParams.lang}, falling back to default`
       );
@@ -259,27 +264,39 @@ export async function getPostBySlug(
 }
 
 export async function getAllCategories(): Promise<Category[]> {
-  const url = getUrl("/wp-json/wp/v2/categories");
-  const response = await wordpressFetch<Category[]>(url, {
-    next: {
-      ...defaultFetchOptions.next,
-      tags: ["wordpress", "categories"],
-    },
-  });
+  try {
+    const url = getUrl("/wp-json/wp/v2/categories");
+    const response = await wordpressFetch<Category[]>(url, {
+      next: {
+        ...defaultFetchOptions.next,
+        tags: ["wordpress", "categories"],
+      },
+    });
 
-  return response;
+    return response || [];
+  } catch (error: any) {
+    console.error("Error in getAllCategories:", error);
+    // Return empty array instead of throwing error
+    return [];
+  }
 }
 
-export async function getCategoryById(id: number): Promise<Category> {
-  const url = getUrl(`/wp-json/wp/v2/categories/${id}`);
-  const response = await wordpressFetch<Category>(url, {
-    next: {
-      ...defaultFetchOptions.next,
-      tags: ["wordpress", `category-${id}`],
-    },
-  });
+export async function getCategoryById(id: number): Promise<Category | null> {
+  try {
+    const url = getUrl(`/wp-json/wp/v2/categories/${id}`);
+    const response = await wordpressFetch<Category>(url, {
+      next: {
+        ...defaultFetchOptions.next,
+        tags: ["wordpress", `category-${id}`],
+      },
+    });
 
-  return response;
+    return response;
+  } catch (error: any) {
+    console.error("Error in getCategoryById:", error);
+    // Return null instead of throwing error
+    return null;
+  }
 }
 
 export async function getCategoryBySlug(slug: string): Promise<Category> {
@@ -331,15 +348,21 @@ export async function getTagsByPost(postId: number): Promise<Tag[]> {
 }
 
 export async function getAllTags(): Promise<Tag[]> {
-  const url = getUrl("/wp-json/wp/v2/tags");
-  const response = await wordpressFetch<Tag[]>(url, {
-    next: {
-      ...defaultFetchOptions.next,
-      tags: ["wordpress", "tags"],
-    },
-  });
+  try {
+    const url = getUrl("/wp-json/wp/v2/tags");
+    const response = await wordpressFetch<Tag[]>(url, {
+      next: {
+        ...defaultFetchOptions.next,
+        tags: ["wordpress", "tags"],
+      },
+    });
 
-  return response;
+    return response || [];
+  } catch (error: any) {
+    console.error("Error in getAllTags:", error);
+    // Return empty array instead of throwing error
+    return [];
+  }
 }
 
 export async function getTagById(id: number): Promise<Tag> {
@@ -440,27 +463,39 @@ export async function getPageBySlug(
 }
 
 export async function getAllAuthors(): Promise<Author[]> {
-  const url = getUrl("/wp-json/wp/v2/users");
-  const response = await wordpressFetch<Author[]>(url, {
-    next: {
-      ...defaultFetchOptions.next,
-      tags: ["wordpress", "authors"],
-    },
-  });
+  try {
+    const url = getUrl("/wp-json/wp/v2/users");
+    const response = await wordpressFetch<Author[]>(url, {
+      next: {
+        ...defaultFetchOptions.next,
+        tags: ["wordpress", "authors"],
+      },
+    });
 
-  return response;
+    return response || [];
+  } catch (error: any) {
+    console.error("Error in getAllAuthors:", error);
+    // Return empty array instead of throwing error
+    return [];
+  }
 }
 
-export async function getAuthorById(id: number): Promise<Author> {
-  const url = getUrl(`/wp-json/wp/v2/users/${id}`);
-  const response = await wordpressFetch<Author>(url, {
-    next: {
-      ...defaultFetchOptions.next,
-      tags: ["wordpress", `author-${id}`],
-    },
-  });
+export async function getAuthorById(id: number): Promise<Author | null> {
+  try {
+    const url = getUrl(`/wp-json/wp/v2/users/${id}`);
+    const response = await wordpressFetch<Author>(url, {
+      next: {
+        ...defaultFetchOptions.next,
+        tags: ["wordpress", `author-${id}`],
+      },
+    });
 
-  return response;
+    return response;
+  } catch (error: any) {
+    console.error("Error in getAuthorById:", error);
+    // Return null instead of throwing error
+    return null;
+  }
 }
 
 export async function getAuthorBySlug(slug: string): Promise<Author> {
@@ -530,43 +565,72 @@ export async function getPostsByTagSlug(tagSlug: string): Promise<Post[]> {
   return response;
 }
 
-export async function getFeaturedMediaById(id: number): Promise<FeaturedMedia> {
-  const url = getUrl(`/wp-json/wp/v2/media/${id}`);
-  const response = await wordpressFetch<FeaturedMedia>(url, {
-    next: {
-      ...defaultFetchOptions.next,
-      tags: ["wordpress", `media-${id}`],
-    },
-  });
+export async function getFeaturedMediaById(
+  id: number
+): Promise<FeaturedMedia | null> {
+  try {
+    const url = getUrl(`/wp-json/wp/v2/media/${id}`);
+    const response = await wordpressFetch<FeaturedMedia>(url, {
+      next: {
+        ...defaultFetchOptions.next,
+        tags: ["wordpress", `media-${id}`],
+      },
+    });
 
-  return response;
+    return response;
+  } catch (error: any) {
+    console.error("Error in getFeaturedMediaById:", error);
+    // Return null instead of throwing error
+    return null;
+  }
 }
 
 // Helper function to search across categories
 export async function searchCategories(query: string): Promise<Category[]> {
-  const url = getUrl("/wp-json/wp/v2/categories", {
-    search: query,
-    per_page: 100,
-  });
-  return wordpressFetch<Category[]>(url);
+  try {
+    const url = getUrl("/wp-json/wp/v2/categories", {
+      search: query,
+      per_page: 100,
+    });
+    const response = await wordpressFetch<Category[]>(url);
+    return response || [];
+  } catch (error: any) {
+    console.error("Error in searchCategories:", error);
+    // Return empty array instead of throwing error
+    return [];
+  }
 }
 
 // Helper function to search across tags
 export async function searchTags(query: string): Promise<Tag[]> {
-  const url = getUrl("/wp-json/wp/v2/tags", {
-    search: query,
-    per_page: 100,
-  });
-  return wordpressFetch<Tag[]>(url);
+  try {
+    const url = getUrl("/wp-json/wp/v2/tags", {
+      search: query,
+      per_page: 100,
+    });
+    const response = await wordpressFetch<Tag[]>(url);
+    return response || [];
+  } catch (error: any) {
+    console.error("Error in searchTags:", error);
+    // Return empty array instead of throwing error
+    return [];
+  }
 }
 
 // Helper function to search across authors
 export async function searchAuthors(query: string): Promise<Author[]> {
-  const url = getUrl("/wp-json/wp/v2/users", {
-    search: query,
-    per_page: 100,
-  });
-  return wordpressFetch<Author[]>(url);
+  try {
+    const url = getUrl("/wp-json/wp/v2/users", {
+      search: query,
+      per_page: 100,
+    });
+    const response = await wordpressFetch<Author[]>(url);
+    return response || [];
+  } catch (error: any) {
+    console.error("Error in searchAuthors:", error);
+    // Return empty array instead of throwing error
+    return [];
+  }
 }
 
 // Helper function to revalidate WordPress data

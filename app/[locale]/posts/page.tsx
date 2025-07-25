@@ -51,7 +51,7 @@ export default async function Page({
   // Fetch data based on search parameters
   try {
     const [posts, authors, tags, categories] = await Promise.all([
-      getAllPosts({ author, tag, category, search, lang: locale }),
+      getAllPosts({ author, tag, category, search, lang: locale, useFallback: false }),
       search ? searchAuthors(search) : getAllAuthors(),
       search ? searchTags(search) : getAllTags(),
       search ? searchCategories(search) : getAllCategories(),
