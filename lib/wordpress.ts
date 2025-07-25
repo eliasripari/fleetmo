@@ -103,54 +103,78 @@ export async function getAllPosts(filterParams?: {
   search?: string;
   lang?: string;
 }): Promise<Post[]> {
-  const query: Record<string, any> = {
-    _embed: true,
-    per_page: 100,
-  };
+  try {
+    const query: Record<string, any> = {
+      _embed: true,
+      per_page: 100,
+    };
 
-  if (filterParams?.lang) {
-    query.lang = filterParams.lang;
+    if (filterParams?.lang) {
+      query.lang = filterParams.lang;
+    }
+
+    if (filterParams?.search) {
+      // Search in post content and title
+      query.search = filterParams.search;
+
+      // If we have additional filters with search, use them
+      if (filterParams?.author) {
+        query.author = filterParams.author;
+      }
+      if (filterParams?.tag) {
+        query.tag = filterParams.tag;
+      }
+      if (filterParams?.category) {
+        query.categories = filterParams.category;
+      }
+    } else {
+      // If no search term, just apply filters
+      if (filterParams?.author) {
+        query.author = filterParams.author;
+      }
+      if (filterParams?.tag) {
+        query.tag = filterParams.tag;
+      }
+      if (filterParams?.category) {
+        query.categories = filterParams.category;
+      }
+    }
+
+    const url = getUrl(`/wp-json/wp/v2/posts`, query);
+    const posts = await wordpressFetch<Post[]>(url, {
+      next: {
+        ...defaultFetchOptions.next,
+        tags: ["wordpress", "posts"],
+      },
+    });
+
+    // If we have a specific language and no posts found, try fallback to default language
+    if (filterParams?.lang && (!posts || posts.length === 0)) {
+      console.log(
+        `No posts found for language ${filterParams.lang}, falling back to default`
+      );
+
+      // Remove lang parameter and try again
+      const fallbackQuery = { ...query };
+      delete fallbackQuery.lang;
+
+      const fallbackUrl = getUrl(`/wp-json/wp/v2/posts`, fallbackQuery);
+      const fallbackPosts = await wordpressFetch<Post[]>(fallbackUrl, {
+        next: {
+          ...defaultFetchOptions.next,
+          tags: ["wordpress", "posts"],
+        },
+      });
+
+      return fallbackPosts || [];
+    }
+
+    return posts || [];
+  } catch (error: any) {
+    console.error("Error in getAllPosts:", error);
+    // Return empty array instead of throwing error
+    return [];
   }
-
-  if (filterParams?.search) {
-    // Search in post content and title
-    query.search = filterParams.search;
-
-    // If we have additional filters with search, use them
-    if (filterParams?.author) {
-      query.author = filterParams.author;
-    }
-    if (filterParams?.tag) {
-      query.tag = filterParams.tag;
-    }
-    if (filterParams?.category) {
-      query.categories = filterParams.category;
-    }
-  } else {
-    // If no search term, just apply filters
-    if (filterParams?.author) {
-      query.author = filterParams.author;
-    }
-    if (filterParams?.tag) {
-      query.tag = filterParams.tag;
-    }
-    if (filterParams?.category) {
-      query.categories = filterParams.category;
-    }
-  }
-
-  const url = getUrl(
-    `/wp-json/wp/v2/posts${
-      filterParams?.lang ? `?lang=${filterParams.lang}` : ""
-    }`,
-    query
-  );
-  return wordpressFetch<Post[]>(url, {
-    next: {
-      ...defaultFetchOptions.next,
-      tags: ["wordpress", "posts"],
-    },
-  });
 }
 
 export async function getPostById(id: number): Promise<Post> {

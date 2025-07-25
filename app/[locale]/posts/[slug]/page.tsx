@@ -20,10 +20,22 @@ export async function generateStaticParams() {
   const posts = await getAllPosts();
   console.log("Generating static params for posts:", posts);
 
-  return posts.map((post) => ({
-    slug: post.slug,
-    locale: post.lang || "en",
-  }));
+  // Generate params for both locales for each post
+  const params = [];
+  for (const post of posts) {
+    // Add English version
+    params.push({
+      slug: post.slug,
+      locale: "en",
+    });
+    // Add Italian version
+    params.push({
+      slug: post.slug,
+      locale: "it",
+    });
+  }
+
+  return params;
 }
 
 export async function generateMetadata({
@@ -76,65 +88,88 @@ export default async function Page({
 }) {
   const { slug, locale } = params;
   console.log("Fetching post with slug:", slug, "and locale:", locale);
-  const post = await getPostBySlug(slug, locale);
-  console.log("Post data:", JSON.stringify(post, null, 2));
 
-  const featuredMedia = post.featured_media
-    ? await getFeaturedMediaById(post.featured_media)
-    : null;
-  const author = await getAuthorById(post.author);
-  const date = new Date(post.date).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-  const category = await getCategoryById(post.categories[0]);
+  try {
+    const post = await getPostBySlug(slug, locale);
+    console.log("Post data:", JSON.stringify(post, null, 2));
 
-  return (
-    <Section>
-      <Container>
-        <Prose>
-          <h1>
-            <Balancer>
-              <span
-                dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-              ></span>
-            </Balancer>
-          </h1>
-          <div className="flex justify-between items-center gap-4 text-sm mb-4">
-            <h5>
-              Published {date} by{" "}
-              {author.name && (
-                <span>
-                  <a href={`/posts/?author=${author.id}`}>{author.name}</a>{" "}
-                </span>
-              )}
-            </h5>
+    if (!post) {
+      throw new Error("Post not found");
+    }
 
-            <Link
-              href={`/posts/?category=${category.id}`}
-              className={cn(
-                badgeVariants({ variant: "outline" }),
-                "!no-underline"
-              )}
-            >
-              {category.name}
-            </Link>
-          </div>
-          {featuredMedia?.source_url && (
-            <div className="h-96 my-12 md:h-[500px] overflow-hidden flex items-center justify-center border rounded-lg bg-accent/25">
-              {/* eslint-disable-next-line */}
-              <img
-                className="w-full h-full object-cover"
-                src={featuredMedia.source_url}
-                alt={post.title.rendered}
-              />
+    const featuredMedia = post.featured_media
+      ? await getFeaturedMediaById(post.featured_media)
+      : null;
+    const author = await getAuthorById(post.author);
+    const date = new Date(post.date).toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+    const category = await getCategoryById(post.categories[0]);
+
+    return (
+      <Section>
+        <Container>
+          <Prose>
+            <h1>
+              <Balancer>
+                <span
+                  dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                ></span>
+              </Balancer>
+            </h1>
+            <div className="flex justify-between items-center gap-4 text-sm mb-4">
+              <h5>
+                Published {date} by{" "}
+                {author.name && (
+                  <span>
+                    <a href={`/posts/?author=${author.id}`}>{author.name}</a>{" "}
+                  </span>
+                )}
+              </h5>
+
+              <Link
+                href={`/posts/?category=${category.id}`}
+                className={cn(
+                  badgeVariants({ variant: "outline" }),
+                  "!no-underline"
+                )}
+              >
+                {category.name}
+              </Link>
             </div>
-          )}
-        </Prose>
+            {featuredMedia?.source_url && (
+              <div className="h-96 my-12 md:h-[500px] overflow-hidden flex items-center justify-center border rounded-lg bg-accent/25">
+                {/* eslint-disable-next-line */}
+                <img
+                  className="w-full h-full object-cover"
+                  src={featuredMedia.source_url}
+                  alt={post.title.rendered}
+                />
+              </div>
+            )}
+          </Prose>
 
-        <Article dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
-      </Container>
-    </Section>
-  );
+          <Article
+            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+          />
+        </Container>
+      </Section>
+    );
+  } catch (error: any) {
+    console.error("Error loading post:", error);
+
+    return (
+      <Section>
+        <Container>
+          <Prose>
+            <h1>Post Not Found</h1>
+            <p>Sorry, the requested post could not be found.</p>
+            <Link href="/posts">← Back to Posts</Link>
+          </Prose>
+        </Container>
+      </Section>
+    );
+  }
 }
