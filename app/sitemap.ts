@@ -1,55 +1,83 @@
 import { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/wordpress";
 import { siteConfig } from "@/site.config";
+import { routing } from "@/i18n/routing";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPosts();
+  const { locales, defaultLocale } = routing;
 
-  const staticUrls: MetadataRoute.Sitemap = [
-    {
-      url: `${siteConfig.site_domain}`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 1,
-    },
-    {
-      url: `${siteConfig.site_domain}/posts`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteConfig.site_domain}/pages`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: `${siteConfig.site_domain}/authors`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: `${siteConfig.site_domain}/categories`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: `${siteConfig.site_domain}/tags`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
+  // Generate URLs for all locales
+  const staticPages = [
+    "",
+    "/providers",
+    "/suppliers",
+    "/posts",
+    "/posts/authors",
+    "/posts/categories",
+    "/posts/tags",
   ];
 
-  const postUrls: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${siteConfig.site_domain}/posts/${post.slug}`,
-    lastModified: new Date(post.modified),
-    changeFrequency: "monthly",
-    priority: 0.5,
-  }));
+  const staticUrls: MetadataRoute.Sitemap = [];
+
+  // Add URLs for each locale
+  locales.forEach((locale) => {
+    staticPages.forEach((page) => {
+      const isDefault = locale === defaultLocale;
+      const localePath = isDefault ? page : `/${locale}${page}`;
+
+      staticUrls.push({
+        url: `${siteConfig.site_domain}${localePath}`,
+        lastModified: new Date(),
+        changeFrequency:
+          page === "" ? "yearly" : page === "/posts" ? "weekly" : "monthly",
+        priority:
+          page === ""
+            ? 1
+            : page === "/posts"
+            ? 0.8
+            : page === "/providers" || page === "/suppliers"
+            ? 0.9
+            : 0.5,
+        alternates: {
+          languages: locales.reduce((acc, loc) => {
+            const altPath = loc === defaultLocale ? page : `/${loc}${page}`;
+            acc[loc] = `${siteConfig.site_domain}${altPath}`;
+            return acc;
+          }, {} as Record<string, string>),
+        },
+      });
+    });
+  });
+
+  // Add blog posts for each locale
+  const postUrls: MetadataRoute.Sitemap = [];
+
+  locales.forEach((locale) => {
+    posts.forEach((post) => {
+      const isDefault = locale === defaultLocale;
+      const localePath = isDefault
+        ? `/posts/${post.slug}`
+        : `/${locale}/posts/${post.slug}`;
+
+      postUrls.push({
+        url: `${siteConfig.site_domain}${localePath}`,
+        lastModified: new Date(post.modified),
+        changeFrequency: "monthly",
+        priority: 0.6,
+        alternates: {
+          languages: locales.reduce((acc, loc) => {
+            const altPath =
+              loc === defaultLocale
+                ? `/posts/${post.slug}`
+                : `/${loc}/posts/${post.slug}`;
+            acc[loc] = `${siteConfig.site_domain}${altPath}`;
+            return acc;
+          }, {} as Record<string, string>),
+        },
+      });
+    });
+  });
 
   return [...staticUrls, ...postUrls];
 }

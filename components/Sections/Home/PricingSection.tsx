@@ -273,10 +273,12 @@ export const PricingSection = () => {
                   <div className="flex flex-col gap-1">
                     <div className="flex items-end gap-2">
                       <div className="flex items-end">
-                        <p className="mt-2 pb-1 font-mono text-5xl">$150</p>
-                        <p className="text-gray-500 mb-1.5 ml-1 text-[13px] leading-4">
-                          {t("pricing.plans.pro.period")}
+                        <p className="mt-2 pb-1 font-mono text-5xl">
+                          Coming Soon
                         </p>
+                        {/* <p className="text-gray-500 mb-1.5 ml-1 text-[13px] leading-4">
+                          {t("pricing.plans.pro.period")}
+                        </p> */}
                       </div>
                     </div>
                   </div>

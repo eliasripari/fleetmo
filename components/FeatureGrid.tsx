@@ -35,10 +35,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   const isAccent = feature.design === "accent";
 
   const baseClasses =
-    "flex flex-col gap-4 p-6 rounded-2xl relative h-[250px] transition-all duration-300";
+    "flex flex-col gap-4 p-6 rounded-2xl relative transition-all duration-300 h-[280px]";
   const standardClasses = "border border-gray-200 bg-white hover:shadow-lg";
   const accentClasses =
-    "border-2 border-[#41CF8F] bg-gradient-to-br from-white via-green-50/30 to-emerald-50/50 hover:shadow-xl hover:shadow-[#41CF8F]/20 group";
+    "border-2 border-[#41CF8F] hover:shadow-xl hover:shadow-[#41CF8F]/20 group bg-white";
 
   const cardClasses = `${baseClasses} ${
     isAccent ? accentClasses : standardClasses
@@ -58,21 +58,6 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         delay={feature.delay}
       >
         <div className={cardClasses}>
-          {/* Badge */}
-          <span
-            className={`
-            text-[10px] font-semibold tracking-wider absolute top-0 right-6 uppercase px-2 py-1 text-white rounded-b-md
-            ${
-              isAccent
-                ? "bg-gradient-to-r from-[#41CF8F] to-emerald-600 px-3 py-1.5 rounded-b-lg shadow-lg"
-                : "bg-black"
-            }
-          `}
-          >
-            {isAccent && "✨ "}
-            {feature.badge}
-          </span>
-
           {/* Icon */}
           <div className="flex-shrink-0 relative">
             {isAccent && (
@@ -104,20 +89,6 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
               {t(`${translationKey}.feature${feature.id}.description`)}
             </p>
           </div>
-
-          {/* Decorative element for accent cards */}
-          {isAccent && (
-            <div className="absolute bottom-4 right-4 text-[#41CF8F]/20 group-hover:text-[#41CF8F]/30 transition-colors duration-300">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 2L13.09 8.26L15 7L16.74 9.74L23 11L16.74 14.26L15 17L13.09 15.74L12 22L10.91 15.74L9 17L7.26 14.26L1 12L7.26 9.74L9 7L10.91 8.26L12 2Z" />
-              </svg>
-            </div>
-          )}
         </div>
       </AnimatedContent>
     </div>
