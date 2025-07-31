@@ -62,7 +62,7 @@ const Nav = ({ className, children, id }: NavProps) => {
             <NavigationMenu className="relative z-10 flex max-w-max flex-1 items-center justify-center">
               <NavigationMenuList>
                 {/* Home with submenu */}
-                <NavigationMenuItem>
+                {/* <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-white bg-transparent hover:bg-brand data-[state=open]:bg-brand hover:!text-white data-[state=open]:!text-white">
                     {t(megaMenu.home.label.toLowerCase())}
                   </NavigationMenuTrigger>
@@ -113,7 +113,7 @@ const Nav = ({ className, children, id }: NavProps) => {
                       )}
                     </ul>
                   </NavigationMenuContent>
-                </NavigationMenuItem>
+                </NavigationMenuItem> */}
 
                 {/* Other menu items */}
                 {Object.entries(megaMenu)

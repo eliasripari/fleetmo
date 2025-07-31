@@ -3,9 +3,12 @@
     "home": "Home",
     "introduction": "Introduzione",
     "howItWorks": "Come Funziona",
+    "how it works": "Come Funziona",
     "driverApp": "App Autista",
+    "driver app": "App Autista",
     "pricing": "Prezzi",
     "comingSoon": "Prossimamente",
+    "coming soon": "Prossimamente",
     "providers": "Provider",
     "suppliers": "Fornitori",
     "blog": "Blog",
@@ -20,11 +23,14 @@
       "introduction": "Scopri le funzionalità principali di FleetMo",
       "howItWorks": "Impara a gestire la tua flotta in 4 semplici passaggi",
       "howitworks": "Impara a gestire la tua flotta in 4 semplici passaggi",
+      "how it works": "Impara a gestire la tua flotta in 4 semplici passaggi",
       "driverApp": "App mobile dedicata per i tuoi autisti",
       "driverapp": "App mobile dedicata per i tuoi autisti",
+      "driver app": "App mobile dedicata per i tuoi autisti",
       "pricing": "Piani tariffari semplici e trasparenti",
       "comingSoon": "Funzionalità e miglioramenti in arrivo",
-      "comingsoon": "Funzionalità e miglioramenti in arrivo"
+      "comingsoon": "Funzionalità e miglioramenti in arrivo",
+      "coming soon": "Funzionalità e miglioramenti in arrivo"
     }
   },
   "HomePage": {
@@ -188,6 +194,7 @@
     "comingSoon": {
       "badge": "Prossimamente",
       "title": "Stiamo lavorando per renderlo ancora migliore.",
+      "developmentBadge": "In Sviluppo",
       "box1": {
         "title": "Tracciamento Live",
         "description": "Monitora ogni servizio in tempo reale, ricevendo aggiornamenti istantanei sulla posizione, notifiche di stato e analisi delle prestazioni. Garantisci puntualità, interventi proattivi ed esperienze clienti superiori."

@@ -1,22 +1,49 @@
 // Define the mega menu structure
+// export const megaMenu = {
+//   home: {
+//     label: "Home",
+//     submenu: {
+//       introduction: { href: "/#introduction", label: "introduction" },
+//       howItWorks: { href: "/#how-it-works", label: "howItWorks" },
+//       driverApp: { href: "/#driver-app", label: "driverApp" },
+//       pricing: { href: "/#pricing", label: "pricing" },
+//       comingSoon: { href: "/#coming-soon", label: "comingSoon" },
+//     },
+//   },
+//   providers: {
+//     label: "Providers",
+//     href: "/providers",
+//   },
+//   suppliers: {
+//     label: "Suppliers",
+//     href: "/suppliers",
+//   },
+//   blog: {
+//     label: "Blog",
+//     href: "/posts",
+//   },
+// };
+
 export const megaMenu = {
-  home: {
-    label: "Home",
-    submenu: {
-      introduction: { href: "/#introduction", label: "introduction" },
-      howItWorks: { href: "/#how-it-works", label: "howItWorks" },
-      driverApp: { href: "/#driver-app", label: "driverApp" },
-      pricing: { href: "/#pricing", label: "pricing" },
-      comingSoon: { href: "/#coming-soon", label: "comingSoon" },
-    },
+  introduction: {
+    label: "Introduction",
+    href: "/#introduction",
   },
-  providers: {
-    label: "Providers",
-    href: "/providers",
+  howItWorks: {
+    label: "How It Works",
+    href: "/#how-it-works",
   },
-  suppliers: {
-    label: "Suppliers",
-    href: "/suppliers",
+  driverApp: {
+    label: "Driver App",
+    href: "/#driver-app",
+  },
+  pricing: {
+    label: "Pricing",
+    href: "/#pricing",
+  },
+  comingSoon: {
+    label: "Coming Soon",
+    href: "/#coming-soon",
   },
   blog: {
     label: "Blog",

@@ -18,6 +18,27 @@ const SpotlightCard = dynamic(
 export const ComingSoonSection = () => {
   const t = useTranslations("HomePage");
 
+  const comingSoonBoxes = [
+    {
+      icon: Bot,
+      title: t("comingSoon.box3.title"),
+      description: t("comingSoon.box3.description"),
+      hasBadge: true,
+    },
+    {
+      icon: TrendingUpDown,
+      title: t("comingSoon.box1.title"),
+      description: t("comingSoon.box1.description"),
+      hasBadge: true,
+    },
+    {
+      icon: Store,
+      title: t("comingSoon.box2.title"),
+      description: t("comingSoon.box2.description"),
+      hasBadge: false,
+    },
+  ];
+
   return (
     <Section className="bg-foreground text-white !mt-0 !py-20" id="coming-soon">
       <Container>
@@ -38,24 +59,39 @@ export const ComingSoonSection = () => {
             />
           </Balancer>
           <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4">
-            <SpotlightCard
-              className="custom-spotlight-card flex flex-col text-white rounded-lg gap-4 p-6"
-              spotlightColor="rgba(0, 229, 255, 0.2)"
-            >
-              <Store className="w-8 h-8 stroke-1" />
-              <h3 className="text-xl font-semibold tracking-tighter flex flex-row gap-2 items-center">
-                {t("comingSoon.box2.title")}
-              </h3>
-              <p className="text-sm">{t("comingSoon.box2.description")}</p>
-            </SpotlightCard>
-            <SpotlightCard
+            {comingSoonBoxes.map((box, index) => {
+              const Icon = box.icon;
+              return (
+                <SpotlightCard
+                  key={index}
+                  className="custom-spotlight-card flex flex-col text-white rounded-lg gap-4 p-6"
+                  spotlightColor="rgba(0, 229, 255, 0.2)"
+                >
+                  {box.hasBadge ? (
+                    <div className="flex items-center justify-between">
+                      <Icon className="w-8 h-8 stroke-1" />
+                      <Badge variant="secondary" className="text-xs">
+                        {t("comingSoon.developmentBadge")}
+                      </Badge>
+                    </div>
+                  ) : (
+                    <Icon className="w-8 h-8 stroke-1" />
+                  )}
+                  <h3 className="text-xl font-semibold tracking-tighter flex flex-row gap-2 items-center">
+                    {box.title}
+                  </h3>
+                  <p className="text-sm">{box.description}</p>
+                </SpotlightCard>
+              );
+            })}
+            {/* <SpotlightCard
               className="custom-spotlight-card flex flex-col text-white rounded-lg gap-4 p-6 border-dashed border-2 justify-center items-center"
               spotlightColor="rgba(0, 229, 255, 0.2)"
             >
               <h3 className="text-xl font-normal text-[#262626] tracking-tighter flex flex-row gap-2 items-center">
                 Coming Soon
               </h3>
-            </SpotlightCard>
+            </SpotlightCard> */}
           </div>
           <div className="flex flex-col gap-6 w-full max-w-xl mx-auto mt-12">
             <p className="text-2xl">{t("testimonial.text1")}</p>

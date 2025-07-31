@@ -15,7 +15,6 @@ import {
   UserRoundX,
   CreditCard,
   Users,
-  Brain,
 } from "lucide-react";
 
 // Lazy loaded components
@@ -55,10 +54,9 @@ export const IntroductionSection = () => {
     ),
     createFeatureConfig(7, UserRoundX, "No-Show", 1, "standard", 800, 2),
 
-    // Row 3: 2 single + 1 double (accent)
+    // Row 3: 2 single cards
     createFeatureConfig(8, CreditCard, "Transactions", 1, "standard", 900, 3),
     createFeatureConfig(9, Users, "Driver Management", 1, "standard", 1000, 3),
-    createFeatureConfig(10, Brain, "Coming Soon", 2, "accent", 1100, 3),
   ];
 
   return (

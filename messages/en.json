@@ -3,9 +3,12 @@
     "home": "Home",
     "introduction": "Introduction",
     "howItWorks": "How It Works",
+    "how it works": "How It Works",
     "driverApp": "Driver App",
+    "driver app": "Driver App",
     "pricing": "Pricing",
     "comingSoon": "Coming Soon",
+    "coming soon": "Coming Soon",
     "providers": "Providers",
     "suppliers": "Suppliers",
     "blog": "Blog",
@@ -20,11 +23,14 @@
       "introduction": "Discover FleetMo's core features and capabilities",
       "howItWorks": "Learn how to manage your fleet in 4 simple steps",
       "howitworks": "Learn how to manage your fleet in 4 simple steps",
+      "how it works": "Learn how to manage your fleet in 4 simple steps",
       "driverApp": "Dedicated mobile app for your drivers",
       "driverapp": "Dedicated mobile app for your drivers",
+      "driver app": "Dedicated mobile app for your drivers",
       "pricing": "Simple and transparent pricing plans",
       "comingSoon": "Upcoming features and improvements",
-      "comingsoon": "Upcoming features and improvements"
+      "comingsoon": "Upcoming features and improvements",
+      "coming soon": "Upcoming features and improvements"
     }
   },
   "HomePage": {
@@ -188,6 +194,7 @@
     "comingSoon": {
       "badge": "Coming Soon",
       "title": "We are working hard to make it better.",
+      "developmentBadge": "In Development",
       "box1": {
         "title": "Live Tracking",
         "description": "Keep an eye on every ride in real time, receiving instant location updates, status notifications, and performance analytics. Ensure timely pickups, proactive adjustments, and superior customer experiences."
