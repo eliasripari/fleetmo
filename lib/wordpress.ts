@@ -263,13 +263,24 @@ export async function getPostBySlug(
   }
 }
 
-export async function getAllCategories(): Promise<Category[]> {
+export async function getAllCategories(lang?: string): Promise<Category[]> {
   try {
-    const url = getUrl("/wp-json/wp/v2/categories");
+    const query: Record<string, any> = {};
+
+    // Add language parameter if provided
+    if (lang) {
+      query.lang = lang;
+    }
+
+    const url = getUrl("/wp-json/wp/v2/categories", query);
     const response = await wordpressFetch<Category[]>(url, {
       next: {
         ...defaultFetchOptions.next,
-        tags: ["wordpress", "categories"],
+        tags: [
+          "wordpress",
+          "categories",
+          lang ? `categories-${lang}` : "categories-all",
+        ],
       },
     });
 
@@ -347,13 +358,20 @@ export async function getTagsByPost(postId: number): Promise<Tag[]> {
   return response;
 }
 
-export async function getAllTags(): Promise<Tag[]> {
+export async function getAllTags(lang?: string): Promise<Tag[]> {
   try {
-    const url = getUrl("/wp-json/wp/v2/tags");
+    const query: Record<string, any> = {};
+
+    // Add language parameter if provided
+    if (lang) {
+      query.lang = lang;
+    }
+
+    const url = getUrl("/wp-json/wp/v2/tags", query);
     const response = await wordpressFetch<Tag[]>(url, {
       next: {
         ...defaultFetchOptions.next,
-        tags: ["wordpress", "tags"],
+        tags: ["wordpress", "tags", lang ? `tags-${lang}` : "tags-all"],
       },
     });
 
@@ -586,12 +604,22 @@ export async function getFeaturedMediaById(
 }
 
 // Helper function to search across categories
-export async function searchCategories(query: string): Promise<Category[]> {
+export async function searchCategories(
+  query: string,
+  lang?: string
+): Promise<Category[]> {
   try {
-    const url = getUrl("/wp-json/wp/v2/categories", {
+    const searchQuery: Record<string, any> = {
       search: query,
       per_page: 100,
-    });
+    };
+
+    // Add language parameter if provided
+    if (lang) {
+      searchQuery.lang = lang;
+    }
+
+    const url = getUrl("/wp-json/wp/v2/categories", searchQuery);
     const response = await wordpressFetch<Category[]>(url);
     return response || [];
   } catch (error: any) {
@@ -602,12 +630,19 @@ export async function searchCategories(query: string): Promise<Category[]> {
 }
 
 // Helper function to search across tags
-export async function searchTags(query: string): Promise<Tag[]> {
+export async function searchTags(query: string, lang?: string): Promise<Tag[]> {
   try {
-    const url = getUrl("/wp-json/wp/v2/tags", {
+    const searchQuery: Record<string, any> = {
       search: query,
       per_page: 100,
-    });
+    };
+
+    // Add language parameter if provided
+    if (lang) {
+      searchQuery.lang = lang;
+    }
+
+    const url = getUrl("/wp-json/wp/v2/tags", searchQuery);
     const response = await wordpressFetch<Tag[]>(url);
     return response || [];
   } catch (error: any) {

@@ -397,6 +397,42 @@
       "autoClose": "Questa finestra si chiuderà automaticamente tra pochi secondi."
     }
   },
+  "Blog": {
+    "page": {
+      "title": "Tutti gli Articoli",
+      "postsFound": "articoli trovati",
+      "postFound": "articolo trovato",
+      "matchingSearch": "corrispondenti alla tua ricerca",
+      "noPostsFound": "Nessun articolo trovato",
+      "errorTitle": "Errore nel Caricamento degli Articoli",
+      "errorMessage": "Spiacenti, si è verificato un errore nel caricamento degli articoli del blog. Riprova più tardi."
+    },
+    "search": {
+      "placeholder": "Cerca articoli..."
+    },
+    "filters": {
+      "allTags": "Tutti i Tag",
+      "allCategories": "Tutte le Categorie",
+      "allAuthors": "Tutti gli Autori",
+      "resetFilters": "Reimposta Filtri"
+    },
+    "categories": {
+      "all": "Tutti gli Articoli",
+      "news": "Notizie",
+      "updates": "Aggiornamenti",
+      "guides": "Guide"
+    },
+    "posts": {
+      "post1": {
+        "title": "Titolo Articolo",
+        "excerpt": "Estratto articolo",
+        "content": "Contenuto articolo",
+        "category": "news",
+        "date": "2024-04-23",
+        "slug": "titolo-articolo"
+      }
+    }
+  },
   "ProvidersPage": {
     "hero": {
       "badge": "Per Aziende di Trasporto",

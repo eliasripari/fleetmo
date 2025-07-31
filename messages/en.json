@@ -398,6 +398,24 @@
     }
   },
   "Blog": {
+    "page": {
+      "title": "All Posts",
+      "postsFound": "posts found",
+      "postFound": "post found",
+      "matchingSearch": "matching your search",
+      "noPostsFound": "No posts found",
+      "errorTitle": "Error Loading Posts",
+      "errorMessage": "Sorry, there was an error loading the blog posts. Please try again later."
+    },
+    "search": {
+      "placeholder": "Search posts..."
+    },
+    "filters": {
+      "allTags": "All Tags",
+      "allCategories": "All Categories",
+      "allAuthors": "All Authors",
+      "resetFilters": "Reset Filters"
+    },
     "categories": {
       "all": "All Posts",
       "news": "News",

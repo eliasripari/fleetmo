@@ -21,6 +21,7 @@ import { Section, Container, Prose } from "@/components/craft";
 import { PostCard } from "@/components/posts/post-card";
 import { FilterPosts } from "@/components/posts/filter";
 import { SearchInput } from "@/components/posts/search-input";
+import { getTranslations } from "next-intl/server";
 
 import type { Metadata } from "next";
 
@@ -48,13 +49,23 @@ export default async function Page({
   const params = await searchParams;
   const { author, tag, category, page: pageParam, search } = params;
 
+  // Get translations
+  const t = await getTranslations("Blog");
+
   // Fetch data based on search parameters
   try {
     const [posts, authors, tags, categories] = await Promise.all([
-      getAllPosts({ author, tag, category, search, lang: locale, useFallback: false }),
+      getAllPosts({
+        author,
+        tag,
+        category,
+        search,
+        lang: locale,
+        useFallback: false,
+      }),
       search ? searchAuthors(search) : getAllAuthors(),
-      search ? searchTags(search) : getAllTags(),
-      search ? searchCategories(search) : getAllCategories(),
+      search ? searchTags(search, locale) : getAllTags(locale),
+      search ? searchCategories(search, locale) : getAllCategories(locale),
     ]);
 
     // Handle pagination
@@ -82,10 +93,13 @@ export default async function Page({
         <Container>
           <div className="space-y-8 mb-20">
             <Prose>
-              <h2>All Posts</h2>
+              <h2>{t("page.title")}</h2>
               <p className="text-muted-foreground">
-                {posts.length} {posts.length === 1 ? "post" : "posts"} found
-                {search && " matching your search"}
+                {posts.length}{" "}
+                {posts.length === 1
+                  ? t("page.postFound")
+                  : t("page.postsFound")}
+                {search && ` ${t("page.matchingSearch")}`}
               </p>
             </Prose>
 
@@ -110,7 +124,7 @@ export default async function Page({
               </div>
             ) : (
               <div className="h-24 w-full border rounded-lg bg-accent/25 flex items-center justify-center">
-                <p>No posts found</p>
+                <p>{t("page.noPostsFound")}</p>
               </div>
             )}
 
@@ -154,11 +168,8 @@ export default async function Page({
       <Section>
         <Container>
           <Prose>
-            <h1>Error Loading Posts</h1>
-            <p>
-              Sorry, there was an error loading the blog posts. Please try again
-              later.
-            </p>
+            <h1>{t("page.errorTitle")}</h1>
+            <p>{t("page.errorMessage")}</p>
           </Prose>
         </Container>
       </Section>
