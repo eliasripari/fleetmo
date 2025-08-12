@@ -2,12 +2,21 @@ import { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/wordpress";
 import { siteConfig } from "@/site.config";
 import { routing } from "@/i18n/routing";
+import { headers } from "next/headers";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const headersList = headers();
+  const host = headersList.get("host") || "fleetmo.app";
+
+  // Solo fleetmo.app deve generare sitemap pubbliche
+  if (host !== "fleetmo.app" && host !== "www.fleetmo.app") {
+    return [];
+  }
+
   const posts = await getAllPosts();
   const { locales, defaultLocale } = routing;
 
-  // Generate URLs for all locales
+  // Generate URLs for all locales - solo pagine pubbliche
   const staticPages = [
     "",
     "/providers",
