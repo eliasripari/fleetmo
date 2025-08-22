@@ -51,7 +51,7 @@ export const HeroProviders = () => {
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="green-accent" size="lg" className="" asChild>
-              <Link href="#discover-more">{t("hero.secondary")}</Link>
+              <a href="#discover-more">{t("hero.secondary")}</a>
             </Button>
           </div>
         </div>

@@ -186,11 +186,11 @@ export const HowItWorksSuppliers = ({ t }: { t: any }) => {
                   <p className="text-lg text-center">
                     {t("howItWorks.conclusion.description")}
                   </p>
-                  <Link href="#start" className="w-fit">
+                  <a href="#start" className="w-fit">
                     <Button variant="green" className="">
                       {t("howItWorks.conclusion.button")}
                     </Button>
-                  </Link>
+                  </a>
                 </div>
                 <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="flex flex-col gap-4 col-span-1 justify-start items-start">

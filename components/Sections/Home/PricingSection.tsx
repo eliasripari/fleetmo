@@ -108,11 +108,11 @@ export const PricingSection = () => {
                   </li>
                 ))}
               </ul>
-              <Link href="#start" className="w-full">
+              <a href="#start" className="w-full">
                 <Button variant="green-outline" className="mt-4 w-full">
                   {t("pricing.plans.standard.button")}
                 </Button>
-              </Link>
+              </a>
             </div>
 
             {/* Pro Plan with AI */}
@@ -170,11 +170,11 @@ export const PricingSection = () => {
                   )
                 )}
               </ul>
-              <Link href="#start" className="w-full">
+              <a href="#start" className="w-full">
                 <Button variant="green" className="mt-4 w-full">
                   {t("pricing.plans.pro.button")}
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -195,14 +195,14 @@ export const PricingSection = () => {
                 <p className="text-gray-600 mb-4 text-sm">
                   {t("pricing.plans.standard.description")}
                 </p>
-                <Link href="#start" className="w-full">
+                <a href="#start" className="w-full">
                   <Button
                     variant="green-outline"
                     className="w-full flex items-center justify-center text-base px-4 py-2 h-[42px]"
                   >
                     {t("pricing.plans.standard.button")}
                   </Button>
-                </Link>
+                </a>
                 <div className="text-foreground flex items-baseline text-5xl font-normal border-b border-gray-200 py-6">
                   <div className="flex flex-col gap-1">
                     <div className="flex items-end gap-2">
@@ -261,14 +261,14 @@ export const PricingSection = () => {
                 <p className="text-gray-600 mb-4 text-sm">
                   {t("pricing.plans.pro.description")}
                 </p>
-                <Link href="#start" className="w-full">
+                <a href="#start" className="w-full">
                   <Button
                     variant="green"
                     className="w-full flex items-center justify-center text-base px-4 py-2 h-[42px]"
                   >
                     {t("pricing.plans.pro.button")}
                   </Button>
-                </Link>
+                </a>
                 <div className="text-foreground flex items-baseline text-5xl font-normal border-b border-gray-200 py-6">
                   <div className="flex flex-col gap-1">
                     <div className="flex items-end gap-2">
