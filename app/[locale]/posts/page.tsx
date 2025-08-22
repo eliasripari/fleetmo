@@ -93,7 +93,7 @@ export default async function Page({
         <Container>
           <div className="space-y-8 mb-20">
             <Prose>
-              <h2>{t("page.title")}</h2>
+              <h2 className="!tracking-tight">{t("page.title")}</h2>
               <p className="text-muted-foreground">
                 {posts.length}{" "}
                 {posts.length === 1
@@ -168,7 +168,7 @@ export default async function Page({
       <Section>
         <Container>
           <Prose>
-            <h1>{t("page.errorTitle")}</h1>
+            <h1 className="!tracking-tight">{t("page.errorTitle")}</h1>
             <p>{t("page.errorMessage")}</p>
           </Prose>
         </Container>

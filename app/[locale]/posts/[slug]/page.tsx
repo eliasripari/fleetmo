@@ -112,7 +112,7 @@ export default async function Page({
       <Section>
         <Container>
           <Prose>
-            <h1>
+            <h1 className="!tracking-tight">
               <Balancer>
                 <span
                   dangerouslySetInnerHTML={{ __html: post.title.rendered }}

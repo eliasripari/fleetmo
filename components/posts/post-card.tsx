@@ -52,7 +52,7 @@ export async function PostCard({ post }: { post: Post }) {
           dangerouslySetInnerHTML={{
             __html: post.title?.rendered || "Untitled Post",
           }}
-          className="text-xl text-primary font-medium group-hover:underline decoration-muted-foreground underline-offset-4 decoration-dotted transition-all"
+          className="text-xl text-primary font-medium group-hover:underline decoration-muted-foreground underline-offset-4 decoration-dotted transition-all !tracking-tight"
         ></div>
         <div
           className="text-sm"
