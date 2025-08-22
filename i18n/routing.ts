@@ -6,4 +6,24 @@ export const routing = defineRouting({
 
   // Used when no locale matches
   defaultLocale: "en",
+
+  // Configure locale prefix behavior
+  localePrefix: "as-needed",
+
+  // Alternative paths configuration
+  pathnames: {
+    "/": "/",
+    "/providers": {
+      en: "/providers",
+      it: "/providers",
+    },
+    "/suppliers": {
+      en: "/suppliers",
+      it: "/suppliers",
+    },
+    "/posts": {
+      en: "/posts",
+      it: "/posts",
+    },
+  },
 });

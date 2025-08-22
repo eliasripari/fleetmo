@@ -6,6 +6,7 @@ const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
   const host = request.headers.get("host") || "";
+  const pathname = request.nextUrl.pathname;
 
   // Per my.fleetmo.app aggiungi header per bloccare indicizzazione
   if (host === "my.fleetmo.app") {
@@ -27,7 +28,24 @@ export default function middleware(request: NextRequest) {
     return response;
   }
 
-  // Per fleetmo.app comportamento normale
+  // Per fleetmo.app - gestisci redirect specifici per evitare loop
+  if (host === "fleetmo.app" || host === "www.fleetmo.app") {
+    // Evita redirect loop per pagine già localizzate
+    if (pathname.startsWith("/en/") || pathname.startsWith("/it/")) {
+      const response = intlMiddleware(request);
+      // Aggiungi header per canonical URL
+      if (pathname.startsWith("/en/")) {
+        const canonicalPath = pathname.replace("/en", "");
+        response.headers.set(
+          "X-Canonical-URL",
+          `https://fleetmo.app${canonicalPath || "/"}`
+        );
+      }
+      return response;
+    }
+  }
+
+  // Comportamento normale per altri casi
   return intlMiddleware(request);
 }
 

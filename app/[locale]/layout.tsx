@@ -49,9 +49,6 @@ export const metadata: Metadata = {
   description:
     "Fleetmo is a platform that helps you manage your fleet of vehicles.",
   metadataBase: new URL(siteConfig.site_domain),
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,

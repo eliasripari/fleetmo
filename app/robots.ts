@@ -14,13 +14,16 @@ export default function robots(): MetadataRoute.Robots {
           allow: [
             "/",
             "/it/",
-            "/en/",
             "/posts/",
             "/providers/",
             "/suppliers/",
             "/sitemap.xml",
+            "/it/posts/", // versione italiana di /posts/
+            "/it/providers/", // versione italiana di /providers/
+            "/it/suppliers/", // versione italiana di /suppliers/
           ],
           disallow: [
+            "/en/", // Blocca versioni /en/ per evitare contenuto duplicato
             "/api/",
             "/_next/",
             "/favicon.ico",

@@ -29,7 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticUrls: MetadataRoute.Sitemap = [];
 
-  // Add URLs for each locale
+  // Add URLs for each locale - prioritizza lingua di default senza prefisso
   locales.forEach((locale) => {
     staticPages.forEach((page) => {
       const isDefault = locale === defaultLocale;
@@ -42,12 +42,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           page === "" ? "yearly" : page === "/posts" ? "weekly" : "monthly",
         priority:
           page === ""
-            ? 1
+            ? isDefault
+              ? 1
+              : 0.9 // Prioritizza la versione di default
             : page === "/posts"
-            ? 0.8
+            ? isDefault
+              ? 0.8
+              : 0.7
             : page === "/providers" || page === "/suppliers"
-            ? 0.9
-            : 0.5,
+            ? isDefault
+              ? 0.9
+              : 0.8
+            : isDefault
+            ? 0.5
+            : 0.4,
       });
     });
   });
